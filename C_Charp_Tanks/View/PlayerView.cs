@@ -10,6 +10,7 @@ public class PlayerView : IUpdatable
     
     private IRenderer _mainRenderer;
     private IRenderer _prevRenderer;
+    
     public PlayerView(Tank tank, IRenderer renderer,  GameData gameData)
     {
         _mainRenderer = renderer;
@@ -22,11 +23,6 @@ public class PlayerView : IUpdatable
     public void Update(double deltaTime)
     {
         
-        /*if (_mainRenderer.Equals(_prevRenderer))
-        {
-            Console.WriteLine(_mainRenderer.Equals(_prevRenderer));
-            return;
-        }*/
         for (int x = 0; x < _gameData.Level.GetLength(1); x++)
         {
             for (int y = 0; y < _gameData.Level.GetLength(0); y++)
@@ -38,8 +34,6 @@ public class PlayerView : IUpdatable
         _mainRenderer.SetPixel(_tank.position.X, _tank.position.Y, 'S', 3);
         _mainRenderer.Render();
         
-        _prevRenderer = _mainRenderer;
-        
-        _mainRenderer.Clear();
+       // _prevRenderer = _mainRenderer;
     }
 }

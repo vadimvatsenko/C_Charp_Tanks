@@ -34,24 +34,22 @@ public class Update
    
     public void RunGameLoop()
     {
-        Stopwatch stopwatch = new Stopwatch();
-        stopwatch.Start();
-        int counter = 0;
+        Stopwatch stopwatch = new Stopwatch(); // 1
+        stopwatch.Start(); // 2
         
-        double accumulatedTime = 0f;
+        double accumulatedTime = 0f; // 3
         
-        while (_isRunning)
+        while (_isRunning) // 4
         {
-           float deltaTime = (float)stopwatch.Elapsed.TotalSeconds;
-           stopwatch.Restart();
+           float deltaTime = (float)stopwatch.Elapsed.TotalSeconds; // 5 - Получает общее затраченное время, измеренное текущим экземпляром.
+           stopwatch.Restart(); // 6
            
-           accumulatedTime += deltaTime;
+           accumulatedTime += deltaTime; // 0.00016 + 0 
 
-           while (accumulatedTime >= _targetFrameTime)
+           while (accumulatedTime >= _targetFrameTime) // _targetFrameTime = 0.016
            {
-               UpdateItems(_targetFrameTime);
-               accumulatedTime -= _targetFrameTime;
-               counter++;
+               UpdateItems(_targetFrameTime); 
+               accumulatedTime -= _targetFrameTime; // отнимаем один кадр
            }
            
            int sleepTime = (int)(accumulatedTime - _targetFrameTime) * 1000;

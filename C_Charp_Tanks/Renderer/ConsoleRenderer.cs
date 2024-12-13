@@ -14,10 +14,12 @@ public class ConsoleRenderer : IRenderer
     
     private readonly char[,] _pixels; // двумерный массив символов, представляющих пиксели в консоли
     private readonly byte[,] _pixelColors; // Двумерный массив индексов цветов, соответствующих каждому пикселю
+    
     private readonly int _maxWidth; // максимальная ширина консольного окна, которые могут быть использованы для отрисовки.
     private readonly int _maxHeight; // Максимальная высота консольного окна, которые могут быть использованы для отрисовки.
-
-
+    
+    public bool isRenderChanged = false;
+    
     // Индексатор  Позволяет получить или установить символ для конкретной координаты пикселя (w, h), используя синтаксис renderer[w, h]
     public char this[int w, int h]
     {
@@ -50,35 +52,46 @@ public class ConsoleRenderer : IRenderer
     // Устанавливает символ (val) и индекс цвета (colorIdx) для пикселя на координатах w, h
     public void SetPixel(int w, int h, char val, byte colorIdx)
     {
-        _pixels[w, h] = val;
-        _pixelColors[w, h] = colorIdx;
+        if (!_pixels[w, h].Equals(val) || !_pixelColors[w, h].Equals(colorIdx))
+        {
+            Console.WriteLine($"isRenderChanged {w} - {h}");
+            _pixels[w, h] = val;
+            _pixelColors[w, h] = colorIdx;
+            isRenderChanged = true;
+        } 
+        
     }
 
 
     // Отвечает за отрисовку содержимого массива _pixels в консоль.
     public void Render()
     {
-        Console.Clear(); // очищает экран
-        Console.BackgroundColor = bgColor; // Устанавливает фоновый цвет
-
-        for (var w = 0; w < width; w++) // заполняем консоль
-        for (var h = 0; h < height; h++)
+        if (isRenderChanged)
         {
-            var colorIdx = _pixelColors[w, h]; // цвета
-            var color = _colors[colorIdx]; // 
-            var symbol = _pixels[w, h]; // символы
+            Console.Clear(); // очищает экран
+            Console.BackgroundColor = bgColor; // Устанавливает фоновый цвет
 
-            if (symbol == 0 || color == bgColor) // если нет символа или цвет совпадает с bgColor - пропускаем
-                continue;
+            for (var w = 0; w < width; w++) // заполняем консоль
+            for (var h = 0; h < height; h++)
+            {
+                var colorIdx = _pixelColors[w, h]; // цвета
+                var color = _colors[colorIdx]; // 
+                var symbol = _pixels[w, h]; // символы
 
-            Console.ForegroundColor = color; // установка фонового цвета
+                if (symbol == 0 || color == bgColor) // если нет символа или цвет совпадает с bgColor - пропускаем
+                    continue;
 
-            Console.SetCursorPosition(w, h); // установка курсора
-            Console.Write(symbol); // прорисовка символа
+                Console.ForegroundColor = color; // установка фонового цвета
+
+                Console.SetCursorPosition(w, h); // установка курсора
+                Console.Write(symbol); // прорисовка символа
+            }
+
+            Console.ResetColor(); // сбрасывает цветовые настройки консоли
+            Console.CursorVisible = false; // скрывает курсор
         }
-
-        Console.ResetColor(); // сбрасывает цветовые настройки консоли
-        Console.CursorVisible = false; // скрывает курсор
+        
+        isRenderChanged = false;
     }
 
     // отрисовка текста в нужном месте

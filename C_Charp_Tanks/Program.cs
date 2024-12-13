@@ -15,7 +15,7 @@ public class Program
         GameData gameData = new GameData();
         
         input.RegisterListener(tank);
-        update.RegisterListener(tank);
+        //update.RegisterListener(tank);
         update.RegisterListener(input);
         
         PlayerView playerView = new PlayerView(tank, renderer, gameData);
