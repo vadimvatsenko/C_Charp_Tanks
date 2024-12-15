@@ -27,11 +27,11 @@ public class PlayerView : IUpdatable
         {
             for (int y = 0; y < _gameData.Level.GetLength(0); y++)
             {
-                _mainRenderer.SetPixel(x, y, _gameData.Level[x, y], 2);
+                _mainRenderer.SetPixel(x, y, _gameData.Level[x,y], 7);
             }
         }
         
-        _mainRenderer.SetPixel(_tank.position.X, _tank.position.Y, 'S', 3);
+        _mainRenderer.SetPixel(_tank.position.X, _tank.position.Y, '\u25c9', 3);
         _mainRenderer.Render();
         
        // _prevRenderer = _mainRenderer;

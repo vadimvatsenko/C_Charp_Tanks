@@ -6,34 +6,57 @@ namespace C_Charp_Tanks;
 public class Tank: Unit, IConsoleInput
 {
     public Vector2 position { get; private set; }
+    private GameData _gameData;
     
-    public Tank()
+    public Tank(GameData gameData)
     {
-        this.position = Vector2.Zero + 5;
+        _gameData = gameData;
+        position = Vector2.Zero + 5;
     }
     
     public void TryToMoveUp()
     {
-        position += Vector2.Up;
+        ChackNextStep(VenicalsDirection.Up);
     }
 
     public void TryToMoveDown()
     {
-        position += Vector2.Down;
+        ChackNextStep(VenicalsDirection.Down);
     }
 
     public void TryToMoveLeft()
     {
-        position += Vector2.Left;
+        ChackNextStep(VenicalsDirection.Left);
     }
 
     public void TryToMoveRight()
     {
-        position += Vector2.Right;
+        ChackNextStep(VenicalsDirection.Right);
     }
 
     public void TryToShoot()
     {
         Console.WriteLine("Tank Shoot");
     }
+
+    private void ChackNextStep(VenicalsDirection venicalsDirection)
+    {
+        switch (venicalsDirection)
+        {
+            case VenicalsDirection.Up:
+                Vector2 nextStep = position + Vector2.Up;
+                if (_gameData.Level[nextStep.Y, nextStep.X] != '#') position += Vector2.Up;
+                break;
+            case VenicalsDirection.Down:
+                position += Vector2.Down;
+                break;
+            case VenicalsDirection.Left:
+                position += Vector2.Left;
+                break;
+            case VenicalsDirection.Right:
+                position += Vector2.Right;
+                break;
+        }
+    }
+    
 }

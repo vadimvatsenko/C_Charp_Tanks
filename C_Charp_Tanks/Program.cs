@@ -3,16 +3,18 @@ using C_Charp_Tanks;
 using C_Charp_Tanks.Logics;
 using C_Charp_Tanks.Venicals;
 
+
 public class Program
 {
     public static void Main(string[] args)
     {
-        PlayerInput input = new PlayerInput();
+        Console.OutputEncoding = System.Text.Encoding.UTF8;
+        /*PlayerInput input = new PlayerInput();
         ConsoleRenderer renderer = new ConsoleRenderer(Pallete.colors);
         
         Update update = new Update();
-        Tank tank = new Tank();
         GameData gameData = new GameData();
+        Tank tank = new Tank(gameData);
         
         input.RegisterListener(tank);
         //update.RegisterListener(tank);
@@ -22,7 +24,9 @@ public class Program
         
         update.RegisterListener(playerView);
         
-        update.Start();
+        update.Start();*/
+        
+        
         
     }
 }

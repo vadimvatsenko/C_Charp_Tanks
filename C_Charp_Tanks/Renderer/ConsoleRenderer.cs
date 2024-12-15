@@ -54,7 +54,6 @@ public class ConsoleRenderer : IRenderer
     {
         if (!_pixels[w, h].Equals(val) || !_pixelColors[w, h].Equals(colorIdx))
         {
-            Console.WriteLine($"isRenderChanged {w} - {h}");
             _pixels[w, h] = val;
             _pixelColors[w, h] = colorIdx;
             isRenderChanged = true;
