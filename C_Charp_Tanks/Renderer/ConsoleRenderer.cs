@@ -1,9 +1,12 @@
-﻿using C_Charp_Tanks.Renderer;
+﻿using System.Diagnostics;
+using C_Charp_Tanks.Renderer;
 
 namespace C_Charp_Tanks;
 
 public class ConsoleRenderer : IRenderer
 {
+    private readonly char[,] _prevPixels;
+    private readonly byte[,] _prevColorByte;
     public int width { get; private set; } // ширина консольного окна
     public int height { get; private set; } // высота консольного окна
 
@@ -18,7 +21,7 @@ public class ConsoleRenderer : IRenderer
     private readonly int _maxWidth; // максимальная ширина консольного окна, которые могут быть использованы для отрисовки.
     private readonly int _maxHeight; // Максимальная высота консольного окна, которые могут быть использованы для отрисовки.
     
-    public bool isRenderChanged = false;
+    public bool IsRenderChanged = true;
     
     // Индексатор  Позволяет получить или установить символ для конкретной координаты пикселя (w, h), используя синтаксис renderer[w, h]
     public char this[int w, int h]
@@ -30,6 +33,8 @@ public class ConsoleRenderer : IRenderer
     // Конструктор
     public ConsoleRenderer(ConsoleColor[] colors)
     {
+        
+        
         if (colors.Length > MaxColors) 
         {
             // Принимает массив цветов colors. Если количество цветов превышает MaxColors, они обрезаются до этого значения.
@@ -47,25 +52,24 @@ public class ConsoleRenderer : IRenderer
 
         _pixels = new char[_maxWidth, _maxHeight]; // инициализация массива пикселей
         _pixelColors = new byte[_maxWidth, _maxHeight]; // инициализация цвета пикселей
+        
+        _prevColorByte = new byte[_maxWidth, _maxHeight];
+        _prevPixels = new char[_maxWidth, _maxHeight];
     }
 
     // Устанавливает символ (val) и индекс цвета (colorIdx) для пикселя на координатах w, h
     public void SetPixel(int w, int h, char val, byte colorIdx)
-    {
-        if (!_pixels[w, h].Equals(val) || !_pixelColors[w, h].Equals(colorIdx))
-        {
-            _pixels[w, h] = val;
-            _pixelColors[w, h] = colorIdx;
-            isRenderChanged = true;
-        } 
-        
+    { 
+        _pixels[w, h] = val;
+        _pixelColors[w, h] = colorIdx;
     }
 
 
     // Отвечает за отрисовку содержимого массива _pixels в консоль.
     public void Render()
     {
-        if (isRenderChanged)
+        
+        if (IsRenderChanged)
         {
             Console.Clear(); // очищает экран
             Console.BackgroundColor = bgColor; // Устанавливает фоновый цвет
@@ -90,7 +94,63 @@ public class ConsoleRenderer : IRenderer
             Console.CursorVisible = false; // скрывает курсор
         }
         
-        isRenderChanged = false;
+        
+        PrevStatePixels();
+        IsRenderChanged = CheckIsCurrentDifferentFromCache();
+        
+        //isRenderChanged = false;
+    }
+
+    private void PrevStatePixels()
+    {
+        for (int i = 0; i < _pixels.GetLength(0); i++)
+        {
+            for (int j = 0; j < _pixels.GetLength(1); j++)
+            {
+                _prevPixels[i, j] = _pixels[i, j];
+            }
+        }
+        
+        for (int i = 0; i < _pixelColors.GetLength(0); i++)
+        {
+            for (int j = 0; j < _pixelColors.GetLength(1); j++)
+            {
+                _prevColorByte[i, j] = _pixelColors[i, j];
+            }
+        }
+    }
+
+    private bool CheckIsCurrentDifferentFromCache()
+    {
+        
+        for (int i = 0; i < _pixels.GetLength(0); i++)
+        {
+            for (int j = 0; j < _pixels.GetLength(1); j++)
+            {
+                Console.WriteLine($"prev = {_prevPixels[i, j]}, current = {_pixels[i, j]} ");
+                if (_prevPixels[i, j] != _pixels[i, j])
+                {
+                    //Console.WriteLine("Pixels are different");
+                    return true;
+                }
+                
+            }
+        }
+        
+        for (int i = 0; i < _pixelColors.GetLength(0); i++)
+        {
+            for (int j = 0; j < _pixelColors.GetLength(1); j++)
+            {
+                if (!_prevColorByte[i, j].Equals(_pixelColors[i, j]))
+                {
+                    Console.WriteLine("Colors are different");
+                    return true;
+                }
+
+            }
+        }
+        
+        return false;
     }
 
     // отрисовка текста в нужном месте
@@ -103,7 +163,7 @@ public class ConsoleRenderer : IRenderer
         for (int i = 0; i < text.Length; i++)
         {
             _pixels[atWidth + i, atHeight] = text[i]; // заполняет каждый символ текста в нужную ячейку
-            _pixelColors[atWidth + i, atHeight] = (byte)colorIdx; // заполняем каждую ячейку цветом по горизоньали
+            _pixelColors[atWidth + i, atHeight] = (byte)colorIdx; // заполняем каждую ячейку цветом по горизонтали
         }
     }
 

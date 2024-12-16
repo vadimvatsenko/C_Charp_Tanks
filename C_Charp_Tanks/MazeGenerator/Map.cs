@@ -14,6 +14,7 @@ public class Map
         _mazeGenerator = mazeGenerator;
         _mazeVisualizer = mazeVisualizer;
         _mazeConfiguration = mazeConfiguration;
+        
     }
 
     public void GenerateMaze(int width, int height, float gaps)
@@ -26,8 +27,6 @@ public class Map
     
     public void Init()
     {
-        _mazeGenerator = new MazeGenerator(new PrimsMazeGenerator());
-
         GenerateMaze(
             _mazeConfiguration.Width, 
             _mazeConfiguration.Height, 

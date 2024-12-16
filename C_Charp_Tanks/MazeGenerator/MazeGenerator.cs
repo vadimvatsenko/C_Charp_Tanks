@@ -2,6 +2,7 @@
 
 public class MazeGenerator
 {
+    private IMazeAlgorithm _generationAlgorithm;
     public MazeGenerator(IMazeAlgorithm algorithm)
     {
         _generationAlgorithm = algorithm;
@@ -15,7 +16,6 @@ public class MazeGenerator
         return maze;
     }
 
-    private IMazeAlgorithm _generationAlgorithm = new PrimsMazeGenerator();
     
     private void AddGaps(bool[,] maze, float gapsChance)
     {

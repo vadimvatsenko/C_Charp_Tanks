@@ -1,8 +1,15 @@
-﻿namespace C_Charp_Tanks;
+﻿using C_Charp_Tanks.Venicals;
+
+namespace C_Charp_Tanks;
 
 public class PlayerInput : IUpdatable
 {
     private readonly HashSet<IConsoleInput> _listeners = new();
+
+    public PlayerInput(IConsoleInput listener)
+    {
+        RegisterListener(listener);
+    }
     
     public void RegisterListener(IConsoleInput listener)
     {
