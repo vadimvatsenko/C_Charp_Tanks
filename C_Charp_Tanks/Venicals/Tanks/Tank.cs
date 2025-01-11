@@ -5,13 +5,20 @@ namespace C_Charp_Tanks;
 
 public class Tank: Unit, IConsoleInput
 {
-    public Vector2 position { get; private set; }
-    private GameData _gameData;
+    public Vector2 Position { get; private set; }
     
-    public Tank(GameData gameData)
+    public char[,] TankElement { get; private set; }
+
+    public byte Color { get; private set; } = 7;
+    
+    public int Layer { get; private set; } = 0;
+    
+    public Tank()
     {
-        _gameData = gameData;
-        position = Vector2.Zero + 5;
+  
+        Position = Vector2.Zero + 5;
+        
+        TankElement = GameData.Instance.Tank;
     }
     
     public void TryToMoveUp()
@@ -44,17 +51,16 @@ public class Tank: Unit, IConsoleInput
         switch (venicalsDirection)
         {
             case VenicalsDirection.Up:
-                Vector2 nextStep = position + Vector2.Up;
-                if (_gameData.Level[nextStep.Y, nextStep.X] != '#') position += Vector2.Up;
+                Position += Vector2.Up;
                 break;
             case VenicalsDirection.Down:
-                position += Vector2.Down;
+                Position += Vector2.Down;
                 break;
             case VenicalsDirection.Left:
-                position += Vector2.Left;
+                Position += Vector2.Left;
                 break;
             case VenicalsDirection.Right:
-                position += Vector2.Right;
+                Position += Vector2.Right;
                 break;
         }
     }

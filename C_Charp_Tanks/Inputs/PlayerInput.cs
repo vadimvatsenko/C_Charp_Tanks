@@ -13,7 +13,7 @@ public class PlayerInput : IUpdatable
     
     public void RegisterListener(IConsoleInput listener)
     {
-        _listeners.Add(listener);
+        if(!_listeners.Contains(listener)) _listeners.Add(listener);
     }
 
     public void UnregisterListener(IConsoleInput listener)
