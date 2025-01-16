@@ -2,7 +2,7 @@
 
 public class GameRenderer : IUpdatable
 {
-    private char[,] _level;
+    /*private char[,] _level;
     private IRenderer _renderer;
     private Tank _tank;
 
@@ -36,6 +36,10 @@ public class GameRenderer : IUpdatable
 
         DrawObject(0, 0, _level, 3, 3);
         DrawObject(_tank.Position.X, _tank.Position.Y, _tank.TankElement, _tank.Color, _tank.Layer);
-    }
+    }*/
 
+    public void Update(double deltaTime)
+    {
+        throw new NotImplementedException();
+    }
 }

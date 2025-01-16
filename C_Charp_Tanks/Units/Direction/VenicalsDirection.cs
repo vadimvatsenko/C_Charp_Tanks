@@ -1,6 +1,6 @@
 ﻿namespace C_Charp_Tanks.Venicals;
 
-public enum VenicalsDirection
+public enum Direction
 {
     Left,
     Right,

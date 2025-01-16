@@ -2,9 +2,9 @@
 
 public interface IConsoleInput
 {
-    public void TryToMoveUp();
-    public void TryToMoveDown();
-    public void TryToMoveLeft();
-    public void TryToMoveRight();
-    public void TryToShoot();
+    public event Action MoveUp;
+    public event Action MoveDown;
+    public event Action MoveLeft;
+    public event Action MoveRight;
+    
 }

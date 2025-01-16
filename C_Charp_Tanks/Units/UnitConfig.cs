@@ -3,10 +3,10 @@
 public class UnitConfig
 {
     public Vector2 Position { get; private set; }
-    public string View { get; private set; }
+    public char[] View { get; private set; }
     public UnitType UnitType { get; private set; }
 
-    public UnitConfig(Vector2 position, string view, UnitType unitType)
+    public UnitConfig(Vector2 position, char[] view, UnitType unitType)
     {
         Position = position;
         View = view;
