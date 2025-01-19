@@ -21,11 +21,14 @@ public class GameData
         }
     }
     
+
+    
     private char[,] _tank = new char[,]
     {
         { Symbols.TankTracks, Symbols.TankTracks, Symbols.TankTracks },
         { Symbols.TankMuzzle, Symbols.TankTurret, Symbols.TankBack },
         { Symbols.TankTracks, Symbols.TankTracks, Symbols.TankTracks },
     };
+    
     public char[,] Tank => _tank;
 }
