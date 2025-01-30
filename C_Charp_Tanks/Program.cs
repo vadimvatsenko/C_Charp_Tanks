@@ -8,6 +8,7 @@ public class Program
 {
     public static void Main(string[] args)
     {
+        // нужно в mapGenerator создавать блоки, а сами блоки обновлять непосредственно в Update
         Console.OutputEncoding = System.Text.Encoding.UTF8;
         
         ConsoleRenderer renderer0 = new ConsoleRenderer(Pallete.Colors);
@@ -17,21 +18,21 @@ public class Program
         
         Player player = new Player(new Vector2(5, 5), renderer0, consoleInput);
         
-        IndestructibleBlock block = new IndestructibleBlock(new Vector2(5, 5), renderer0, BlockType.Indestructible);
 
         Update update = new Update();
 
         update.AddUpdateListener(player);
         update.AddUpdateListener(consoleInput);*/
-        //update.AddUpdateListener(block);
         
-        
-
         //ConsoleRenderer consoleRenderer = new ConsoleRenderer(Pallete.Colors);
-        
 
-        MazeConfiguration mazeConfiguration = new MazeConfiguration(30, 30, 0.1f);
-        MazeVisualizer mazeVisualizer = new MazeVisualizer(renderer0);
+        List<Block> blocks = new List<Block>()
+        {
+            new IndestructibleBlock(BlockType.Indestructible, Symbols.Wall),
+        };
+
+        MazeConfiguration mazeConfiguration = new MazeConfiguration(60, 60, 0.1f);
+        MazeVisualizer mazeVisualizer = new MazeVisualizer(renderer0, blocks); // тут ничего не передаем
         PrimsMazeGenerator primsMazeGenerator = new PrimsMazeGenerator();
         MazeGenerator mazeGenerator = new MazeGenerator(primsMazeGenerator);
         
@@ -40,9 +41,9 @@ public class Program
         
         map.Init();
         
-        /*update.AddUpdateListener(mazeVisualizer);
+        //update.AddUpdateListener(mazeVisualizer);
         
-        update.StartUpdate();*/
+        //update.StartUpdate();
 
     }
 }
