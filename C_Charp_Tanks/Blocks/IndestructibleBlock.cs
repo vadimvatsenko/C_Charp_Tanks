@@ -15,7 +15,7 @@ public class IndestructibleBlock : Block, IUpdatable
         
         for (int i = 0; i < length; i++) Renderer.SetPixel(i, 0, Symbols.Wall, 7);
         
-        for (int i = 0; i <= length; i++) Renderer.SetPixel(i, length, Symbols.Wall, 7);
+        for (int i = 0; i <= length; i++) Renderer.SetPixel(i, length, Symbols.Wall, 7);//
         
         for (int i = 0; i < length; i++) Renderer.SetPixel(0, i, Symbols.Wall, 7);
         
