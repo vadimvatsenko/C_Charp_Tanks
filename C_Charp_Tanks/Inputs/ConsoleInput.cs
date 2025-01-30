@@ -2,10 +2,17 @@
 
 public class ConsoleInput : IConsoleInput, IUpdatable
 {
+    private Dictionary<ConsoleKey, bool> _keyState; // словарь для отслеживания состояния клавиш
     public event Action? MoveUp;
     public event Action? MoveDown;
     public event Action? MoveLeft;
     public event Action? MoveRight;
+
+    public ConsoleInput()
+    {
+        _keyState = new Dictionary<ConsoleKey, bool>();
+    }
+
     public void Update(double deltaTime)
     {
         ConsoleKeyInfo keyInfo;
@@ -17,8 +24,14 @@ public class ConsoleInput : IConsoleInput, IUpdatable
             switch (keyInfo.Key)
             {
                 case ConsoleKey.UpArrow or ConsoleKey.W:
-                    MoveUp?.Invoke();
+                    if (!_keyState.ContainsKey(keyInfo.Key) || !_keyState[keyInfo.Key])
+                    {
+                        MoveUp?.Invoke();
+                        _keyState[ConsoleKey.DownArrow] = true;
+                    }
+
                     break;
+
                 case ConsoleKey.DownArrow or ConsoleKey.S:
                     MoveDown?.Invoke();
                     break;
@@ -29,6 +42,19 @@ public class ConsoleInput : IConsoleInput, IUpdatable
                     MoveRight?.Invoke();
                     break;
             }
+
+            // При отпускании клавиши сбрасывайте состояние
+            if (keyInfo.Key == ConsoleKey.UpArrow || keyInfo.Key == ConsoleKey.W ||
+                keyInfo.Key == ConsoleKey.DownArrow || keyInfo.Key == ConsoleKey.S ||
+                keyInfo.Key == ConsoleKey.LeftArrow || keyInfo.Key == ConsoleKey.A ||
+                keyInfo.Key == ConsoleKey.RightArrow || keyInfo.Key == ConsoleKey.D)
+            {
+                if (_keyState.ContainsKey(keyInfo.Key) && _keyState[keyInfo.Key])
+                {
+                    _keyState[keyInfo.Key] = false; // Сбрасываем состояние, если клавиша отпущена
+                }
+            }
         }
+        
     }
 }

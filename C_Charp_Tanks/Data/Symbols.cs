@@ -7,7 +7,8 @@ public struct Symbols
     public static char Heart = '\ud83d'; // сердце
     
     //Tank
-    public static char TankTracks = '\u25ef'; // гусеницы
+    //public static char TankTracks = '\u25ef'; // гусеницы
+    public static char TankTracks = '○'; // гусеницы
     public static char TankTurret = '\u25cf'; // башня
     public static char TankMuzzle = '|'; // дуло
     public static char TankBack = '-'; // задняя часть 

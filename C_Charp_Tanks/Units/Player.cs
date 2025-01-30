@@ -39,62 +39,40 @@ public class Player : Unit, IUpdatable
     private void MoveUp()
     {
         //TryMoveUp();
+        
+        CurrentView = GameData.Instance.TankUpView;
         Position += Vector2.Up;
-        if(_currentDirection == Direction.Up) return;
-        CurrentView = RotateView(CurrentView, Direction.Up);
     }
 
     private void MoveDown()
     {
         //TryMoveDown();
+        
+        CurrentView = GameData.Instance.TankDownView;
         Position += Vector2.Down;
-        if(_currentDirection == Direction.Down) return;
-        CurrentView = RotateView(CurrentView, Direction.Down);
     }
 
     private void MoveLeft()
     {
        // TryMoveLeft();
+       
+       CurrentView = GameData.Instance.TankLeftView;
        Position += Vector2.Left;
-       if(_currentDirection == Direction.Left) return;
-       CurrentView = RotateView(CurrentView, Direction.Left);
     }
 
     private void MoveRight()
     {
         //TryMoveRight();
+        
+        CurrentView = GameData.Instance.TankRightView;
         Position += Vector2.Right;
-        if(_currentDirection == Direction.Right) return;
-        CurrentView = RotateView(CurrentView, Direction.Right);
     }
 
     private void UpdateCollider()
     {
         _collider.Position = Position;
     }
-
-    private char[,] RotateView(char[,] view, Direction direction)
-    {
-        _currentDirection = direction;
-        int rows = view.GetLength(0);
-        int cols = view.GetLength(1);
-        char[,] shifted = new char[rows, cols];
-
-        if (direction == Direction.Right)
-        {
-            // Сдвиг вправо
-            for (int i = 0; i < rows; i++)
-            {
-                for (int j = 0; j < cols; j++)
-                {
-                    shifted[i, j - 1] = view[i, j];
-                }
-            }
-        }
-        
-        return shifted;
-    }
-
+    
     public void Update(double deltaTime)
     {
         UpdateCollider();
@@ -103,10 +81,13 @@ public class Player : Unit, IUpdatable
         {
             for (int y = 0; y < CurrentView.GetLength(0); y++)
             {
-                _renderer.SetPixel(x + Position.X,y + Position.Y, CurrentView[x, y], 5);
+                _renderer.SetPixel(x + Position.X,y + Position.Y, CurrentView[x, y], 2);
             }
         }
         
         _renderer.Render();
     }
+    
+    
+
 }

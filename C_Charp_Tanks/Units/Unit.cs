@@ -14,7 +14,7 @@ public abstract class Unit : IUpdatable
     {
         Position = position;
         _renderer = renderer;
-        View = GameData.Instance.Tank;
+        View = GameData.Instance.TankUpView;
     }
     
     public virtual bool TryMoveLeft() 
