@@ -1,0 +1,277 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|p:\\projects\\visual studio apps\\c_charp_tanks\\c_charp_tanks\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|solutionrelative:c_charp_tanks\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|p:\\projects\\visual studio apps\\c_charp_tanks\\c_charp_tanks\\data\\symbols.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|solutionrelative:c_charp_tanks\\data\\symbols.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|p:\\projects\\visual studio apps\\c_charp_tanks\\c_charp_tanks\\data\\pallete.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|solutionrelative:c_charp_tanks\\data\\pallete.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|p:\\projects\\visual studio apps\\c_charp_tanks\\c_charp_tanks\\data\\gamedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|solutionrelative:c_charp_tanks\\data\\gamedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|p:\\projects\\visual studio apps\\c_charp_tanks\\c_charp_tanks\\engine\\update\\update.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|solutionrelative:c_charp_tanks\\engine\\update\\update.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|p:\\projects\\visual studio apps\\c_charp_tanks\\c_charp_tanks\\units\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|solutionrelative:c_charp_tanks\\units\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|p:\\projects\\visual studio apps\\c_charp_tanks\\c_charp_tanks\\units\\units.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|solutionrelative:c_charp_tanks\\units\\units.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|p:\\projects\\visual studio apps\\c_charp_tanks\\c_charp_tanks\\units\\unitfabric.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|solutionrelative:c_charp_tanks\\units\\unitfabric.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|p:\\projects\\visual studio apps\\c_charp_tanks\\c_charp_tanks\\units\\unitconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|solutionrelative:c_charp_tanks\\units\\unitconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|p:\\projects\\visual studio apps\\c_charp_tanks\\c_charp_tanks\\states\\showtextstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|solutionrelative:c_charp_tanks\\states\\showtextstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|p:\\projects\\visual studio apps\\c_charp_tanks\\c_charp_tanks\\logic\\basegamelogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|solutionrelative:c_charp_tanks\\logic\\basegamelogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|p:\\projects\\visual studio apps\\c_charp_tanks\\c_charp_tanks\\engine\\collider\\collider2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|solutionrelative:c_charp_tanks\\engine\\collider\\collider2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|p:\\projects\\visual studio apps\\c_charp_tanks\\c_charp_tanks\\engine\\collider\\circlecollider2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|solutionrelative:c_charp_tanks\\engine\\collider\\circlecollider2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|p:\\projects\\visual studio apps\\c_charp_tanks\\c_charp_tanks\\engine\\collider\\boxcollider2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|solutionrelative:c_charp_tanks\\engine\\collider\\boxcollider2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|p:\\projects\\visual studio apps\\c_charp_tanks\\c_charp_tanks\\engine\\update\\iupdatable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|solutionrelative:c_charp_tanks\\engine\\update\\iupdatable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|p:\\projects\\visual studio apps\\c_charp_tanks\\c_charp_tanks\\readme.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|solutionrelative:c_charp_tanks\\readme.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 11,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Symbols.cs",
+              "DocumentMoniker": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Data\\Symbols.cs",
+              "RelativeDocumentMoniker": "C_Charp_Tanks\\Data\\Symbols.cs",
+              "ToolTip": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Data\\Symbols.cs",
+              "RelativeToolTip": "C_Charp_Tanks\\Data\\Symbols.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-26T15:27:35.021Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Pallete.cs",
+              "DocumentMoniker": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Data\\Pallete.cs",
+              "RelativeDocumentMoniker": "C_Charp_Tanks\\Data\\Pallete.cs",
+              "ToolTip": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Data\\Pallete.cs",
+              "RelativeToolTip": "C_Charp_Tanks\\Data\\Pallete.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-26T15:27:34.28Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Units.cs",
+              "DocumentMoniker": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Units\\Units.cs",
+              "RelativeDocumentMoniker": "C_Charp_Tanks\\Units\\Units.cs",
+              "ToolTip": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Units\\Units.cs",
+              "RelativeToolTip": "C_Charp_Tanks\\Units\\Units.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-25T04:38:09.171Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "UnitFabric.cs",
+              "DocumentMoniker": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Units\\UnitFabric.cs",
+              "RelativeDocumentMoniker": "C_Charp_Tanks\\Units\\UnitFabric.cs",
+              "ToolTip": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Units\\UnitFabric.cs",
+              "RelativeToolTip": "C_Charp_Tanks\\Units\\UnitFabric.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-25T04:38:07.762Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "UnitConfig.cs",
+              "DocumentMoniker": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Units\\UnitConfig.cs",
+              "RelativeDocumentMoniker": "C_Charp_Tanks\\Units\\UnitConfig.cs",
+              "ToolTip": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Units\\UnitConfig.cs",
+              "RelativeToolTip": "C_Charp_Tanks\\Units\\UnitConfig.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-25T04:38:05.468Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ShowTextState.cs",
+              "DocumentMoniker": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\States\\ShowTextState.cs",
+              "RelativeDocumentMoniker": "C_Charp_Tanks\\States\\ShowTextState.cs",
+              "ToolTip": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\States\\ShowTextState.cs",
+              "RelativeToolTip": "C_Charp_Tanks\\States\\ShowTextState.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-21T19:34:49.52Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "BaseGameLogic.cs",
+              "DocumentMoniker": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Logic\\BaseGameLogic.cs",
+              "RelativeDocumentMoniker": "C_Charp_Tanks\\Logic\\BaseGameLogic.cs",
+              "ToolTip": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Logic\\BaseGameLogic.cs",
+              "RelativeToolTip": "C_Charp_Tanks\\Logic\\BaseGameLogic.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-21T19:34:40.189Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Collider2D.cs",
+              "DocumentMoniker": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Engine\\Collider\\Collider2D.cs",
+              "RelativeDocumentMoniker": "C_Charp_Tanks\\Engine\\Collider\\Collider2D.cs",
+              "ToolTip": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Engine\\Collider\\Collider2D.cs",
+              "RelativeToolTip": "C_Charp_Tanks\\Engine\\Collider\\Collider2D.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-21T19:34:31.355Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "CircleCollider2D.cs",
+              "DocumentMoniker": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Engine\\Collider\\CircleCollider2D.cs",
+              "RelativeDocumentMoniker": "C_Charp_Tanks\\Engine\\Collider\\CircleCollider2D.cs",
+              "ToolTip": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Engine\\Collider\\CircleCollider2D.cs",
+              "RelativeToolTip": "C_Charp_Tanks\\Engine\\Collider\\CircleCollider2D.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-21T19:34:28.083Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "BoxCollider2D.cs",
+              "DocumentMoniker": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Engine\\Collider\\BoxCollider2D.cs",
+              "RelativeDocumentMoniker": "C_Charp_Tanks\\Engine\\Collider\\BoxCollider2D.cs",
+              "ToolTip": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Engine\\Collider\\BoxCollider2D.cs",
+              "RelativeToolTip": "C_Charp_Tanks\\Engine\\Collider\\BoxCollider2D.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-21T19:34:25.857Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Player.cs",
+              "DocumentMoniker": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Units\\Player.cs",
+              "RelativeDocumentMoniker": "C_Charp_Tanks\\Units\\Player.cs",
+              "ToolTip": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Units\\Player.cs",
+              "RelativeToolTip": "C_Charp_Tanks\\Units\\Player.cs",
+              "ViewState": "AgIAAEEAAAAAAAAAAAAAwFUAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-20T19:30:58.201Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Program.cs",
+              "RelativeDocumentMoniker": "C_Charp_Tanks\\Program.cs",
+              "ToolTip": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Program.cs",
+              "RelativeToolTip": "C_Charp_Tanks\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-20T19:28:45.854Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "IUpdatable.cs",
+              "DocumentMoniker": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Engine\\Update\\IUpdatable.cs",
+              "RelativeDocumentMoniker": "C_Charp_Tanks\\Engine\\Update\\IUpdatable.cs",
+              "ToolTip": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Engine\\Update\\IUpdatable.cs",
+              "RelativeToolTip": "C_Charp_Tanks\\Engine\\Update\\IUpdatable.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-20T19:24:27.499Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Update.cs",
+              "DocumentMoniker": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Engine\\Update\\Update.cs",
+              "RelativeDocumentMoniker": "C_Charp_Tanks\\Engine\\Update\\Update.cs",
+              "ToolTip": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Engine\\Update\\Update.cs",
+              "RelativeToolTip": "C_Charp_Tanks\\Engine\\Update\\Update.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADIAAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-20T19:16:50.371Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "GameData.cs",
+              "DocumentMoniker": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Data\\GameData.cs",
+              "RelativeDocumentMoniker": "C_Charp_Tanks\\Data\\GameData.cs",
+              "ToolTip": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Data\\GameData.cs",
+              "RelativeToolTip": "C_Charp_Tanks\\Data\\GameData.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-20T19:16:40.472Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "README.MD",
+              "DocumentMoniker": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\README.MD",
+              "RelativeDocumentMoniker": "C_Charp_Tanks\\README.MD",
+              "ToolTip": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\README.MD",
+              "RelativeToolTip": "C_Charp_Tanks\\README.MD",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2025-01-20T19:16:36.153Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
