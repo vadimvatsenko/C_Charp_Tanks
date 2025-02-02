@@ -1,25 +1,15 @@
 ﻿using C_Charp_Tanks.Blocks;
+using C_Charp_Tanks.Renderer;
 
 namespace C_Charp_Tanks.MazeGenerator;
 
-public class MazeVisualizer : IUpdatable
+public class MazeVisualizer
 {
-    ConsoleRenderer _renderer;
-    List<Block> _blocks;
-
-    private List<char> _symbolsList = new List<char>()
-    {
-        Symbols.Wall,
-        Symbols.Water,
-    };
-    
     private Random _random = new Random();
+    private BlocksController _blocksController;
+    private IRenderer _consoleRenderer;
+    private int Step => 3;
     
-    public MazeVisualizer(ConsoleRenderer renderer, List<Block> blocks)
-    {
-        _renderer = renderer;
-        _blocks = blocks;
-    }
     public void Visualise(bool[,] maze)
     {
         DestroyOldMeshes();
@@ -27,73 +17,69 @@ public class MazeVisualizer : IUpdatable
         BuildWalls(maze);
         BuildWallsAround(maze);
     }
+
+    public MazeVisualizer(BlocksController blocksController, IRenderer consoleRenderer)
+    {
+        _blocksController = blocksController;
+        _consoleRenderer = consoleRenderer;
+    }
     
     private void BuildWalls(bool[,] maze)
     {
-        Console.WriteLine(maze.Length);
-        for (int i = 0; i < maze.GetLength(0); i++)
-        for (int j = 0; j < maze.GetLength(1); j++)
+       
+        for (int i = 0; i < maze.GetLength(0); i += Step)
+        for (int j = 0; j < maze.GetLength(1); j += Step)
         {
-            if (maze[i, j] == false)
+            if (!maze[i, j])
             {
-                /*for (int x = 0; x < _blocks[0].View.GetLength(0); x++)
+                int randomBlock = _random.Next(2);
+                if (randomBlock == 0)
                 {
-                    for (int y = 0; y < _blocks[0].View.GetLength(1); y++)
-                    {
-                        _renderer.SetPixel(i, j, _blocks[0].View[x,y], 3);
-                    }
-                }*/
-                /////
-                //_renderer.SetPixel(j, i, _symbolsList[_random.Next(_symbolsList.Count)], 7);
+                    WaterBlock waterBlock = new WaterBlock(BlockType.Water, Symbols.Water, new Vector2(i, j), _consoleRenderer);
+                    _blocksController.AddBlock(waterBlock);
+                }
+                else
+                {
+                    DestructibleBlock destructibleBlock = new DestructibleBlock(BlockType.Destructible, Symbols.BrockenWall, new Vector2(i, j), _consoleRenderer); 
+                    _blocksController.AddBlock(destructibleBlock);
+                }
+                
             }
         }
-        
-        _renderer.Render();
-        
-        
     }
 
     private void BuildWallsAround(bool[,] maze)
     {
-        for (int i = 0; i <= maze.GetLength(0); i+=3)
+       
+        for (int i = 0; i <= maze.GetLength(1); i += Step) // левая стена
         {
-            for (int x = 0; x < _blocks[0].View.GetLength(0); x++)
-            {
-                for (int y = 0; y < _blocks[0].View.GetLength(1); y++)
-                {
-                    _renderer.SetPixel(x, i + y, _blocks[0].View[x,y], 3);
-                    _renderer.SetPixel(maze.GetLength(1) + x, i + y, _blocks[0].View[x,y], 3);
-                }
-            }
+            IndestructibleBlock indestructibleBlockLeft =
+                new IndestructibleBlock(BlockType.Indestructible, Symbols.Wall, new Vector2(0, i), _consoleRenderer);
+            _blocksController.AddBlock(indestructibleBlockLeft);
+
+            IndestructibleBlock indestructibleBlockRight =
+                new IndestructibleBlock(BlockType.Indestructible, Symbols.Wall, new Vector2(maze.GetLength(0), i), _consoleRenderer);
+            _blocksController.AddBlock(indestructibleBlockRight);
+
+        }
+        for (int j = 0; j <= maze.GetLength(0); j += Step)
+        {
+            IndestructibleBlock indestructibleBlockLeft =
+               new IndestructibleBlock(BlockType.Indestructible, Symbols.Wall, new Vector2(j, 0), _consoleRenderer);
+            _blocksController.AddBlock(indestructibleBlockLeft);
+
+            IndestructibleBlock indestructibleBlockRight =
+                new IndestructibleBlock(BlockType.Indestructible, Symbols.Wall, new Vector2(j, maze.GetLength(1)), _consoleRenderer);
+            _blocksController.AddBlock(indestructibleBlockRight);
         }
 
-        for (int j = 0; j <= maze.GetLength(1); j+=3)
-        {
-            for (int x = 0; x < _blocks[0].View.GetLength(0); x++)
-            {
-                for (int y = 0; y < _blocks[0].View.GetLength(1); y++)
-                {
-                    _renderer.SetPixel(j + x, y, _blocks[0].View[x,y], 3);
-                }
-            }
-            //_renderer.SetPixel(j, 0, Symbols.Wall, 1);
-            //_renderer.SetPixel(j,  maze.GetLength(0), Symbols.Wall, 1);
-            //Instantiate(_wallPrefab, new Vector3(j, 0, -1), Quaternion.identity, transform);
-            //Instantiate(_wallPrefab, new Vector3(j, 0, maze.GetLength(0)), Quaternion.identity, transform);
-        }
-        
-        _renderer.Render();
+            //_blocksController.GenerateBlocks();
     }
 
     private void DestroyOldMeshes()
     {
         /*foreach (Transform child in transform)        
             Destroy(child.gameObject);*/
-        _renderer.Clear();
-    }
-
-    public void Update(double deltaTime)
-    {
-        //_renderer.Render();
+        //_renderer.Clear();
     }
 }

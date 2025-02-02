@@ -7,6 +7,7 @@ public class ConsoleInput : IConsoleInput, IUpdatable
     public event Action? MoveDown;
     public event Action? MoveLeft;
     public event Action? MoveRight;
+    public event Action? Shoot;
 
     public ConsoleInput()
     {
@@ -24,14 +25,8 @@ public class ConsoleInput : IConsoleInput, IUpdatable
             switch (keyInfo.Key)
             {
                 case ConsoleKey.UpArrow or ConsoleKey.W:
-                    if (!_keyState.ContainsKey(keyInfo.Key) || !_keyState[keyInfo.Key])
-                    {
-                        MoveUp?.Invoke();
-                        _keyState[ConsoleKey.DownArrow] = true;
-                    }
-
+                    MoveUp?.Invoke();
                     break;
-
                 case ConsoleKey.DownArrow or ConsoleKey.S:
                     MoveDown?.Invoke();
                     break;
@@ -41,20 +36,10 @@ public class ConsoleInput : IConsoleInput, IUpdatable
                 case ConsoleKey.RightArrow or ConsoleKey.D:
                     MoveRight?.Invoke();
                     break;
-            }
-
-            // При отпускании клавиши сбрасывайте состояние
-            if (keyInfo.Key == ConsoleKey.UpArrow || keyInfo.Key == ConsoleKey.W ||
-                keyInfo.Key == ConsoleKey.DownArrow || keyInfo.Key == ConsoleKey.S ||
-                keyInfo.Key == ConsoleKey.LeftArrow || keyInfo.Key == ConsoleKey.A ||
-                keyInfo.Key == ConsoleKey.RightArrow || keyInfo.Key == ConsoleKey.D)
-            {
-                if (_keyState.ContainsKey(keyInfo.Key) && _keyState[keyInfo.Key])
-                {
-                    _keyState[keyInfo.Key] = false; // Сбрасываем состояние, если клавиша отпущена
-                }
+                case ConsoleKey.Spacebar:
+                    Shoot?.Invoke();
+                    break;
             }
         }
-        
     }
 }

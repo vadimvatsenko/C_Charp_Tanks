@@ -14,6 +14,5 @@ public struct Pallete
         ConsoleColor.Blue,
     };
     
-    public static ConsoleColor[] Colors => colors;
-    
+    public static ConsoleColor[] Colors => colors;   
 }

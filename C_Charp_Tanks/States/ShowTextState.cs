@@ -50,6 +50,4 @@ public class ShowTextState: BaseGameState
     {
         _timeLeft = _duration;
     }
-
-    
 }

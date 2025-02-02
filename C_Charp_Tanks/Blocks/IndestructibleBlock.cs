@@ -3,14 +3,11 @@ using C_Charp_Tanks.Renderer;
 
 namespace C_Charp_Tanks.Blocks;
 
-public class IndestructibleBlock : Block, IUpdatable
+public class IndestructibleBlock : Block
 {
-    public IndestructibleBlock(BlockType type, char symbol) : base(type, symbol)
+    public IndestructibleBlock(BlockType type, char symbol, Vector2 position, IRenderer renderer) : base(type, symbol, position, renderer)
     {
+        Color = 3;
     }
-
-    public void Update(double deltaTime)
-    {
-        throw new NotImplementedException();
-    }
+    
 }

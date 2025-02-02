@@ -98,66 +98,11 @@ public class ConsoleRenderer : IRenderer
             Console.CursorVisible = false; // скрывает курсор
         }
         
-        
-        /*PrevStatePixels();
-        IsRenderChanged = CheckIsCurrentDifferentFromCache();*/
-        
         _previousRenderer = _currentRenderer;
         
-        //isRenderChanged = false;
     }
 
-    private void PrevStatePixels()
-    {
-        for (int i = 0; i < _pixels.GetLength(0); i++)
-        {
-            for (int j = 0; j < _pixels.GetLength(1); j++)
-            {
-                _prevPixels[i, j] = _pixels[i, j];
-            }
-        }
-        
-        for (int i = 0; i < _pixelColors.GetLength(0); i++)
-        {
-            for (int j = 0; j < _pixelColors.GetLength(1); j++)
-            {
-                _prevColorByte[i, j] = _pixelColors[i, j];
-            }
-        }
-    }
-
-    private bool CheckIsCurrentDifferentFromCache()
-    {
-        
-        for (int i = 0; i < _pixels.GetLength(0); i++)
-        {
-            for (int j = 0; j < _pixels.GetLength(1); j++)
-            {
-                Console.WriteLine($"prev = {_prevPixels[i, j]}, current = {_pixels[i, j]} ");
-                if (_prevPixels[i, j] != _pixels[i, j])
-                {
-                    //Console.WriteLine("Pixels are different");
-                    return true;
-                }
-                
-            }
-        }
-        
-        for (int i = 0; i < _pixelColors.GetLength(0); i++)
-        {
-            for (int j = 0; j < _pixelColors.GetLength(1); j++)
-            {
-                if (!_prevColorByte[i, j].Equals(_pixelColors[i, j]))
-                {
-                    Console.WriteLine("Colors are different");
-                    return true;
-                }
-
-            }
-        }
-        
-        return false;
-    }
+    
 
     // отрисовка текста в нужном месте
     public void DrawString(string text, int atWidth, int atHeight, ConsoleColor color)

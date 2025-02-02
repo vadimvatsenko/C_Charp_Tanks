@@ -9,10 +9,15 @@ public class Update
     private DateTime lastFrameTime;
 
     private HashSet<IUpdatable> _updates;
+    
+    ConsoleRenderer _prevRenderer;
+    ConsoleRenderer _currentRenderer;
 
-    public Update()
+    public Update(ConsoleRenderer prevRenderer, ConsoleRenderer currentRenderer)
     {
         _updates = new HashSet<IUpdatable>();
+        _prevRenderer = prevRenderer;
+        _currentRenderer = currentRenderer;
     }
 
     public void AddUpdateListener(IUpdatable listener)
@@ -43,6 +48,13 @@ public class Update
             foreach (IUpdatable listener in _updates) listener.Update(deltaTime);
             
             lastFrameTime = frameStartTime;
+            
+            if(!_currentRenderer.Equals(_prevRenderer)) _currentRenderer.Render();
+            
+            ConsoleRenderer tmp = _prevRenderer;
+            _prevRenderer = _currentRenderer;
+            _currentRenderer = tmp;
+            _currentRenderer.Clear();
 
             DateTime nextFrameTime = frameStartTime + TimeSpan.FromSeconds(TARGETFRAMETIME);
 

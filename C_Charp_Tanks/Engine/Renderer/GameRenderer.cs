@@ -1,45 +1,32 @@
-﻿namespace C_Charp_Tanks.Renderer;
+﻿using C_Charp_Tanks.Blocks;
+using C_Charp_Tanks.Venicals;
+
+namespace C_Charp_Tanks.Renderer;
 
 public class GameRenderer : IUpdatable
 {
-    /*private char[,] _level;
+    private BlocksController _blocksController;
+    private Player _player;
     private IRenderer _renderer;
-    private Tank _tank;
 
-    public GameRenderer(IRenderer renderer, Tank tank, char[,] level)
+    public GameRenderer(Player player, BlocksController blocksController, IRenderer renderer)
     {
-        _level = level;
+        _player = player;
+        _blocksController = blocksController;
         _renderer = renderer;
-        _tank = tank;
     }
 
-    public void DrawPoint(int w, int h, char symbol, byte colorIdx, int layer)
+    public void DrawGame()
     {
         
     }
 
-    public void DrawObject(int w, int h, char[,] symbols, byte colorIdx, int layer)
+    public void Update(double deltaTime)
     {
-        for (int x = 0; x < symbols.GetLength(0); x++)
-        {
-            for (int y = 0; y < symbols.GetLength(1); y++)
-            {
-                _renderer.SetPixel(x + w, y + h, symbols[x, y], colorIdx);
-            }
-        }
+        Console.WriteLine("Game Update");
+        _blocksController.GenerateBlocks();
+        _player.Draw();
         
         _renderer.Render();
-    }
-
-    public void Update(double deltaTime)
-    {
-
-        DrawObject(0, 0, _level, 3, 3);
-        DrawObject(_tank.Position.X, _tank.Position.Y, _tank.TankElement, _tank.Color, _tank.Layer);
-    }*/
-
-    public void Update(double deltaTime)
-    {
-        throw new NotImplementedException();
     }
 }

@@ -8,18 +8,19 @@ public class Player : Unit, IUpdatable
 {
     public event Action OnDeath;
     
-    private IConsoleInput _input;
-    private IRenderer _renderer;
-    public BoxCollider2D _collider { get; private set; }
+    private readonly IConsoleInput _input;
+    private readonly IRenderer _renderer;
+    public BoxCollider2D Collider { get; private set; }
 
     public char[,] CurrentView { get; private set; }
+    
     private Direction _currentDirection = Direction.Up;
     
     public Player(Vector2 position, IRenderer renderer, IConsoleInput input) : base(position, renderer)
     {
        _input = input;
        _renderer = renderer;
-       _collider = new BoxCollider2D(position, new Vector2(3, 3));
+       Collider = new BoxCollider2D(position, new Vector2(3, 3));
        CurrentView = View;
        
        _input.MoveUp += MoveUp;
@@ -70,10 +71,25 @@ public class Player : Unit, IUpdatable
 
     private void UpdateCollider()
     {
-        _collider.Position = Position;
+        Collider.Position = Position;
     }
     
     public void Update(double deltaTime)
+    {
+        UpdateCollider();
+        //_renderer.Clear();
+        for (int x = 0; x < CurrentView.GetLength(0); x++)
+        {
+            for (int y = 0; y < CurrentView.GetLength(0); y++)
+            {
+                _renderer.SetPixel(x + Position.X, y + Position.Y, CurrentView[x, y], 2);
+            }
+        }
+        
+        //_renderer.Render();
+    }
+
+    public void Draw()
     {
         UpdateCollider();
         _renderer.Clear();
@@ -81,7 +97,7 @@ public class Player : Unit, IUpdatable
         {
             for (int y = 0; y < CurrentView.GetLength(0); y++)
             {
-                _renderer.SetPixel(x + Position.X,y + Position.Y, CurrentView[x, y], 2);
+                _renderer.SetPixel(x + Position.X, y + Position.Y, CurrentView[x, y], 2);
             }
         }
         

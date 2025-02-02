@@ -6,5 +6,6 @@ public interface IConsoleInput
     public event Action MoveDown;
     public event Action MoveLeft;
     public event Action MoveRight;
+    public event Action Shoot;
     
 }
