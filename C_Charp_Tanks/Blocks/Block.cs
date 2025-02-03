@@ -8,19 +8,17 @@ public abstract class Block : IUpdatable
 {
     public char[,] View { get; protected set; }
     protected char Symbol;
-    protected BoxCollider2D Collider;
+    public BoxCollider2D Collider {get; protected set;}
     protected BlockType Type;
     protected Vector2 Position;
-    protected IRenderer Renderer;
     protected byte Color;
 
-    public Block(BlockType type, char symbol, Vector2 position, IRenderer renderer)
+    public Block(BlockType type, char symbol, Vector2 position)
     {
         Type = type;
         Symbol = symbol;
         View = new char[3, 3];
         Position = position;
-        Renderer = renderer;
         Collider = new BoxCollider2D(Position, new Vector2(3, 3));
         FillBlock();
     }
@@ -36,13 +34,13 @@ public abstract class Block : IUpdatable
         }
     }
 
-    public void RendererBlocks()
+    public void RendererBlocks(IRenderer renderer)
     {
         for (int x = 0; x < View.GetLength(0); x++)
         {
             for (int y = 0; y < View.GetLength(1); y++)
             {
-                Renderer.SetPixel(Position.X + x, Position.Y + y, View[x, y], Color);
+                renderer.SetPixel(Position.X + x, Position.Y + y, View[x, y], Color);
             }
         }
     }

@@ -32,5 +32,4 @@ public class Map
             _mazeConfiguration.Height, 
             _mazeConfiguration.GapsChance);
     }
-    
 }

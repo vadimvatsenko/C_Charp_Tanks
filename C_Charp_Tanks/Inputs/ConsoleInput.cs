@@ -1,6 +1,6 @@
 ﻿namespace C_Charp_Tanks;
 
-public class ConsoleInput : IConsoleInput, IUpdatable
+public class ConsoleInput : IConsoleInput
 {
     private Dictionary<ConsoleKey, bool> _keyState; // словарь для отслеживания состояния клавиш
     public event Action? MoveUp;

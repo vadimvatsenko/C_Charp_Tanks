@@ -13,7 +13,7 @@ public class UnitFabric
         _consoleInput = consoleInput;
     }
 
-    public void CreateUnit(UnitConfig unitConfig)
+    /*public void CreateUnit(UnitConfig unitConfig)
     {
         switch (unitConfig.UnitType)
         {
@@ -21,5 +21,5 @@ public class UnitFabric
                 Player player = new Player(unitConfig.Position, _renderer, _consoleInput);
                 break;
         }
-    }
+    }*/
 }

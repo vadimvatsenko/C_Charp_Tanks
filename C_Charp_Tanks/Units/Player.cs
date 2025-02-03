@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using C_Charp_Tanks.Blocks;
 using C_Charp_Tanks.Engine;
 using C_Charp_Tanks.Renderer;
 
@@ -6,22 +7,14 @@ namespace C_Charp_Tanks.Venicals;
 
 public class Player : Unit, IUpdatable
 {
-    public event Action OnDeath;
-    
     private readonly IConsoleInput _input;
-    private readonly IRenderer _renderer;
-    public BoxCollider2D Collider { get; private set; }
-
-    public char[,] CurrentView { get; private set; }
     
     private Direction _currentDirection = Direction.Up;
     
-    public Player(Vector2 position, IRenderer renderer, IConsoleInput input) : base(position, renderer)
+    public Player(Vector2 position, IConsoleInput input) : base(position)
     {
        _input = input;
-       _renderer = renderer;
        Collider = new BoxCollider2D(position, new Vector2(3, 3));
-       CurrentView = View;
        
        _input.MoveUp += MoveUp;
        _input.MoveDown += MoveDown;
@@ -39,34 +32,51 @@ public class Player : Unit, IUpdatable
 
     private void MoveUp()
     {
-        //TryMoveUp();
-        
-        CurrentView = GameData.Instance.TankUpView;
+        Console.WriteLine($"X = {Position.X}, Y = {Position.Y}");
+        View = GameData.Instance.TankUpView;
         Position += Vector2.Up;
+        Console.WriteLine(Position.X + "," + Position.Y);
     }
 
     private void MoveDown()
     {
-        //TryMoveDown();
-        
-        CurrentView = GameData.Instance.TankDownView;
+        Console.WriteLine($"X = {Position.X}, Y = {Position.Y}");
+        View = GameData.Instance.TankDownView;
         Position += Vector2.Down;
+        Console.WriteLine(Position.X + "," + Position.Y);
     }
 
     private void MoveLeft()
     {
-       // TryMoveLeft();
-       
-       CurrentView = GameData.Instance.TankLeftView;
+        Console.WriteLine($"X = {Position.X}, Y = {Position.Y}");
+        View = GameData.Instance.TankLeftView;
        Position += Vector2.Left;
+       Console.WriteLine(Position.X + "," + Position.Y);
     }
 
     private void MoveRight()
     {
-        //TryMoveRight();
+        Console.WriteLine($"X = {Position.X}, Y = {Position.Y}");
+        View = GameData.Instance.TankRightView;
+
+        bool isMove = TryToMove(Vector2.Right);
+        if (isMove)
+        {
+            Position += Vector2.Right;
+            Console.WriteLine(Position.X + "," + Position.Y);
+        }
         
-        CurrentView = GameData.Instance.TankRightView;
-        Position += Vector2.Right;
+    }
+
+    private bool TryToMove(Vector2 direction)
+    {
+        foreach (var block in BlocksController.Blocks)
+        {
+            if(this.Collider.IsColliding(block.Collider))
+                return true;
+        }
+        
+        return false;
     }
 
     private void UpdateCollider()
@@ -77,33 +87,17 @@ public class Player : Unit, IUpdatable
     public void Update(double deltaTime)
     {
         UpdateCollider();
-        //_renderer.Clear();
-        for (int x = 0; x < CurrentView.GetLength(0); x++)
-        {
-            for (int y = 0; y < CurrentView.GetLength(0); y++)
-            {
-                _renderer.SetPixel(x + Position.X, y + Position.Y, CurrentView[x, y], 2);
-            }
-        }
-        
-        //_renderer.Render();
     }
 
-    public void Draw()
+    public void RenderPlayer(IRenderer renderer)
     {
         UpdateCollider();
-        _renderer.Clear();
-        for (int x = 0; x < CurrentView.GetLength(0); x++)
+        for (int x = 0; x < View.GetLength(0); x++)
         {
-            for (int y = 0; y < CurrentView.GetLength(0); y++)
+            for (int y = 0; y < View.GetLength(0); y++)
             {
-                _renderer.SetPixel(x + Position.X, y + Position.Y, CurrentView[x, y], 2);
+                renderer.SetPixel(x + Position.X, y + Position.Y, View[x, y], 2);
             }
         }
-        
-        _renderer.Render();
     }
-    
-    
-
 }

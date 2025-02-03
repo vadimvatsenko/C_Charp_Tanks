@@ -1,10 +1,13 @@
-﻿using C_Charp_Tanks.Venicals;
+﻿using C_Charp_Tanks.MazeGenerator;
+using C_Charp_Tanks.Venicals;
 
 namespace C_Charp_Tanks.Blocks;
 
 public class BlocksController 
 {
-    public List<Block> Blocks {get; private set;}
+    MazeConfiguration _mazeConfiguration = new MazeConfiguration(60, 120, 0.25f);
+    
+    public static List<Block> Blocks {get; private set;}
     private ConsoleRenderer _consoleRenderer;
     
     public event Action? IsGenerateMap;
@@ -25,7 +28,7 @@ public class BlocksController
         Blocks.Remove(block);
     }
     
-    public void GenerateBlocks()
+    /*public void GenerateBlocks()
     {
         foreach (var block in Blocks)
         {
@@ -35,6 +38,6 @@ public class BlocksController
         _consoleRenderer.Render();
         
         IsGenerateMap?.Invoke();
-    }
+    }*/
     
 }

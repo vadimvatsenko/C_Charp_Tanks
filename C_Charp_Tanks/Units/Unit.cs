@@ -1,23 +1,28 @@
 ﻿using System.Drawing;
+using C_Charp_Tanks.Engine;
 using C_Charp_Tanks.Renderer;
 
 namespace C_Charp_Tanks.Venicals;
 
 public abstract class Unit : IUpdatable
 {
-    public Vector2 Position { get; set; }
-    protected char[,] View  { get; private set; }
+    public Vector2 Position { get; protected set; }
+    public float Speed { get; protected set; }
+    public BoxCollider2D Collider { get; protected set; }
+    public char[,] View  { get; protected set; }
+    public int Health { get; protected set; } = 100;
     
-    private IRenderer _renderer;
-
-    public Unit(Vector2 position, IRenderer renderer)
+    public Unit(Vector2 position)
     {
         Position = position;
-        _renderer = renderer;
+        Collider = new BoxCollider2D(position, new Vector2(3, 3));
         View = GameData.Instance.TankUpView;
     }
+
     
-    public virtual bool TryMoveLeft() 
+    public event Action OnDeath;
+    
+    /*public virtual bool TryMoveLeft() 
     {
         return TryChangePosition(Vector2.Left);
     }
@@ -41,10 +46,10 @@ public abstract class Unit : IUpdatable
     {
         Position = newPosition;
         return true;
-    }
+    }*/
     
     public void Update(double deltaTime)
     {
-        
+        Collider.Position = Position;
     }
 }

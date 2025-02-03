@@ -1,7 +1,9 @@
 ﻿using C_Charp_Tanks;
 using C_Charp_Tanks.Blocks;
+using C_Charp_Tanks.Logic;
 using C_Charp_Tanks.MazeGenerator;
 using C_Charp_Tanks.Renderer;
+using C_Charp_Tanks.States;
 using C_Charp_Tanks.Venicals;
 
 public class Program
@@ -9,50 +11,30 @@ public class Program
     const float targetFrameTime = 1f / 60f;
     public static void Main(string[] args)
     {
-        
-        // нужно в mapGenerator создавать блоки, а сами блоки обновлять непосредственно в Update
-        /*Console.OutputEncoding = System.Text.Encoding.UTF8;
-        
-        ConsoleRenderer renderer0 = new ConsoleRenderer(Pallete.Colors);
-        ConsoleRenderer renderer1 = new ConsoleRenderer(Pallete.Colors);
-        
-        ConsoleRenderer prevRenderer = renderer0;
-        ConsoleRenderer currentRenderer = renderer1;
-        
-        ConsoleInput input = new ConsoleInput();
-        Player player = new Player(new Vector2(5, 5), currentRenderer, input);
-        BlocksController blocksController = new BlocksController(currentRenderer);
-
-
-        MazeConfiguration mazeConfiguration = new MazeConfiguration(60, 120, 0.25f);
-        MazeVisualizer mazeVisualizer = new MazeVisualizer(blocksController, currentRenderer);
-        PrimsMazeGenerator primsMazeGenerator = new PrimsMazeGenerator();
-        MazeGenerator mazeGenerator = new MazeGenerator(primsMazeGenerator);
-        
-        Update update = new Update(prevRenderer, currentRenderer);
-        update.AddUpdateListener(input);
-        update.AddUpdateListener(player);
-        
-        Map map = new Map(mazeGenerator, mazeVisualizer, mazeConfiguration);
-        
-        map.Init();
-        
-        GameRenderer gameRenderer = new GameRenderer(player, blocksController, renderer0);
-        
-        update.AddUpdateListener(gameRenderer);*/
-        //gameRenderer.DrawGame();
-        //update.StartUpdate();
-        
         Console.OutputEncoding = System.Text.Encoding.UTF8;
-        
         
         ConsoleRenderer renderer0 = new ConsoleRenderer(Pallete.Colors); 
         ConsoleRenderer renderer1 = new ConsoleRenderer(Pallete.Colors); 
         
         ConsoleInput consoleInput = new ConsoleInput();
+
+        Player player = new Player(new Vector2(9, 9), consoleInput);
+        TankGameplayState tankGameplayState = new TankGameplayState(player);
+        TankGameplayLogic tankGameplayLogic = new TankGameplayLogic(tankGameplayState);
         
         ConsoleRenderer prevRenderer = renderer0; 
         ConsoleRenderer currentRenderer = renderer1; 
+        
+        BlocksController blocksController = new BlocksController(currentRenderer);
+        
+        //
+        MazeConfiguration mazeConfiguration = new MazeConfiguration(60, 120, 0.25f);
+        IMazeAlgorithm mazeAlgorithm = new PrimsMazeGenerator();
+        MazeGenerator mazeGenerator = new MazeGenerator(mazeAlgorithm);
+        MazeVisualizer mazeVisualizer = new MazeVisualizer(blocksController, currentRenderer);
+        Map map = new Map(mazeGenerator, mazeVisualizer, mazeConfiguration);
+        map.Init();
+        //
         
         DateTime lastFrameTime = DateTime.Now;
 
@@ -63,6 +45,7 @@ public class Program
             
             consoleInput.Update(deltaTime);
             
+            tankGameplayLogic.DrawNewState(deltaTime, currentRenderer);
             lastFrameTime = frameStartTime;
             
             if (!currentRenderer.Equals(prevRenderer)) currentRenderer.Render(); 
@@ -80,7 +63,6 @@ public class Program
                 Thread.Sleep((int)(nextFrameTime - endFrameTime).TotalMilliseconds);
             }
         }
-        
     }
 }
 

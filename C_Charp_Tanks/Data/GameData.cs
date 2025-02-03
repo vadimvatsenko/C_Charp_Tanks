@@ -55,4 +55,5 @@ public class GameData
     public char[,] TankLeftView => _tankLeftView;
     public char[,] TankRightView => _tankRightView;
     
+    
 }
