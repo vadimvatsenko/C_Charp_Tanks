@@ -7,7 +7,8 @@ public class MazeVisualizer
 {
     private Random _random = new Random();
     private BlocksController _blocksController;
-    private IRenderer _consoleRenderer;
+    public List<Vector2> EmptyFields { get; private set; }
+    
     private int Step => 3;
     
     public void Visualise(bool[,] maze)
@@ -18,10 +19,10 @@ public class MazeVisualizer
         BuildWallsAround(maze);
     }
 
-    public MazeVisualizer(BlocksController blocksController, IRenderer consoleRenderer)
+    public MazeVisualizer(BlocksController blocksController)
     {
         _blocksController = blocksController;
-        _consoleRenderer = consoleRenderer;
+        EmptyFields = new List<Vector2>();
     }
     
     private void BuildWalls(bool[,] maze)
@@ -44,6 +45,11 @@ public class MazeVisualizer
                     _blocksController.AddBlock(destructibleBlock);
                 }
                 
+            }
+
+            if (maze[i, j])
+            {
+                EmptyFields.Add(new Vector2(i, j));
             }
         }
     }

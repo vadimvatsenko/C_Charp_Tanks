@@ -10,8 +10,8 @@ public struct Pallete
         ConsoleColor.DarkRed,
         ConsoleColor.DarkMagenta,
         ConsoleColor.DarkYellow,
+        ConsoleColor.DarkGray,
         ConsoleColor.Gray,
-        ConsoleColor.Blue,
     };
     
     public static ConsoleColor[] Colors => colors;   

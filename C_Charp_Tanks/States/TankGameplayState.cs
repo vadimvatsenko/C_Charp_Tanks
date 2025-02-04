@@ -1,5 +1,6 @@
 ﻿using C_Charp_Tanks.Blocks;
 using C_Charp_Tanks.Venicals;
+using C_Charp_Tanks.Venicals.Enemy;
 
 namespace C_Charp_Tanks.States;
 
@@ -13,6 +14,7 @@ public class TankGameplayState : BaseGameState
     private int _level = 1;
     
     private Player _player;
+    private Enemy _enemy;
     
     public bool gameOver { get; private set; }
     public bool hasWon { get; private set; } = false;
@@ -48,9 +50,10 @@ public class TankGameplayState : BaseGameState
     }
     
     
-    public TankGameplayState(Player player)
+    public TankGameplayState(Player player, Enemy enemy)
     {
         _player = player;
+        _enemy = enemy;
     }
     public override bool IsDone()
     {
@@ -60,6 +63,7 @@ public class TankGameplayState : BaseGameState
     public override void Update(float deltaTime)
     {
         _player.Update(deltaTime);
+        _enemy.Update(deltaTime);
     }
 
     public override void Reset()
@@ -84,6 +88,8 @@ public class TankGameplayState : BaseGameState
         }
         
         _player.RenderPlayer(renderer);
+        
+        _enemy.RenderPlayer(renderer);
         
         renderer.DrawString($"Score: {_score.ToString()}", FieldWidth / 2, 0, ConsoleColor.DarkBlue);
         

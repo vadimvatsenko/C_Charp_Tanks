@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using C_Charp_Tanks.Blocks;
 using C_Charp_Tanks.Engine;
 using C_Charp_Tanks.Renderer;
 
@@ -18,37 +19,42 @@ public abstract class Unit : IUpdatable
         Collider = new BoxCollider2D(position, new Vector2(3, 3));
         View = GameData.Instance.TankUpView;
     }
-
     
     public event Action OnDeath;
     
-    /*public virtual bool TryMoveLeft() 
+    public virtual void Update(double deltaTime)
     {
-        return TryChangePosition(Vector2.Left);
+        Collider.Position = Position;
     }
     
-    public virtual bool TryMoveRight() 
+    // Метод проверки столкновения с блоками
+    public virtual bool TryToMove(Vector2 direction)
     {
-        return TryChangePosition(Vector2.Right);
-    }
+        Vector2 newPosition = Position + direction; // Новая позиция после движения
+        BoxCollider2D newCollider = new BoxCollider2D(newPosition, Collider.Size); // Создаём временный коллайдер
 
-    public virtual bool  TryMoveUp() 
-    {
-        return TryChangePosition(Vector2.Up);
-    }
+        foreach (var block in BlocksController.Blocks)
+        {
+            if (newCollider.IsColliding(block.Collider)) // Проверяем столкновение
+                return true; // Есть столкновение — нельзя двигаться
+        }
 
-    public virtual bool TryMoveDown() 
-    {
-        return TryChangePosition(Vector2.Down);
+        return false; // Нет столкновения — можно двигаться
     }
     
-    private bool TryChangePosition(Vector2 newPosition)
+    public void RenderPlayer(IRenderer renderer)
     {
-        Position = newPosition;
-        return true;
-    }*/
+        UpdateCollider();
+        for (int x = 0; x < View.GetLength(0); x++)
+        {
+            for (int y = 0; y < View.GetLength(0); y++)
+            {
+                renderer.SetPixel(x + Position.X, y + Position.Y, View[x, y], this is Player? (byte)2 : (byte)3);
+            }
+        }
+    }
     
-    public void Update(double deltaTime)
+    protected void UpdateCollider()
     {
         Collider.Position = Position;
     }

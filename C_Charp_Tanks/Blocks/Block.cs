@@ -6,11 +6,11 @@ namespace C_Charp_Tanks.Blocks;
 
 public abstract class Block : IUpdatable
 {
+    public BoxCollider2D Collider {get; protected set;}
+    public Vector2 Position {get; protected set;}
     public char[,] View { get; protected set; }
     protected char Symbol;
-    public BoxCollider2D Collider {get; protected set;}
     protected BlockType Type;
-    protected Vector2 Position;
     protected byte Color;
 
     public Block(BlockType type, char symbol, Vector2 position)

@@ -7,7 +7,7 @@ public class IndestructibleBlock : Block
 {
     public IndestructibleBlock(BlockType type, char symbol, Vector2 position) : base(type, symbol, position)
     {
-        Color = 3;
+        Color = 6;
     }
     
 }

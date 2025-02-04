@@ -5,17 +5,11 @@ namespace C_Charp_Tanks.Blocks;
 
 public class BlocksController 
 {
-    MazeConfiguration _mazeConfiguration = new MazeConfiguration(60, 120, 0.25f);
-    
     public static List<Block> Blocks {get; private set;}
-    private ConsoleRenderer _consoleRenderer;
     
-    public event Action? IsGenerateMap;
-
-    public BlocksController(ConsoleRenderer consoleRenderer)
+    public BlocksController()
     {
         Blocks = new List<Block>();
-        _consoleRenderer = consoleRenderer;
     }
     
     public void AddBlock(Block block)
@@ -27,17 +21,9 @@ public class BlocksController
     {
         Blocks.Remove(block);
     }
-    
-    /*public void GenerateBlocks()
+
+    public void Clear()
     {
-        foreach (var block in Blocks)
-        {
-            block.RendererBlocks();
-        }
-        
-        _consoleRenderer.Render();
-        
-        IsGenerateMap?.Invoke();
-    }*/
-    
+        Blocks.Clear();
+    }
 }
