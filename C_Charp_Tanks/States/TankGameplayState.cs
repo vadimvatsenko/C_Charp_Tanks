@@ -10,12 +10,9 @@ public class TankGameplayState : BaseGameState
     private int _fieldHeight;
 
     private int _score = 0;
-    private int _lives = 3;
     private int _level = 1;
-    
-    private Player _player;
-    private Enemy _enemy;
-    
+
+    private int _timeToMove = 0;
     public bool gameOver { get; private set; }
     public bool hasWon { get; private set; } = false;
     
@@ -36,25 +33,13 @@ public class TankGameplayState : BaseGameState
         get => _score;
         set => _score = value;
     }
-
-    public int Lives
-    {
-        get => _lives;
-        set => _lives = value;
-    }
-
+    
     public int Level
     {
         get => _level;
         set => _level = value;
     }
     
-    
-    public TankGameplayState(Player player, Enemy enemy)
-    {
-        _player = player;
-        _enemy = enemy;
-    }
     public override bool IsDone()
     {
         return gameOver || hasWon;
@@ -62,36 +47,62 @@ public class TankGameplayState : BaseGameState
 
     public override void Update(float deltaTime)
     {
-        _player.Update(deltaTime);
-        _enemy.Update(deltaTime);
+        var bullets = BulletObjects.Instance.GetObjects().ToList(); // нужно локальную копию списка, так как нельзя удалять на горячюю из списка
+        var units = UnitObjects.Instance.GetObjects().ToList();
+        var blocks = BlockObjects.Instance.GetObjects().ToList();
+        
+        for (int i = bullets.Count - 1; i >= 0; i--) // Идём с конца списка
+        {
+            bullets[i].Update(deltaTime);
+    
+            if (bullets[i].IsDestroyed) // Если пуля уничтожена
+            {
+                BulletObjects.Instance.RemoveObject(bullets[i]); // Удаляем пулю
+            }
+        }
+        
+        for (int i = blocks.Count - 1; i >= 0; i--)
+        {
+            blocks[i].Update(deltaTime);
+    
+            if (blocks[i].IsDestroyed) 
+            {
+                BlockObjects.Instance.RemoveObject(blocks[i]); 
+            }
+        }
     }
 
     public override void Reset()
     {
         gameOver = false;
         hasWon = false;
-        //_bodyList.Clear();
         int middleX = FieldWidth / 2; 
         int middleY = FieldHeight / 2; 
-
-        //_currentDir = SnakeDir.Right;
-        //_bodyList.Add(new Cell(middleX, middleY)); 
-        //_timeToMove = 0;
-        //_apple = new Cell(middleX + 3, middleY + 3);
+        
+        _timeToMove = 0;
     }
-
+    
     public override void Draw(ConsoleRenderer renderer)
     {
-        foreach (Block block in BlocksController.Blocks)
+        foreach (var block in BlockObjects.Instance.GetObjects())
         {
-            block.RendererBlocks(renderer);
+            block.Render(renderer);
+        }
+
+        foreach (var unit in UnitObjects.Instance.GetObjects())
+        {
+            unit.Render(renderer);
         }
         
-        _player.RenderPlayer(renderer);
+        if (BulletObjects.Instance.GetObjects().Any())
+        {
+            foreach (var bullet in BulletObjects.Instance.GetObjects())
+            {
+                bullet.Render(renderer);
+            }
+        }
         
-        _enemy.RenderPlayer(renderer);
         
         renderer.DrawString($"Score: {_score.ToString()}", FieldWidth / 2, 0, ConsoleColor.DarkBlue);
-        
     }
 }

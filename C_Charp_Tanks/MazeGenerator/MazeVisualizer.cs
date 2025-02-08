@@ -1,13 +1,18 @@
 ﻿using C_Charp_Tanks.Blocks;
+using C_Charp_Tanks.Engine.Window;
 using C_Charp_Tanks.Renderer;
+using C_Charp_Tanks.Venicals;
 
 namespace C_Charp_Tanks.MazeGenerator;
 
 public class MazeVisualizer
 {
     private Random _random = new Random();
-    private BlocksController _blocksController;
+    private GameObjects<Block> _blockObjects;
+    private WindowSettings _windowSettings;
     public List<Vector2> EmptyFields { get; private set; }
+
+    
     
     private int Step => 3;
     
@@ -19,15 +24,20 @@ public class MazeVisualizer
         BuildWallsAround(maze);
     }
 
-    public MazeVisualizer(BlocksController blocksController)
+    public MazeVisualizer()
     {
-        _blocksController = blocksController;
         EmptyFields = new List<Vector2>();
     }
     
     private void BuildWalls(bool[,] maze)
     {
-       
+        int mazeHeight = maze.GetLength(1);
+        int mazeWidth = maze.GetLength(0);
+
+        // Определяем начальную позицию отрисовки (по центру окна)
+        int startX = Console.WindowWidth / 2 - mazeWidth / 2;
+        int startY = Console.WindowHeight / 2 - mazeHeight / 2;
+        
         for (int i = 0; i < maze.GetLength(0); i += Step)
         for (int j = 0; j < maze.GetLength(1); j += Step)
         {
@@ -36,47 +46,58 @@ public class MazeVisualizer
                 int randomBlock = _random.Next(2);
                 if (randomBlock == 0)
                 {
-                    WaterBlock waterBlock = new WaterBlock(BlockType.Water, Symbols.Wall, new Vector2(i, j));
-                    _blocksController.AddBlock(waterBlock);
+                    WaterBlock waterBlock = new WaterBlock(BlockType.Water, Symbols.Wall, new Vector2(startX + i, j));
+                    BlockObjects.Instance.AddObject(waterBlock);
                 }
                 else
                 {
-                    DestructibleBlock destructibleBlock = new DestructibleBlock(BlockType.Destructible, Symbols.Wall, new Vector2(i, j)); 
-                    _blocksController.AddBlock(destructibleBlock);
+                    DestructibleBlock destructibleBlock = new DestructibleBlock(BlockType.Destructible, Symbols.Wall, new Vector2(startX + i, j)); 
+                    BlockObjects.Instance.AddObject(destructibleBlock);
                 }
                 
             }
 
             if (maze[i, j])
             {
-                EmptyFields.Add(new Vector2(i, j));
+                EmptyFields.Add(new Vector2(startX + i, startY + j));
             }
         }
+        
+        
     }
 
     private void BuildWallsAround(bool[,] maze)
     {
-       
-        for (int i = 0; i <= maze.GetLength(1); i += Step) // левая стена
+        int mazeHeight = maze.GetLength(1);
+        int mazeWidth = maze.GetLength(0);
+
+        // Определяем начальную позицию отрисовки (по центру окна)
+        int startX = Console.WindowWidth / 2 - mazeWidth / 2;
+        int startY = Console.WindowHeight / 2 - mazeHeight / 2;
+       // вертикаль
+        for (int i = 0; i <= mazeHeight; i += Step)
         {
             IndestructibleBlock indestructibleBlockLeft =
-                new IndestructibleBlock(BlockType.Indestructible, Symbols.Wall, new Vector2(0, i));
-            _blocksController.AddBlock(indestructibleBlockLeft);
+                new IndestructibleBlock(BlockType.Indestructible, Symbols.Wall, new Vector2(startX, i));
+            BlockObjects.Instance.AddObject(indestructibleBlockLeft);
 
             IndestructibleBlock indestructibleBlockRight =
-                new IndestructibleBlock(BlockType.Indestructible, Symbols.Wall, new Vector2(maze.GetLength(0), i));
-            _blocksController.AddBlock(indestructibleBlockRight);
+                new IndestructibleBlock(BlockType.Indestructible, Symbols.Wall, new Vector2(startX + mazeWidth, i));
+            BlockObjects.Instance.AddObject(indestructibleBlockRight);
 
         }
-        for (int j = 0; j <= maze.GetLength(0); j += Step)
+        
+        // горизонталь
+        
+        for (int j = 0; j <= mazeWidth; j += Step)
         {
             IndestructibleBlock indestructibleBlockLeft =
-               new IndestructibleBlock(BlockType.Indestructible, Symbols.Wall, new Vector2(j, 0));
-            _blocksController.AddBlock(indestructibleBlockLeft);
+               new IndestructibleBlock(BlockType.Indestructible, Symbols.Wall, new Vector2(startX + j, 0));
+            BlockObjects.Instance.AddObject(indestructibleBlockLeft);
 
             IndestructibleBlock indestructibleBlockRight =
-                new IndestructibleBlock(BlockType.Indestructible, Symbols.Wall, new Vector2(j, maze.GetLength(1)));
-            _blocksController.AddBlock(indestructibleBlockRight);
+                new IndestructibleBlock(BlockType.Indestructible, Symbols.Wall, new Vector2(startX + j, mazeHeight));
+            BlockObjects.Instance.AddObject(indestructibleBlockRight);
         }
     }
 

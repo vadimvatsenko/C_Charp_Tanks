@@ -38,7 +38,6 @@ public class ConsoleInput : IConsoleInput
                     break;
                 case ConsoleKey.Spacebar:
                     Shoot?.Invoke();
-                    Console.WriteLine("Shoot");
                     break;
             }
         }

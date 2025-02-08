@@ -1,49 +1,59 @@
-﻿using System.Drawing;
-using C_Charp_Tanks.Blocks;
+﻿using C_Charp_Tanks.Blocks;
 using C_Charp_Tanks.Engine;
-using C_Charp_Tanks.Renderer;
+using  C_Charp_Tanks;
 
 namespace C_Charp_Tanks.Venicals;
 
-public class Player : Unit, IDisposable
+public class Player : Unit
 {
     private readonly IConsoleInput _input;
-    
-    private Direction _currentDirection = Direction.Up;
-    
+    private GameObjects<Bullet> _bullets;
+    public event Action<Vector2> OnShoot;
+
+    #region CoolDawn
+
+    private int _shotsFired = 0;
+    private float _cooldownTimer = 0f;
+
+    #endregion
+
     public Player(Vector2 position, IConsoleInput input) : base(position)
     {
-       _input = input;
-       Collider = new BoxCollider2D(position, new Vector2(3, 3));
-       
-       _input.MoveUp += MoveUp;
-       _input.MoveDown += MoveDown;
-       _input.MoveLeft += MoveLeft;
-       _input.MoveRight += MoveRight;
+        _input = input;
+        Collider = new BoxCollider2D(position, new Vector2(3, 3));
+        CurrentDirection = Vector2.Up;
+
+        _input.MoveUp += MoveUp;
+        _input.MoveDown += MoveDown;
+        _input.MoveLeft += MoveLeft;
+        _input.MoveRight += MoveRight;
+        _input.Shoot += Shoot;
     }
-    
+
     public void Dispose()
     {
         _input.MoveUp -= MoveUp;
         _input.MoveDown -= MoveDown;
         _input.MoveLeft -= MoveLeft;
         _input.MoveRight -= MoveRight;
+        _input.Shoot -= Shoot;
     }
-    
+
 
     private void MoveUp()
     {
-        View = GameData.Instance.TankUpView;
+        View = PlayerData.Instance.TankUpView;
+        CurrentDirection = Vector2.Up;
         if (!TryToMove(Vector2.Up))
         {
             Position += Vector2.Up;
         }
-        
     }
 
     private void MoveDown()
     {
-        View = GameData.Instance.TankDownView;
+        View = PlayerData.Instance.TankDownView;
+        CurrentDirection = Vector2.Down;
         if (!TryToMove(Vector2.Down))
         {
             Position += Vector2.Down;
@@ -52,7 +62,8 @@ public class Player : Unit, IDisposable
 
     private void MoveLeft()
     {
-        View = GameData.Instance.TankLeftView;
+        View = PlayerData.Instance.TankLeftView;
+        CurrentDirection = Vector2.Left;
         if (!TryToMove(Vector2.Left))
         {
             Position += Vector2.Left;
@@ -61,18 +72,25 @@ public class Player : Unit, IDisposable
 
     private void MoveRight()
     {
-        View = GameData.Instance.TankRightView;
+        View = PlayerData.Instance.TankRightView;
+        CurrentDirection = Vector2.Right;
         if (!TryToMove(Vector2.Right))
         {
             Position += Vector2.Right;
         }
     }
-    
-    
+
+
     public override void Update(double deltaTime)
     {
         base.Update(deltaTime);
-        UpdateCollider();
+    }
+
+    public void Shoot()
+    {
+        OnShoot?.Invoke(CurrentDirection);
+        Bullet bullet = new Bullet(Position + CurrentDirection + Vector2.One, CurrentDirection);
+        BulletObjects.Instance.AddObject(bullet);
     }
     
 }

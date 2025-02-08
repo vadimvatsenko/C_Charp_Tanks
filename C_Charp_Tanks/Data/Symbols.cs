@@ -12,7 +12,7 @@ public struct Symbols
     public static char TankMuzzle = '|'; // дуло
     public static char TankBack = '-'; // задняя часть 
 
-    public static char Bullet = '\u2756'; // пуля
+    public static char Bullet = 'ₒ'; // пуля
     
     public static char Wall = '\u2588'; // стена
     public static char BrockenWall = '#'; // сломанная стена

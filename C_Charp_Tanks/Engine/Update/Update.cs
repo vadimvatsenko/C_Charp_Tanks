@@ -45,7 +45,7 @@ public class Update
 
             float deltaTime = (float)(frameStartTime - lastFrameTime).TotalSeconds;
             
-            foreach (IUpdatable listener in _updates) listener.Update(deltaTime);
+            //aforeach (IUpdatable listener in _updates) listener.Update(deltaTime);
             
             lastFrameTime = frameStartTime;
             

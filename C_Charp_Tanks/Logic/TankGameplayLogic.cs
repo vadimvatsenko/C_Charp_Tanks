@@ -11,7 +11,7 @@ public class TankGameplayLogic : BaseGameLogic
     private ShowTextState _showTextState = new ShowTextState(2f);
     private bool _newGamePending = false;
     private int _currentLevel = 0;
-
+    
     public TankGameplayLogic(TankGameplayState tankGameplayState)
     {
         _tankGameplayState = tankGameplayState;

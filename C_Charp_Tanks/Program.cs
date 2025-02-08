@@ -1,5 +1,6 @@
 ﻿using C_Charp_Tanks;
 using C_Charp_Tanks.Blocks;
+using C_Charp_Tanks.Engine.Window;
 using C_Charp_Tanks.Logic;
 using C_Charp_Tanks.MazeGenerator;
 using C_Charp_Tanks.Renderer;
@@ -12,6 +13,7 @@ public class Program
     const float targetFrameTime = 1f / 60f;
     public static void Main(string[] args)
     {
+        //WindowSettings windowSettings = new WindowSettings(60, 120);
         Console.OutputEncoding = System.Text.Encoding.UTF8;
         Random rand = new Random();
         
@@ -23,13 +25,12 @@ public class Program
         ConsoleRenderer prevRenderer = renderer0; 
         ConsoleRenderer currentRenderer = renderer1; 
         
-        BlocksController blocksController = new BlocksController();
         
         //
         MazeConfiguration mazeConfiguration = new MazeConfiguration(60, 120, 1f);
         IMazeAlgorithm mazeAlgorithm = new PrimsMazeGenerator();
         MazeGenerator mazeGenerator = new MazeGenerator(mazeAlgorithm);
-        MazeVisualizer mazeVisualizer = new MazeVisualizer(blocksController);
+        MazeVisualizer mazeVisualizer = new MazeVisualizer();
         Map map = new Map(mazeGenerator, mazeVisualizer, mazeConfiguration);
         map.Init();
         //
@@ -38,13 +39,18 @@ public class Program
         Vector2 enemyPosition = mazeVisualizer.EmptyFields[rand.Next(0, mazeVisualizer.EmptyFields.Count)];
         Vector2 targetPosition = mazeVisualizer.EmptyFields[rand.Next(0, mazeVisualizer.EmptyFields.Count)];
         
+        
+        
         Player player = new Player(playerPosition, consoleInput);
         Enemy enemy = new Enemy(enemyPosition, targetPosition);
         
+        UnitObjects.Instance.AddObject(player);
+        UnitObjects.Instance.AddObject(enemy);
+        
         //
         
         //
-        TankGameplayState tankGameplayState = new TankGameplayState(player, enemy);
+        TankGameplayState tankGameplayState = new TankGameplayState();
         TankGameplayLogic tankGameplayLogic = new TankGameplayLogic(tankGameplayState);
         //
         DateTime lastFrameTime = DateTime.Now;

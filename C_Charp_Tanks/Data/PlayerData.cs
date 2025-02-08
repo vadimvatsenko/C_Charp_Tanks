@@ -1,21 +1,21 @@
 ﻿namespace C_Charp_Tanks;
 
-public class GameData
+public class PlayerData
 {
-    private static GameData? _instance;
+    private static PlayerData? _instance;
 
-    private GameData()
+    private PlayerData()
     {
         
     }
 
-    public static GameData? Instance
+    public static PlayerData? Instance
     {
         get 
         {
             if (_instance == null)
             {
-                _instance = new GameData();
+                _instance = new PlayerData();
             }
             return _instance;
         }

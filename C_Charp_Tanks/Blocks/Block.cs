@@ -3,15 +3,15 @@ using C_Charp_Tanks.Engine;
 using C_Charp_Tanks.Renderer;
 
 namespace C_Charp_Tanks.Blocks;
-
 public abstract class Block : IUpdatable
 {
     public BoxCollider2D Collider {get; protected set;}
     public Vector2 Position {get; protected set;}
     public char[,] View { get; protected set; }
     protected char Symbol;
-    protected BlockType Type;
+    public BlockType Type {get; protected set;}
     protected byte Color;
+    public bool IsDestroyed { get; protected set; } = false;  
 
     public Block(BlockType type, char symbol, Vector2 position)
     {
@@ -23,7 +23,7 @@ public abstract class Block : IUpdatable
         FillBlock();
     }
 
-    private void FillBlock()
+    protected void FillBlock()
     {
         for (int x = 0; x < View.GetLength(0); x++)
         {
@@ -34,7 +34,7 @@ public abstract class Block : IUpdatable
         }
     }
 
-    public void RendererBlocks(IRenderer renderer)
+    public void Render(IRenderer renderer)
     {
         for (int x = 0; x < View.GetLength(0); x++)
         {
@@ -45,7 +45,7 @@ public abstract class Block : IUpdatable
         }
     }
 
-    public void Update(double deltaTime)
+    public virtual void Update(double deltaTime)
     {
         
     }

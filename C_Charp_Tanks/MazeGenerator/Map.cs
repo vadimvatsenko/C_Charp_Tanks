@@ -14,7 +14,6 @@ public class Map
         _mazeGenerator = mazeGenerator;
         _mazeVisualizer = mazeVisualizer;
         _mazeConfiguration = mazeConfiguration;
-        
     }
 
     public void GenerateMaze(int width, int height, float gaps)

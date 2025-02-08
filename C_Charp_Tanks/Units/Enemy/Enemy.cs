@@ -5,8 +5,14 @@ namespace C_Charp_Tanks.Venicals.Enemy;
 public class Enemy : Unit
 {
     private Vector2 _target;
+    private Direction _direction;
+    private double _timeToMove = 0;
+    private double _moveCooldown = 0.5f;
+    private bool _isActive = false;
     private int[] _dx = { -1, 0, 1, 0 };
     private int[] _dy = { 0, 1, 0, -1};
+
+    private double _timer = 1;
     
     public Enemy(Vector2 position, Vector2 target) : base(position)
     {
@@ -15,17 +21,42 @@ public class Enemy : Unit
 
     public override void Update(double deltaTime)
     {
+        _timer -= (float)deltaTime;
+        _isActive = _timer <= 0;
+        //Console.WriteLine(_timer);
+        if (_isActive)
+        {
+            //_timeToMove -= deltaTime;
         
-        //List<Node> path = FindPath();
+            //if(_timeToMove > 0) return;
         
-        //if(_target == null || path == null || path.Count <= 1) return;
+            List<Node> path = FindPath();
+
+            if (path == null || path.Count <= 1) return;
         
-        //Node nextPos = path[1];
+            Node nextPos = path[1];
+            
+            this.Position = nextPos.Position;
         
-        //TryToMove()
-        //this.Position = nextPos.Position;
-        //Console.WriteLine(this.Position.X);
+            //_timeToMove = _moveCooldown;
+
+            /*if (Position == _target)
+            {
+                _target = new Vector2(50, 16);
+            }*/
+        
+            //if(_target == null || path == null || path.Count <= 1) return;
+        
+            //Node nextPos = path[1];
+        
+            //TryToMove()
+            //this.Position = nextPos.Position;
+            //Console.WriteLine(this.Position.X);
+        }
+        
     }
+    
+    public void SetDirection(Direction direction) => _direction = direction;
 
     private List<Node> FindPath()
     {
@@ -34,7 +65,7 @@ public class Enemy : Unit
         
         List<Node> openList = new List<Node>() {startNode};
         List<Node> closedList = new List<Node>();
-
+        
         while (openList.Count > 0)
         {
             Node currentNode = openList[0];
@@ -48,7 +79,7 @@ public class Enemy : Unit
             }
             openList.Remove(currentNode);
             closedList.Add(currentNode);
-
+            
             if (currentNode.Position.Equals(targetNode.Position))
             {
                 List<Node> path = new List<Node>();
@@ -74,12 +105,16 @@ public class Enemy : Unit
                 
                 if(closedList.Contains(neighbor)) continue;
                 
-                neighbor.Parent = currentNode;
-                neighbor.CalculateEstimate(_target);
-                neighbor.CalculateValue();
-                openList.Add(neighbor);
+                if (!openList.Contains(neighbor))
+                {
+                    neighbor.Parent = currentNode;
+                    neighbor.CalculateEstimate(_target);
+                    neighbor.CalculateValue();
+                    openList.Add(neighbor);
+                }
             }
         }
-        return null;
+
+        return new List<Node>();
     }
 }

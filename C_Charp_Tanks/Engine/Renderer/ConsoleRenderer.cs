@@ -24,7 +24,6 @@ public class ConsoleRenderer : IRenderer
     public bool IsRenderChanged = true;
 
     private ConsoleRenderer _currentRenderer;
-    private ConsoleRenderer _previousRenderer;
     
     // Индексатор  Позволяет получить или установить символ для конкретной координаты пикселя (w, h), используя синтаксис renderer[w, h]
     public char this[int w, int h]
@@ -97,9 +96,6 @@ public class ConsoleRenderer : IRenderer
             Console.ResetColor(); // сбрасывает цветовые настройки консоли
             Console.CursorVisible = false; // скрывает курсор
         }
-        
-        _previousRenderer = _currentRenderer;
-        
     }
 
     
