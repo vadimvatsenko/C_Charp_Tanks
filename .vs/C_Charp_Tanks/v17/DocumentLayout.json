@@ -1,62 +1,59 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\",
+  "WorkspaceRootPath": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|p:\\projects\\visual studio apps\\c_charp_tanks\\c_charp_tanks\\units\\bullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|p:\\projects and documents\\visual studio apps\\c_charp_tanks\\c_charp_tanks\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|solutionrelative:c_charp_tanks\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\MapController\\MapObjects.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|p:\\projects and documents\\visual studio apps\\c_charp_tanks\\c_charp_tanks\\units\\bullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|solutionrelative:c_charp_tanks\\units\\bullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|p:\\projects\\visual studio apps\\c_charp_tanks\\c_charp_tanks\\mapcontroller\\unitobjects.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|solutionrelative:c_charp_tanks\\mapcontroller\\unitobjects.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|p:\\projects\\visual studio apps\\c_charp_tanks\\c_charp_tanks\\mapcontroller\\mapobjects.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|solutionrelative:c_charp_tanks\\mapcontroller\\mapobjects.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|p:\\projects\\visual studio apps\\c_charp_tanks\\c_charp_tanks\\mapcontroller\\bullletobjects.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|solutionrelative:c_charp_tanks\\mapcontroller\\bullletobjects.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|p:\\projects\\visual studio apps\\c_charp_tanks\\c_charp_tanks\\mapcontroller\\blockobjects.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|solutionrelative:c_charp_tanks\\mapcontroller\\blockobjects.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|p:\\projects\\visual studio apps\\c_charp_tanks\\c_charp_tanks\\logic\\tankgameplaylogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|p:\\projects and documents\\visual studio apps\\c_charp_tanks\\c_charp_tanks\\logic\\tankgameplaylogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|solutionrelative:c_charp_tanks\\logic\\tankgameplaylogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|p:\\projects\\visual studio apps\\c_charp_tanks\\c_charp_tanks\\blocks\\blocktype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|p:\\projects and documents\\visual studio apps\\c_charp_tanks\\c_charp_tanks\\blocks\\blocktype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|solutionrelative:c_charp_tanks\\blocks\\blocktype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|p:\\projects\\visual studio apps\\c_charp_tanks\\c_charp_tanks\\blocks\\block.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|p:\\projects and documents\\visual studio apps\\c_charp_tanks\\c_charp_tanks\\blocks\\block.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|solutionrelative:c_charp_tanks\\blocks\\block.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|p:\\projects\\visual studio apps\\c_charp_tanks\\c_charp_tanks\\mazegenerator\\primsmazegenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|p:\\projects and documents\\visual studio apps\\c_charp_tanks\\c_charp_tanks\\mazegenerator\\primsmazegenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|solutionrelative:c_charp_tanks\\mazegenerator\\primsmazegenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|p:\\projects\\visual studio apps\\c_charp_tanks\\c_charp_tanks\\mazegenerator\\mazevisualizer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|p:\\projects and documents\\visual studio apps\\c_charp_tanks\\c_charp_tanks\\mazegenerator\\mazevisualizer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|solutionrelative:c_charp_tanks\\mazegenerator\\mazevisualizer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|p:\\projects\\visual studio apps\\c_charp_tanks\\c_charp_tanks\\mazegenerator\\mazehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|p:\\projects and documents\\visual studio apps\\c_charp_tanks\\c_charp_tanks\\mazegenerator\\mazehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|solutionrelative:c_charp_tanks\\mazegenerator\\mazehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|p:\\projects\\visual studio apps\\c_charp_tanks\\c_charp_tanks\\mazegenerator\\mazegenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|p:\\projects and documents\\visual studio apps\\c_charp_tanks\\c_charp_tanks\\mazegenerator\\mazegenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|solutionrelative:c_charp_tanks\\mazegenerator\\mazegenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|p:\\projects\\visual studio apps\\c_charp_tanks\\c_charp_tanks\\mazegenerator\\mazeconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|p:\\projects and documents\\visual studio apps\\c_charp_tanks\\c_charp_tanks\\mazegenerator\\mazeconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|solutionrelative:c_charp_tanks\\mazegenerator\\mazeconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|p:\\projects\\visual studio apps\\c_charp_tanks\\c_charp_tanks\\mazegenerator\\map.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|p:\\projects and documents\\visual studio apps\\c_charp_tanks\\c_charp_tanks\\mazegenerator\\map.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|solutionrelative:c_charp_tanks\\mazegenerator\\map.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\MapController\\BullletObjects.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\MapController\\BlockObjects.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -66,193 +63,180 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 14,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MapObjects.cs",
+              "DocumentMoniker": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\MapController\\MapObjects.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\MapController\\MapObjects.cs",
+              "ToolTip": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\MapController\\MapObjects.cs",
+              "RelativeToolTip": "..\\..\\..\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\MapController\\MapObjects.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-07T20:20:19.966Z",
+              "IsPinned": true
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "UnitObjects.cs",
-              "DocumentMoniker": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\MapController\\UnitObjects.cs",
-              "RelativeDocumentMoniker": "C_Charp_Tanks\\MapController\\UnitObjects.cs",
-              "ToolTip": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\MapController\\UnitObjects.cs",
-              "RelativeToolTip": "C_Charp_Tanks\\MapController\\UnitObjects.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Program.cs",
+              "RelativeDocumentMoniker": "C_Charp_Tanks\\Program.cs",
+              "ToolTip": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Program.cs",
+              "RelativeToolTip": "C_Charp_Tanks\\Program.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAgwB8AAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T20:20:31.435Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "MapObjects.cs",
-              "DocumentMoniker": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\MapController\\MapObjects.cs",
-              "RelativeDocumentMoniker": "C_Charp_Tanks\\MapController\\MapObjects.cs",
-              "ToolTip": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\MapController\\MapObjects.cs",
-              "RelativeToolTip": "C_Charp_Tanks\\MapController\\MapObjects.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAyAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T20:20:19.966Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "BullletObjects.cs",
-              "DocumentMoniker": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\MapController\\BullletObjects.cs",
-              "RelativeDocumentMoniker": "C_Charp_Tanks\\MapController\\BullletObjects.cs",
-              "ToolTip": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\MapController\\BullletObjects.cs",
-              "RelativeToolTip": "C_Charp_Tanks\\MapController\\BullletObjects.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T20:20:14.207Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "BlockObjects.cs",
-              "DocumentMoniker": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\MapController\\BlockObjects.cs",
-              "RelativeDocumentMoniker": "C_Charp_Tanks\\MapController\\BlockObjects.cs",
-              "ToolTip": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\MapController\\BlockObjects.cs",
-              "RelativeToolTip": "C_Charp_Tanks\\MapController\\BlockObjects.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T20:20:11.711Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "TankGameplayLogic.cs",
-              "DocumentMoniker": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Logic\\TankGameplayLogic.cs",
-              "RelativeDocumentMoniker": "C_Charp_Tanks\\Logic\\TankGameplayLogic.cs",
-              "ToolTip": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Logic\\TankGameplayLogic.cs",
-              "RelativeToolTip": "C_Charp_Tanks\\Logic\\TankGameplayLogic.cs",
-              "ViewState": "AgIAAB0AAAAAAAAAAAAwwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T20:19:35.312Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "BlockType.cs",
-              "DocumentMoniker": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Blocks\\BlockType.cs",
-              "RelativeDocumentMoniker": "C_Charp_Tanks\\Blocks\\BlockType.cs",
-              "ToolTip": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Blocks\\BlockType.cs",
-              "RelativeToolTip": "C_Charp_Tanks\\Blocks\\BlockType.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T20:19:27.196Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Block.cs",
-              "DocumentMoniker": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Blocks\\Block.cs",
-              "RelativeDocumentMoniker": "C_Charp_Tanks\\Blocks\\Block.cs",
-              "ToolTip": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Blocks\\Block.cs",
-              "RelativeToolTip": "C_Charp_Tanks\\Blocks\\Block.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T20:19:14.906Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "PrimsMazeGenerator.cs",
-              "DocumentMoniker": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\MazeGenerator\\PrimsMazeGenerator.cs",
-              "RelativeDocumentMoniker": "C_Charp_Tanks\\MazeGenerator\\PrimsMazeGenerator.cs",
-              "ToolTip": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\MazeGenerator\\PrimsMazeGenerator.cs",
-              "RelativeToolTip": "C_Charp_Tanks\\MazeGenerator\\PrimsMazeGenerator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T20:19:11.756Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "MazeVisualizer.cs",
-              "DocumentMoniker": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\MazeGenerator\\MazeVisualizer.cs",
-              "RelativeDocumentMoniker": "C_Charp_Tanks\\MazeGenerator\\MazeVisualizer.cs",
-              "ToolTip": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\MazeGenerator\\MazeVisualizer.cs",
-              "RelativeToolTip": "C_Charp_Tanks\\MazeGenerator\\MazeVisualizer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T20:19:10.728Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "MazeHelper.cs",
-              "DocumentMoniker": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\MazeGenerator\\MazeHelper.cs",
-              "RelativeDocumentMoniker": "C_Charp_Tanks\\MazeGenerator\\MazeHelper.cs",
-              "ToolTip": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\MazeGenerator\\MazeHelper.cs",
-              "RelativeToolTip": "C_Charp_Tanks\\MazeGenerator\\MazeHelper.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T20:19:09.423Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "MazeGenerator.cs",
-              "DocumentMoniker": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\MazeGenerator\\MazeGenerator.cs",
-              "RelativeDocumentMoniker": "C_Charp_Tanks\\MazeGenerator\\MazeGenerator.cs",
-              "ToolTip": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\MazeGenerator\\MazeGenerator.cs",
-              "RelativeToolTip": "C_Charp_Tanks\\MazeGenerator\\MazeGenerator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T20:19:08.396Z",
+              "WhenOpened": "2025-02-09T16:08:11.648Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 12,
-              "Title": "MazeConfiguration.cs",
-              "DocumentMoniker": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\MazeGenerator\\MazeConfiguration.cs",
-              "RelativeDocumentMoniker": "C_Charp_Tanks\\MazeGenerator\\MazeConfiguration.cs",
-              "ToolTip": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\MazeGenerator\\MazeConfiguration.cs",
-              "RelativeToolTip": "C_Charp_Tanks\\MazeGenerator\\MazeConfiguration.cs",
+              "Title": "BullletObjects.cs",
+              "DocumentMoniker": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\MapController\\BullletObjects.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\MapController\\BullletObjects.cs",
+              "ToolTip": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\MapController\\BullletObjects.cs",
+              "RelativeToolTip": "..\\..\\..\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\MapController\\BullletObjects.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T20:19:04.203Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-07T20:20:14.207Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 13,
-              "Title": "Map.cs",
-              "DocumentMoniker": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\MazeGenerator\\Map.cs",
-              "RelativeDocumentMoniker": "C_Charp_Tanks\\MazeGenerator\\Map.cs",
-              "ToolTip": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\MazeGenerator\\Map.cs",
-              "RelativeToolTip": "C_Charp_Tanks\\MazeGenerator\\Map.cs",
+              "Title": "BlockObjects.cs",
+              "DocumentMoniker": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\MapController\\BlockObjects.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\MapController\\BlockObjects.cs",
+              "ToolTip": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\MapController\\BlockObjects.cs",
+              "RelativeToolTip": "..\\..\\..\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\MapController\\BlockObjects.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T20:18:55.158Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-07T20:20:11.711Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Bullet.cs",
-              "DocumentMoniker": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Units\\Bullet.cs",
-              "RelativeDocumentMoniker": "C_Charp_Tanks\\Units\\Bullet.cs",
-              "ToolTip": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Units\\Bullet.cs",
-              "RelativeToolTip": "C_Charp_Tanks\\Units\\Bullet.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAIAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "TankGameplayLogic.cs",
+              "DocumentMoniker": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Logic\\TankGameplayLogic.cs",
+              "RelativeDocumentMoniker": "C_Charp_Tanks\\Logic\\TankGameplayLogic.cs",
+              "ToolTip": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Logic\\TankGameplayLogic.cs",
+              "RelativeToolTip": "C_Charp_Tanks\\Logic\\TankGameplayLogic.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAwwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T20:18:23.977Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-07T20:19:35.312Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "BlockType.cs",
+              "DocumentMoniker": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Blocks\\BlockType.cs",
+              "RelativeDocumentMoniker": "C_Charp_Tanks\\Blocks\\BlockType.cs",
+              "ToolTip": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Blocks\\BlockType.cs",
+              "RelativeToolTip": "C_Charp_Tanks\\Blocks\\BlockType.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-07T20:19:27.196Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Block.cs",
+              "DocumentMoniker": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Blocks\\Block.cs",
+              "RelativeDocumentMoniker": "C_Charp_Tanks\\Blocks\\Block.cs",
+              "ToolTip": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Blocks\\Block.cs",
+              "RelativeToolTip": "C_Charp_Tanks\\Blocks\\Block.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-07T20:19:14.906Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "PrimsMazeGenerator.cs",
+              "DocumentMoniker": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\MazeGenerator\\PrimsMazeGenerator.cs",
+              "RelativeDocumentMoniker": "C_Charp_Tanks\\MazeGenerator\\PrimsMazeGenerator.cs",
+              "ToolTip": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\MazeGenerator\\PrimsMazeGenerator.cs",
+              "RelativeToolTip": "C_Charp_Tanks\\MazeGenerator\\PrimsMazeGenerator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-07T20:19:11.756Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "MazeVisualizer.cs",
+              "DocumentMoniker": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\MazeGenerator\\MazeVisualizer.cs",
+              "RelativeDocumentMoniker": "C_Charp_Tanks\\MazeGenerator\\MazeVisualizer.cs",
+              "ToolTip": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\MazeGenerator\\MazeVisualizer.cs",
+              "RelativeToolTip": "C_Charp_Tanks\\MazeGenerator\\MazeVisualizer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-07T20:19:10.728Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "MazeHelper.cs",
+              "DocumentMoniker": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\MazeGenerator\\MazeHelper.cs",
+              "RelativeDocumentMoniker": "C_Charp_Tanks\\MazeGenerator\\MazeHelper.cs",
+              "ToolTip": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\MazeGenerator\\MazeHelper.cs",
+              "RelativeToolTip": "C_Charp_Tanks\\MazeGenerator\\MazeHelper.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-07T20:19:09.423Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "MazeGenerator.cs",
+              "DocumentMoniker": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\MazeGenerator\\MazeGenerator.cs",
+              "RelativeDocumentMoniker": "C_Charp_Tanks\\MazeGenerator\\MazeGenerator.cs",
+              "ToolTip": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\MazeGenerator\\MazeGenerator.cs",
+              "RelativeToolTip": "C_Charp_Tanks\\MazeGenerator\\MazeGenerator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-07T20:19:08.396Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "MazeConfiguration.cs",
+              "DocumentMoniker": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\MazeGenerator\\MazeConfiguration.cs",
+              "RelativeDocumentMoniker": "C_Charp_Tanks\\MazeGenerator\\MazeConfiguration.cs",
+              "ToolTip": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\MazeGenerator\\MazeConfiguration.cs",
+              "RelativeToolTip": "C_Charp_Tanks\\MazeGenerator\\MazeConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-07T20:19:04.203Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Map.cs",
+              "DocumentMoniker": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\MazeGenerator\\Map.cs",
+              "RelativeDocumentMoniker": "C_Charp_Tanks\\MazeGenerator\\Map.cs",
+              "ToolTip": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\MazeGenerator\\Map.cs",
+              "RelativeToolTip": "C_Charp_Tanks\\MazeGenerator\\Map.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-07T20:18:55.158Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Bullet.cs",
+              "DocumentMoniker": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Units\\Bullet.cs",
+              "RelativeDocumentMoniker": "C_Charp_Tanks\\Units\\Bullet.cs",
+              "ToolTip": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Units\\Bullet.cs",
+              "RelativeToolTip": "C_Charp_Tanks\\Units\\Bullet.cs",
+              "ViewState": "AQIAABIAAAAAAAAAAAAowD4AAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-07T20:18:23.977Z"
             }
           ]
         }

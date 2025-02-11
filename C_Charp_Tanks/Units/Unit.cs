@@ -55,7 +55,7 @@ public abstract class Unit : IUpdatable, IDisposable
         UpdateCollider();
         for (int x = 0; x < View.GetLength(0); x++)
         {
-            for (int y = 0; y < View.GetLength(0); y++)
+            for (int y = 0; y < View.GetLength(1); y++)
             {
                 renderer.SetPixel(x + Position.X, y + Position.Y, View[x, y], this is Player? (byte)2 : (byte)3);
             }

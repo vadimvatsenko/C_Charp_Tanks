@@ -9,16 +9,25 @@ public class TankGameplayLogic : BaseGameLogic
 {
     private TankGameplayState _tankGameplayState;
     private ShowTextState _showTextState = new ShowTextState(2f);
+    private MazeCreator _mazeCreator;
+    private UnitFabric _unitFabric;
     private bool _newGamePending = false;
     private int _currentLevel = 0;
     
-    public TankGameplayLogic(TankGameplayState tankGameplayState)
+    public TankGameplayLogic(TankGameplayState tankGameplayState, MazeCreator mazeCreator, UnitFabric unitFabric)
     {
+        _mazeCreator = mazeCreator;
         _tankGameplayState = tankGameplayState;
+        _unitFabric = unitFabric;
+        
+        // Temp
+        _mazeCreator.Initialize();
+        _unitFabric.CreateUnits();
     }
     
     public void GotoGamePlay()
     {
+        
         _tankGameplayState.Level = _currentLevel;
         _tankGameplayState.FieldWidth = this.ScreenWidth;
         _tankGameplayState.FieldHeight = this.ScreenHeight;

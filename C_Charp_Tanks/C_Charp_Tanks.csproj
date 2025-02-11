@@ -13,4 +13,8 @@
       </Compile>
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Systems\" />
+    </ItemGroup>
+
 </Project>

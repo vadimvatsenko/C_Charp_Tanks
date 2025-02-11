@@ -37,7 +37,7 @@ public class Bullet : Unit
 
         foreach (var block in BlockObjects.Instance.GetObjects())
         {
-            if (newCollider.IsColliding(block.Collider) 
+            if (newCollider.IsColliding(block.Collider)
                 && block.Type != BlockType.Water)
             {
                 Destroy();

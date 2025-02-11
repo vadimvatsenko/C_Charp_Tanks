@@ -23,7 +23,7 @@ public class DestructibleBlock: Block
         CheckBulletCollision();
         if (Lives == 1)
         {
-            
+            Symbol = Symbols.BrockenWall;
         }
         else if (Lives <= 0)
         {
@@ -38,7 +38,6 @@ public class DestructibleBlock: Block
             if (this.Collider.IsColliding(bullet.Collider))
             {
                 GetDamage();
-                Console.WriteLine("Get Demage");
             }
         }
         

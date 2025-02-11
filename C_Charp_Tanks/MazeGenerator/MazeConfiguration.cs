@@ -8,8 +8,8 @@ public class MazeConfiguration
 
     public MazeConfiguration(int width, int height, float gapsChance)
     {
-        Width = width;
-        Height = height;
+        Width = height; // тут инверсия будет
+        Height = width;
         GapsChance = gapsChance;
     }
 }

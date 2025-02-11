@@ -8,6 +8,5 @@ public abstract class GameObjects<T>
     public virtual void AddObject(T obj) => Objects.Add(obj);
     public virtual void RemoveObject(T obj) => Objects.Remove(obj);
     public virtual void Clear() => Objects.Clear();
-    
     public IEnumerable<T> GetObjects() => Objects; // забрать все объекты
 }
