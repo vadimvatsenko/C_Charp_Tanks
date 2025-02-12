@@ -1,4 +1,5 @@
 ﻿using C_Charp_Tanks.Blocks;
+using C_Charp_Tanks.Fabrics;
 using C_Charp_Tanks.MazeGenerator;
 using C_Charp_Tanks.States;
 using C_Charp_Tanks.Venicals;
@@ -10,19 +11,19 @@ public class TankGameplayLogic : BaseGameLogic
     private TankGameplayState _tankGameplayState;
     private ShowTextState _showTextState = new ShowTextState(2f);
     private MazeCreator _mazeCreator;
-    private UnitFabric _unitFabric;
+    private FabricController _fabricController;
     private bool _newGamePending = false;
     private int _currentLevel = 0;
     
-    public TankGameplayLogic(TankGameplayState tankGameplayState, MazeCreator mazeCreator, UnitFabric unitFabric)
+    public TankGameplayLogic(TankGameplayState tankGameplayState, MazeCreator mazeCreator, FabricController fabricController)
     {
         _mazeCreator = mazeCreator;
         _tankGameplayState = tankGameplayState;
-        _unitFabric = unitFabric;
+        _fabricController = fabricController;
         
         // Temp
         _mazeCreator.Initialize();
-        _unitFabric.CreateUnits();
+        _fabricController.Initialize();
     }
     
     public void GotoGamePlay()

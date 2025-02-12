@@ -1,4 +1,5 @@
 ﻿using C_Charp_Tanks.Blocks;
+using C_Charp_Tanks.Fabrics;
 using C_Charp_Tanks.Venicals;
 using C_Charp_Tanks.Venicals.Enemy;
 
@@ -6,6 +7,7 @@ namespace C_Charp_Tanks.States;
 
 public class TankGameplayState : BaseGameState
 {
+    private FabricController _fabricController;
     private int _fieldWidth;
     private int _fieldHeight;
 
@@ -39,6 +41,11 @@ public class TankGameplayState : BaseGameState
         get => _level;
         set => _level = value;
     }
+
+    public TankGameplayState(FabricController fabricController)
+    {
+        _fabricController = fabricController;
+    }
     
     public override bool IsDone()
     {
@@ -48,7 +55,7 @@ public class TankGameplayState : BaseGameState
     public override void Update(float deltaTime)
     {
         var bullets = BulletObjects.Instance.GetObjects().ToList(); // нужно локальную копию списка, так как нельзя удалять на горячюю из списка
-        var units = UnitObjects.Instance.GetObjects().ToList();
+        //var units = UnitObjects.Instance.GetObjects().ToList();
         var blocks = BlockObjects.Instance.GetObjects().ToList();
         
         for (int i = bullets.Count - 1; i >= 0; i--) // Идём с конца списка
@@ -84,12 +91,19 @@ public class TankGameplayState : BaseGameState
     
     public override void Draw(ConsoleRenderer renderer)
     {
-        foreach (var block in BlockObjects.Instance.GetObjects())
+        /*foreach (var block in BlockObjects.Instance.GetObjects())
+        {
+            block.Render(renderer);
+        }*/
+
+        foreach (var block in _fabricController._blocksFabric.GetBlocks())
         {
             block.Render(renderer);
         }
-
-        foreach (var unit in UnitObjects.Instance.GetObjects())
+        
+        
+        if(_fabricController._unitFabric.GetUnits().Count <= 0) return;
+        foreach (var unit in _fabricController._unitFabric.GetUnits())
         {
             unit.Render(renderer);
         }

@@ -1,16 +1,16 @@
 ﻿using C_Charp_Tanks.Blocks;
+using C_Charp_Tanks.Fabrics.BlocksFactory;
 
 namespace C_Charp_Tanks.MazeGenerator;
 
 public class MazeVisualizer
 {
     private Random _random = new Random();
-    private GameObjects<Block> _blockObjects;
+    //private GameObjects<Block> _blockObjects;
     public List<Vector2> EmptyFields { get; private set; }
-    
+    public BlocksFabric _blocksFabric { get; private set; }
+
     private int _step = 3;
-    
-    private ConsoleRenderer _renderer;
     
     public void Visualise(bool[,] maze)
     {
@@ -18,8 +18,9 @@ public class MazeVisualizer
         BuildWallsAround(maze);
     }
 
-    public MazeVisualizer()
+    public MazeVisualizer(BlocksFabric blocksFabric)
     {
+        _blocksFabric = blocksFabric;
         EmptyFields = new List<Vector2>();
     }
     
@@ -32,69 +33,66 @@ public class MazeVisualizer
         int startX = Console.WindowWidth / 2 - mazeWidth / 2;
         int startY = Console.WindowHeight / 2 - mazeHeight / 2;
         
-        for (int i = 3; i < maze.GetLength(0); i += _step)
-        for (int j = 3; j < maze.GetLength(1); j += _step)
+        for (int i = _step; i < mazeWidth * _step; i += _step)
+        for (int j = _step; j < mazeWidth * _step; j += _step)
         {
-            if (!maze[i, j])
+            if (!maze[i - _step, j - _step])
             {
                 int randomBlock = _random.Next(2);
                 if (randomBlock == 0)
                 {
+                    WaterBlock waterBlock = new WaterBlock(BlockType.Water, Symbols.Wall, new Vector2(i, j));
+                    _blocksFabric.AddBlock(waterBlock);
                     
-                    /*WaterBlock waterBlock = new WaterBlock(BlockType.Water, Symbols.Wall, new Vector2(startX + i, j));
-                    BlockObjects.Instance.AddObject(waterBlock);*/
-                    _renderer.SetPixel(startX + j, startY + i, ')', 2);
                 }
-                else
+                /*else
                 {
-                    /*DestructibleBlock destructibleBlock = new DestructibleBlock(BlockType.Destructible, Symbols.Wall, new Vector2(startX + i, j)); 
-                    BlockObjects.Instance.AddObject(destructibleBlock);*/
-                }
+                    DestructibleBlock destructibleBlock = new DestructibleBlock(BlockType.Destructible, Symbols.Wall, new Vector2(startX + i * _step , j * _step)); 
+                    _blocksFabric.AddBlock(destructibleBlock);
+                }*/
                 
             }
 
             else
             {
-                EmptyFields.Add(new Vector2(startX + i, j));
+                //EmptyFields.Add(new Vector2(startX + i, j));
             }
         }
-        
-        _renderer.Render();
     }
 
     private void BuildWallsAround(bool[,] maze)
     {
-        /*int mazeHeight = maze.GetLength(1);
+        int mazeHeight = maze.GetLength(1);
         int mazeWidth = maze.GetLength(0);
 
         // Определяем начальную позицию отрисовки (по центру окна)
-        int startX = Console.WindowWidth / 2 - mazeWidth / 2;
-        int startY = Console.WindowHeight / 2 - mazeHeight / 2;
+        int startX = Console.WindowWidth / 2 - mazeWidth / 2 * _step;
+        int startY = Console.WindowHeight / 2 - mazeHeight / 2 * _step;
         
        // вертикаль
-        for (int i = 0; i <= mazeHeight; i += _step)
+        for (int i = 0; i < mazeHeight * _step; i += _step)
         {
             IndestructibleBlock indestructibleBlockLeft =
                 new IndestructibleBlock(BlockType.Indestructible, Symbols.Wall, new Vector2(startX, i));
-            BlockObjects.Instance.AddObject(indestructibleBlockLeft);
+            _blocksFabric.AddBlock(indestructibleBlockLeft);
 
             IndestructibleBlock indestructibleBlockRight =
-                new IndestructibleBlock(BlockType.Indestructible, Symbols.Wall, new Vector2(startX + mazeWidth, i));
-            BlockObjects.Instance.AddObject(indestructibleBlockRight);
+                new IndestructibleBlock(BlockType.Indestructible, Symbols.Wall, new Vector2(startX + mazeWidth * _step, i));
+            _blocksFabric.AddBlock(indestructibleBlockRight);
 
         }
         
         // горизонталь
         
-        for (int j = 0; j <= mazeWidth; j += _step)
+        for (int j = _step; j <= mazeWidth * _step - _step; j += _step)
         {
             IndestructibleBlock indestructibleBlockLeft =
                new IndestructibleBlock(BlockType.Indestructible, Symbols.Wall, new Vector2(startX + j, 0));
-            BlockObjects.Instance.AddObject(indestructibleBlockLeft);
+            _blocksFabric.AddBlock(indestructibleBlockLeft);
 
             IndestructibleBlock indestructibleBlockRight =
-                new IndestructibleBlock(BlockType.Indestructible, Symbols.Wall, new Vector2(startX + j, mazeHeight));
-            BlockObjects.Instance.AddObject(indestructibleBlockRight);
-        }*/
+                new IndestructibleBlock(BlockType.Indestructible, Symbols.Wall, new Vector2(startX + j, mazeHeight * _step - _step));
+            _blocksFabric.AddBlock(indestructibleBlockRight);
+        }
     }
 }

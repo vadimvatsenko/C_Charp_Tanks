@@ -14,7 +14,8 @@ public struct Symbols
 
     public static char Bullet = 'ₒ'; // пуля
     
-    public static char Wall = '\u258a'; // стена
-    public static char BrockenWall = '#'; // сломанная стена
+    //public static char Wall = '\u258a'; // стена
+    public static char Wall = 'X'; // стена
+    public static char BrockenWall = 'H'; // сломанная стена
     
 }

@@ -5,7 +5,7 @@ using C_Charp_Tanks.Renderer;
 
 namespace C_Charp_Tanks.Venicals;
 
-public abstract class Unit : IUpdatable, IDisposable
+public abstract class Unit : IDisposable
 {
     public Vector2 Position { get; protected set; }
     public BoxCollider2D Collider { get; protected set; }

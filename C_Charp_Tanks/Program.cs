@@ -1,7 +1,10 @@
 ﻿using C_Charp_Tanks;
+using C_Charp_Tanks.Fabrics;
+using C_Charp_Tanks.Fabrics.BlocksFactory;
 using C_Charp_Tanks.Logic;
 using C_Charp_Tanks.MazeGenerator;
 using C_Charp_Tanks.States;
+using C_Charp_Tanks.Venicals;
 
 public class Program
 {
@@ -18,13 +21,15 @@ public class Program
         ConsoleRenderer prevRenderer = renderer0; 
         ConsoleRenderer currentRenderer = renderer1; 
         
-        MazeCreator mazeCreator = new MazeCreator();
+        BlocksFabric blocksFabric = new BlocksFabric();
+        MazeCreator mazeCreator = new MazeCreator(blocksFabric);
         mazeCreator.Initialize(); // 
-        
         UnitFabric unitFabric = new UnitFabric(consoleInput, mazeCreator);
         
-        TankGameplayState tankGameplayState = new TankGameplayState();
-        TankGameplayLogic tankGameplayLogic = new TankGameplayLogic(tankGameplayState, mazeCreator, unitFabric);
+        FabricController fabricController = new FabricController(unitFabric, blocksFabric);
+        
+        TankGameplayState tankGameplayState = new TankGameplayState(fabricController);
+        TankGameplayLogic tankGameplayLogic = new TankGameplayLogic(tankGameplayState, mazeCreator, fabricController);
         
         DateTime lastFrameTime = DateTime.Now;
 
