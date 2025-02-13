@@ -1,10 +1,11 @@
-﻿namespace C_Charp_Tanks;
+﻿namespace C_Sharp_Maze_Generator.Utils;
 
 public class HashSetUtilities
 {
-    private static readonly Random _random = new();
+    private static Random _random = new();
     public static T GetAndRemoveRandomElement<T>(HashSet<T> data)
     {
+        
         int elementIndex = _random.Next(0, data.Count);
         int i = 0;
 

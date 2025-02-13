@@ -1,4 +1,5 @@
 ﻿using C_Charp_Tanks.Blocks;
+using C_Charp_Tanks.Fabrics;
 
 namespace C_Charp_Tanks.Venicals.Enemy;
 
@@ -14,9 +15,9 @@ public class Enemy : Unit
 
     private double _timer = 1;
     
-    public Enemy(Vector2 position, Vector2 target) : base(position)
+    public Enemy(Vector2 position, FabricController fabricController) : base(position, fabricController)
     {
-        _target = target;
+        //_target = target;
     }
 
     public override void Update(double deltaTime)

@@ -1,5 +1,6 @@
 ﻿using C_Charp_Tanks.Blocks;
 using C_Charp_Tanks.Engine;
+using C_Charp_Tanks.Fabrics;
 using C_Charp_Tanks.Renderer;
 
 namespace C_Charp_Tanks.Venicals;
@@ -9,7 +10,8 @@ public class Bullet : Unit
     private char _view;
     private Vector2 _direction;
     public bool IsDestroyed {get; private set;}
-    public Bullet(Vector2 position, Vector2 direction) : base(position)
+    public Bullet(Vector2 position, FabricController fabricController, Vector2 direction) 
+        : base(position, fabricController)
     {
         Collider = new BoxCollider2D(position, new Vector2(1, 1));
         _view = Symbols.Wall;
@@ -35,7 +37,7 @@ public class Bullet : Unit
         Vector2 newPosition = Position + direction;
         BoxCollider2D newCollider = new BoxCollider2D(newPosition, Collider.Size);
 
-        foreach (var block in BlockObjects.Instance.GetObjects())
+        foreach (var block in _fabricController.BlocksFabric.GetBlocks())
         {
             if (newCollider.IsColliding(block.Collider)
                 && block.Type != BlockType.Water)
@@ -46,7 +48,7 @@ public class Bullet : Unit
             
         }
 
-        foreach (var unit in UnitObjects.Instance.GetObjects())
+        foreach (var unit in _fabricController.UnitFabric.GetUnits())
         {
             if (newCollider.IsColliding(unit.Collider))
             {
@@ -61,6 +63,6 @@ public class Bullet : Unit
     public void Destroy()
     {
         IsDestroyed = true;
-        BulletObjects.Instance.RemoveObject(this);
+        _fabricController.BulletsFabric.RemoveBullet(this);
     }
 }

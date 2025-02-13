@@ -1,8 +1,8 @@
 ﻿using C_Charp_Tanks.Blocks;
 using C_Charp_Tanks.Fabrics;
-using C_Charp_Tanks.MazeGenerator;
 using C_Charp_Tanks.States;
 using C_Charp_Tanks.Venicals;
+using C_Sharp_Maze_Generator.Maze;
 
 namespace C_Charp_Tanks.Logic;
 
@@ -22,12 +22,13 @@ public class TankGameplayLogic : BaseGameLogic
         _fabricController = fabricController;
         
         // Temp
-        _mazeCreator.Initialize();
-        _fabricController.Initialize();
+        
     }
     
     public void GotoGamePlay()
     {
+        _mazeCreator.Initialize();
+        _fabricController.Initialize();
         
         _tankGameplayState.Level = _currentLevel;
         _tankGameplayState.FieldWidth = this.ScreenWidth;

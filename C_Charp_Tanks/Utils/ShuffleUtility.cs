@@ -1,4 +1,4 @@
-﻿namespace C_Charp_Tanks;
+﻿namespace C_Sharp_Maze_Generator.Utils;
 
 public class ShuffleUtility
 {

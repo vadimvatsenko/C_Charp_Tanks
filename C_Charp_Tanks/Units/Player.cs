@@ -1,6 +1,7 @@
 ﻿using C_Charp_Tanks.Blocks;
 using C_Charp_Tanks.Engine;
 using  C_Charp_Tanks;
+using C_Charp_Tanks.Fabrics;
 
 namespace C_Charp_Tanks.Venicals;
 
@@ -17,7 +18,7 @@ public class Player : Unit
 
     #endregion
 
-    public Player(Vector2 position, IConsoleInput input) : base(position)
+    public Player(Vector2 position, FabricController fabricController,  IConsoleInput input) : base(position, fabricController)
     {
         _input = input;
         Collider = new BoxCollider2D(position, new Vector2(3, 3));
@@ -30,7 +31,7 @@ public class Player : Unit
         _input.Shoot += Shoot;
     }
 
-    public void Dispose()
+   ~Player()
     {
         _input.MoveUp -= MoveUp;
         _input.MoveDown -= MoveDown;
@@ -38,13 +39,12 @@ public class Player : Unit
         _input.MoveRight -= MoveRight;
         _input.Shoot -= Shoot;
     }
-
-
+   
     private void MoveUp()
     {
         View = PlayerData.Instance.TankUpView;
         CurrentDirection = Vector2.Up;
-        if (!TryToMove(Vector2.Up))
+        if (TryToMove(Vector2.Up))
         {
             Position += Vector2.Up;
         }
@@ -54,7 +54,7 @@ public class Player : Unit
     {
         View = PlayerData.Instance.TankDownView;
         CurrentDirection = Vector2.Down;
-        if (!TryToMove(Vector2.Down))
+        if (TryToMove(Vector2.Down))
         {
             Position += Vector2.Down;
         }
@@ -64,7 +64,7 @@ public class Player : Unit
     {
         View = PlayerData.Instance.TankLeftView;
         CurrentDirection = Vector2.Left;
-        if (!TryToMove(Vector2.Left))
+        if (TryToMove(Vector2.Left))
         {
             Position += Vector2.Left;
         }
@@ -74,7 +74,7 @@ public class Player : Unit
     {
         View = PlayerData.Instance.TankRightView;
         CurrentDirection = Vector2.Right;
-        if (!TryToMove(Vector2.Right))
+        if (TryToMove(Vector2.Right))
         {
             Position += Vector2.Right;
         }
@@ -88,9 +88,16 @@ public class Player : Unit
 
     public void Shoot()
     {
+        
+        _fabricController.BulletsFabric.CreateBullet(Position + CurrentDirection + Vector2.One, CurrentDirection);
         OnShoot?.Invoke(CurrentDirection);
-        Bullet bullet = new Bullet(Position + CurrentDirection + Vector2.One, CurrentDirection);
-        BulletObjects.Instance.AddObject(bullet);
+        //Bullet bullet = new Bullet(Position + CurrentDirection + Vector2.One, CurrentDirection);
+        //BulletObjects.Instance.AddObject(bullet);
+    }
+
+    public override void Destroy()
+    {
+        
     }
     
 }

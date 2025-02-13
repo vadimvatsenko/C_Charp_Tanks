@@ -5,5 +5,5 @@ public enum BlockType
     Indestructible,
     Destructible,
     Water,
-    RoadBlock,
+    EmptyBlock,
 }

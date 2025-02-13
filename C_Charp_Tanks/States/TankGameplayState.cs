@@ -1,5 +1,6 @@
 ﻿using C_Charp_Tanks.Blocks;
 using C_Charp_Tanks.Fabrics;
+using C_Charp_Tanks.Systems;
 using C_Charp_Tanks.Venicals;
 using C_Charp_Tanks.Venicals.Enemy;
 
@@ -8,6 +9,7 @@ namespace C_Charp_Tanks.States;
 public class TankGameplayState : BaseGameState
 {
     private FabricController _fabricController;
+    private CollisionSystem _collisionSystem;
     private int _fieldWidth;
     private int _fieldHeight;
 
@@ -42,8 +44,9 @@ public class TankGameplayState : BaseGameState
         set => _level = value;
     }
 
-    public TankGameplayState(FabricController fabricController)
+    public TankGameplayState(FabricController fabricController, CollisionSystem collisionSystem)
     {
+        _collisionSystem = collisionSystem;
         _fabricController = fabricController;
     }
     
@@ -54,29 +57,15 @@ public class TankGameplayState : BaseGameState
 
     public override void Update(float deltaTime)
     {
-        var bullets = BulletObjects.Instance.GetObjects().ToList(); // нужно локальную копию списка, так как нельзя удалять на горячюю из списка
-        //var units = UnitObjects.Instance.GetObjects().ToList();
-        var blocks = BlockObjects.Instance.GetObjects().ToList();
+        _collisionSystem.Update(deltaTime);
         
-        for (int i = bullets.Count - 1; i >= 0; i--) // Идём с конца списка
+        /*if (_fabricController.BulletsFabric.GetBullets().Count > 0)
         {
-            bullets[i].Update(deltaTime);
-    
-            if (bullets[i].IsDestroyed) // Если пуля уничтожена
+            foreach (var bullet in _fabricController.BulletsFabric.GetBullets())
             {
-                BulletObjects.Instance.RemoveObject(bullets[i]); // Удаляем пулю
+                bullet.Update(deltaTime);
             }
-        }
-        
-        for (int i = blocks.Count - 1; i >= 0; i--)
-        {
-            blocks[i].Update(deltaTime);
-    
-            if (blocks[i].IsDestroyed) 
-            {
-                BlockObjects.Instance.RemoveObject(blocks[i]); 
-            }
-        }
+        }*/
     }
 
     public override void Reset()
@@ -91,30 +80,24 @@ public class TankGameplayState : BaseGameState
     
     public override void Draw(ConsoleRenderer renderer)
     {
-        /*foreach (var block in BlockObjects.Instance.GetObjects())
-        {
-            block.Render(renderer);
-        }*/
-
-        foreach (var block in _fabricController._blocksFabric.GetBlocks())
+        foreach (var block in _fabricController.BlocksFabric.GetBlocks())
         {
             block.Render(renderer);
         }
         
-        
-        if(_fabricController._unitFabric.GetUnits().Count <= 0) return;
-        foreach (var unit in _fabricController._unitFabric.GetUnits())
+        foreach (var unit in _fabricController.UnitFabric.GetUnits())
         {
             unit.Render(renderer);
         }
-        
-        if (BulletObjects.Instance.GetObjects().Any())
+
+        /*if (_fabricController.BulletsFabric.GetBullets().Count > 0 
+            && _fabricController.BulletsFabric.GetBullets() != null)
         {
-            foreach (var bullet in BulletObjects.Instance.GetObjects())
+            foreach (var bullet in _fabricController.BulletsFabric.GetBullets())
             {
                 bullet.Render(renderer);
             }
-        }
+        }*/
         
         
         renderer.DrawString($"Score: {_score.ToString()}", FieldWidth / 2, 0, ConsoleColor.DarkBlue);
