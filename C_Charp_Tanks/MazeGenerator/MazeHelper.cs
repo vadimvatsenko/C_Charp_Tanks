@@ -36,7 +36,7 @@ public class MazeHelper
     {
         return GetClosest(maze, x, y, false);
     }
-    
+
     private static Tuple<int, int> GetClosest(bool[,] maze, int x, int y, bool targetValue)
     {
         if (maze[y, x] == targetValue)

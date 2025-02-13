@@ -1,6 +1,6 @@
 ﻿namespace C_Charp_Tanks;
 
-public static class HashSetUtilities
+public class HashSetUtilities
 {
     private static readonly Random _random = new();
     public static T GetAndRemoveRandomElement<T>(HashSet<T> data)

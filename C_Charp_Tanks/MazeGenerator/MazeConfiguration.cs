@@ -2,9 +2,9 @@
 
 public class MazeConfiguration
 {
-    public int Width { get; private set; }
-    public int Height { get; private set; }
-    public float GapsChance { get; private set; }
+    public int Width { get; }
+    public int Height { get; }
+    public float GapsChance { get; }
 
     public MazeConfiguration(int width, int height, float gapsChance)
     {

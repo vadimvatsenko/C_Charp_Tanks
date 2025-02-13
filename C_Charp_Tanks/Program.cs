@@ -22,8 +22,8 @@ public class Program
         ConsoleRenderer currentRenderer = renderer1; 
         
         BlocksFabric blocksFabric = new BlocksFabric();
-        MazeCreator mazeCreator = new MazeCreator(blocksFabric);
-        mazeCreator.Initialize(); // 
+        MazeCreator mazeCreator = new MazeCreator(blocksFabric, currentRenderer);
+        mazeCreator.Initialize(); 
         UnitFabric unitFabric = new UnitFabric(consoleInput, mazeCreator);
         
         FabricController fabricController = new FabricController(unitFabric, blocksFabric);
@@ -32,8 +32,10 @@ public class Program
         TankGameplayLogic tankGameplayLogic = new TankGameplayLogic(tankGameplayState, mazeCreator, fabricController);
         
         DateTime lastFrameTime = DateTime.Now;
+        
+        currentRenderer.Render();
 
-        while (true)
+        /*while (true)
         {
             DateTime frameStartTime = DateTime.Now;
             float deltaTime = (float)(frameStartTime - lastFrameTime).TotalSeconds;
@@ -57,7 +59,7 @@ public class Program
             {
                 Thread.Sleep((int)(nextFrameTime - endFrameTime).TotalMilliseconds);
             }
-        }
+        }*/
     }
 }
 

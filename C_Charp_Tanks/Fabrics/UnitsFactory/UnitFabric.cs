@@ -42,7 +42,4 @@ public class UnitFabric : AbstractUnitsFactory
             _units.Add(enemy);
         }
     }
-
-    
-    
 }

@@ -2,13 +2,13 @@
 
 public class PrimsMazeGenerator : IMazeAlgorithm
 {
+    private Random _random = new();
     public bool[,] Generate(int width, int height)
-    {      
-        Random random = new Random();
+    {        
         bool[,] maze = new bool[height, width];
 
-        int x = random.Next(0, width / 2) * 2;
-        int y = random.Next(0, height / 2) * 2;
+        int x = _random.Next(0, width / 2) * 2;
+        int y = _random.Next(0, height / 2) * 2;
 
         HashSet<Tuple<int, int>> needConnectPoints = new HashSet<Tuple<int, int>>();
         needConnectPoints.Add(new Tuple<int, int>(x, y));

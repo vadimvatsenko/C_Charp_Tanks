@@ -6,7 +6,6 @@ public class BlocksFabric : AbstractBlocksFactory
 {
     public override void CreateBlocks()
     {
-        
     }
 
     public override void AddBlock(Block block) => _blocks.Add(block);

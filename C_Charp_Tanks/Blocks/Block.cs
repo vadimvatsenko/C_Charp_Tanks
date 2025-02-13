@@ -8,6 +8,7 @@ public abstract class Block : IUpdatable
     public BoxCollider2D Collider {get; protected set;}
     public Vector2 Position {get; protected set;}
     public char[,] View { get; protected set; }
+    
     protected char Symbol;
     public BlockType Type {get; protected set;}
     protected byte Color;
