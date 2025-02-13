@@ -33,19 +33,19 @@ public class DestructibleBlock: Block
 
     private void CheckBulletCollision()
     {
-        foreach (var bullet in BulletObjects.Instance.GetObjects())
+        /*ar bullets = 
+        foreach (var bullet in )
         {
             if (this.Collider.IsColliding(bullet.Collider))
             {
                 GetDamage();
             }
-        }
+        }*/
         
     }
 
     public void Destroy()
     {
+        
     }
-    
-    
 }

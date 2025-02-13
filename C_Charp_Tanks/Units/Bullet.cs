@@ -16,7 +16,6 @@ public class Bullet : Unit
         Collider = new BoxCollider2D(position, new Vector2(1, 1));
         _view = Symbols.Wall;
         _direction = direction;
-        Position = position;
     }
     public override void Render(IRenderer renderer)
     {

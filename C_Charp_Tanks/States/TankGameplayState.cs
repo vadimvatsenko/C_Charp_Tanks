@@ -57,15 +57,32 @@ public class TankGameplayState : BaseGameState
 
     public override void Update(float deltaTime)
     {
+        // копия, нельзя удалять из списка, во время цикла
+        var bullets = _fabricController.BulletsFabric.GetBullets().ToList();
+        var units = _fabricController.UnitFabric.GetUnits().ToList();
+        var blocks = _fabricController.BlocksFabric.GetBlocks().ToList();
         _collisionSystem.Update(deltaTime);
-        
-        /*if (_fabricController.BulletsFabric.GetBullets().Count > 0)
+
+        foreach (var bullet in bullets)
         {
-            foreach (var bullet in _fabricController.BulletsFabric.GetBullets())
-            {
-                bullet.Update(deltaTime);
-            }
+            bullet.Update(deltaTime);
+        }
+
+        /*foreach (var unit in units)
+        {
+            unit.Update(deltaTime);
         }*/
+
+        foreach (var block in blocks)
+        {
+            block.Update(deltaTime);
+        }
+
+        var enemies = _fabricController.UnitFabric.GetUnits().Where(u => u is Enemy).ToList();
+        
+        var player = _fabricController.UnitFabric.GetUnits().Where(u => u is Player).First();
+        
+        gameOver = player.Health <= 0;
     }
 
     public override void Reset()
@@ -80,25 +97,25 @@ public class TankGameplayState : BaseGameState
     
     public override void Draw(ConsoleRenderer renderer)
     {
-        foreach (var block in _fabricController.BlocksFabric.GetBlocks())
+        var bullets = _fabricController.BulletsFabric.GetBullets().ToList();
+        var units = _fabricController.UnitFabric.GetUnits().ToList();
+        var blocks = _fabricController.BlocksFabric.GetBlocks().ToList();
+        
+        foreach (var block in blocks)
         {
             block.Render(renderer);
         }
         
-        foreach (var unit in _fabricController.UnitFabric.GetUnits())
+        foreach (var unit in units)
         {
             unit.Render(renderer);
         }
 
-        /*if (_fabricController.BulletsFabric.GetBullets().Count > 0 
-            && _fabricController.BulletsFabric.GetBullets() != null)
-        {
-            foreach (var bullet in _fabricController.BulletsFabric.GetBullets())
-            {
-                bullet.Render(renderer);
-            }
-        }*/
         
+        foreach (var bullet in bullets)
+        {
+            bullet.Render(renderer);
+        }
         
         renderer.DrawString($"Score: {_score.ToString()}", FieldWidth / 2, 0, ConsoleColor.DarkBlue);
     }

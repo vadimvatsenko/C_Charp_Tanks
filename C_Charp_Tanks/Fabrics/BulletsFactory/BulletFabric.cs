@@ -16,11 +16,7 @@ public class BulletFabric : AbstractBulletsFactory
     public override void CreateBullet(Vector2 position, Vector2 direction)
     {
         Bullet bullet = new Bullet(position, _fabricController, direction);
-        if (bullet == null)
-        {
-            throw new Exception("Bullet is null");
-            
-        }
+        
         _bullets.Add(bullet);
     }
 }

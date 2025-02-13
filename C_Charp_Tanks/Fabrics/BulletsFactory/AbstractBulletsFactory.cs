@@ -11,9 +11,9 @@ public abstract class AbstractBulletsFactory
     {
         _fabricController = fabricController;
     }
-    protected List<Bullet> _bullets;
+    protected List<Bullet> _bullets = new List<Bullet>();
     public abstract void CreateBullet(Vector2 position, Vector2 direction);
-    public abstract void AddBullet(Bullet bullet);
+    public abstract void AddBullet(Bullet bullet); 
     public abstract void RemoveBullet(Bullet bullet);
     public abstract List<Bullet> GetBullets();
 }
