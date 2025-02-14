@@ -3,17 +3,17 @@ using C_Charp_Tanks.Venicals;
 
 namespace C_Charp_Tanks.Fabrics.BulletsFactory;
 
-public abstract class AbstractBulletsFactory
+public abstract class AbstractShellsFactory
 {
     protected FabricController _fabricController;
+    protected List<Shell> _shells = new List<Shell>();
     
-    public AbstractBulletsFactory(FabricController fabricController)
+    public AbstractShellsFactory(FabricController fabricController)
     {
         _fabricController = fabricController;
     }
-    protected List<Bullet> _bullets = new List<Bullet>();
-    public abstract void CreateBullet(Vector2 position, Vector2 direction);
-    public abstract void AddBullet(Bullet bullet); 
-    public abstract void RemoveBullet(Bullet bullet);
-    public abstract List<Bullet> GetBullets();
+    public abstract void CreateShell(FabricController _fabricController, Vector2 position, Vector2 direction);
+    public abstract void AddShell(Shell bullet); 
+    public abstract void RemoveShell(Shell bullet);
+    public abstract List<Shell> GetShells();
 }

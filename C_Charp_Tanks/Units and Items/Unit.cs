@@ -32,6 +32,8 @@ public abstract class Unit
     // Метод проверки столкновения с блоками
     public virtual bool TryToMove(Vector2 direction)
     {
+        
+        
         Vector2 newPosition = Position + direction; // Новая позиция после движения
         BoxCollider2D newCollider = new BoxCollider2D(newPosition, Collider.Size); // Создаём временный коллайдер
 
@@ -61,6 +63,11 @@ public abstract class Unit
             }
         }
     }
+
+    public virtual void GetDamage(int damage)
+    {
+        Health -= damage;
+    }
     
     protected void UpdateCollider()
     {
@@ -69,6 +76,6 @@ public abstract class Unit
 
     public virtual void Destroy()
     {
-        
+        _fabricController.UnitFabric.RemoveUnit(this);
     }
 }

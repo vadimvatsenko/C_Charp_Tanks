@@ -50,4 +50,7 @@ public abstract class Block : IUpdatable
     {
         
     }
+    
+    public virtual void GetDamage()
+    {}
 }

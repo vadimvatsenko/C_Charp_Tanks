@@ -1,5 +1,6 @@
 ﻿using C_Charp_Tanks;
 using C_Charp_Tanks.Blocks;
+using C_Charp_Tanks.Fabrics;
 using C_Charp_Tanks.Fabrics.BlocksFactory;
 using C_Charp_Tanks.Renderer;
 
@@ -9,8 +10,7 @@ public class MazeVisualizer
 {
     private Random _random = new Random();
     public List<Vector2> EmptyFields { get; private set; }
-    public BlocksFabric _blocksFabric { get; private set; }
-    
+    public FabricController _fabricController;
     private int _step = 3;
     public void Visualise(bool[,] maze)
     {
@@ -18,9 +18,9 @@ public class MazeVisualizer
         BuildWallsAround(maze);
     }
 
-    public MazeVisualizer(BlocksFabric blocksFabric) 
+    public MazeVisualizer(FabricController fabricController) 
     {
-        _blocksFabric = blocksFabric;
+        _fabricController = fabricController;
         EmptyFields = new List<Vector2>();
     }
     
@@ -41,19 +41,19 @@ public class MazeVisualizer
                 int randomBlock = _random.Next(2);
                 if (randomBlock == 0)
                 {
-                    /*WaterBlock waterBlock = new WaterBlock(BlockType.Water, Symbols.Wall, new Vector2(startX + i * _step + _step , j * _step + _step));
-                    _blocksFabric.AddBlock(waterBlock);*/
-                    
-                    WaterBlock waterBlock = new WaterBlock(BlockType.Water, Symbols.Wall, new Vector2(i * _step + _step + startX, j * _step + _step));
-                    _blocksFabric.AddBlock(waterBlock);
+                    WaterBlock waterBlock 
+                        = new WaterBlock(
+                            BlockType.Water, Symbols.Wall, new Vector2(i * _step + _step + startX, j * _step + _step));
+                    _fabricController.BlocksFabric.AddBlock(waterBlock);
                 }
                 else
                 {
-                    /*DestructibleBlock destructibleBlock = new DestructibleBlock(BlockType.Destructible, Symbols.Wall, new Vector2(startX + i * _step + _step , j * _step + _step)); 
-                    _blocksFabric.AddBlock(destructibleBlock);*/
                     
-                    DestructibleBlock destructibleBlock = new DestructibleBlock(BlockType.Destructible, Symbols.Wall, new Vector2(i * _step + _step + startX, j * _step + _step)); 
-                    _blocksFabric.AddBlock(destructibleBlock);
+                    DestructibleBlock destructibleBlock 
+                        = new DestructibleBlock(
+                            _fabricController, BlockType.Destructible, Symbols.Wall, 
+                            new Vector2(i * _step + _step + startX, j * _step + _step)); 
+                    _fabricController.BlocksFabric.AddBlock(destructibleBlock);
                 }
             }
 
@@ -78,11 +78,12 @@ public class MazeVisualizer
         {
             IndestructibleBlock indestructibleBlockLeft =
                 new IndestructibleBlock(BlockType.Indestructible, Symbols.Wall, new Vector2(startX, i));
-            _blocksFabric.AddBlock(indestructibleBlockLeft);
+            _fabricController.BlocksFabric.AddBlock(indestructibleBlockLeft);
 
             IndestructibleBlock indestructibleBlockRight =
-                new IndestructibleBlock(BlockType.Indestructible, Symbols.Wall, new Vector2(startX + mazeWidth * _step, i));
-            _blocksFabric.AddBlock(indestructibleBlockRight);
+                new IndestructibleBlock(
+                    BlockType.Indestructible, Symbols.Wall, new Vector2(startX + mazeWidth * _step, i));
+            _fabricController.BlocksFabric.AddBlock(indestructibleBlockRight);
 
         }
         
@@ -91,12 +92,13 @@ public class MazeVisualizer
         for (int j = 0; j <= mazeWidth * _step; j += _step)
         {
             IndestructibleBlock indestructibleBlockLeft =
-               new IndestructibleBlock(BlockType.Indestructible, Symbols.Wall, new Vector2(startX + j, 0));
-            _blocksFabric.AddBlock(indestructibleBlockLeft);
+               new IndestructibleBlock(
+                   BlockType.Indestructible, Symbols.Wall, new Vector2(startX + j, 0));
+            _fabricController.BlocksFabric.AddBlock(indestructibleBlockLeft);
 
             IndestructibleBlock indestructibleBlockRight =
                 new IndestructibleBlock(BlockType.Indestructible, Symbols.Wall, new Vector2(startX + j, mazeHeight * _step));
-            _blocksFabric.AddBlock(indestructibleBlockRight);
+            _fabricController.BlocksFabric.AddBlock(indestructibleBlockRight);
         }
     }
 }

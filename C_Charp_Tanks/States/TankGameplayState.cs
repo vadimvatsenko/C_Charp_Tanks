@@ -58,14 +58,14 @@ public class TankGameplayState : BaseGameState
     public override void Update(float deltaTime)
     {
         // копия, нельзя удалять из списка, во время цикла
-        var bullets = _fabricController.BulletsFabric.GetBullets().ToList();
+        var shells = _fabricController.ShellsFabric.GetShells().ToList();
         var units = _fabricController.UnitFabric.GetUnits().ToList();
         var blocks = _fabricController.BlocksFabric.GetBlocks().ToList();
         _collisionSystem.Update(deltaTime);
 
-        foreach (var bullet in bullets)
+        foreach (var shell in shells)
         {
-            bullet.Update(deltaTime);
+            shell.Update(deltaTime);
         }
 
         /*foreach (var unit in units)
@@ -83,6 +83,8 @@ public class TankGameplayState : BaseGameState
         var player = _fabricController.UnitFabric.GetUnits().Where(u => u is Player).First();
         
         gameOver = player.Health <= 0;
+        
+        _collisionSystem.Update(deltaTime);
     }
 
     public override void Reset()
@@ -97,7 +99,7 @@ public class TankGameplayState : BaseGameState
     
     public override void Draw(ConsoleRenderer renderer)
     {
-        var bullets = _fabricController.BulletsFabric.GetBullets().ToList();
+        var shells = _fabricController.ShellsFabric.GetShells().ToList();
         var units = _fabricController.UnitFabric.GetUnits().ToList();
         var blocks = _fabricController.BlocksFabric.GetBlocks().ToList();
         
@@ -112,11 +114,14 @@ public class TankGameplayState : BaseGameState
         }
 
         
-        foreach (var bullet in bullets)
+        foreach (var shell in shells)
         {
-            bullet.Render(renderer);
+            shell.Render(renderer);
         }
         
+        var player = _fabricController.UnitFabric.GetUnits().Where(u => u is Player).First();
+        
         renderer.DrawString($"Score: {_score.ToString()}", FieldWidth / 2, 0, ConsoleColor.DarkBlue);
+        renderer.DrawString($"Health: {player.Health}%", 0, 0, ConsoleColor.DarkBlue);
     }
 }

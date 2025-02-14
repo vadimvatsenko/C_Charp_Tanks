@@ -10,6 +10,7 @@ public class Enemy : Unit
     private double _timeToMove = 0;
     private double _moveCooldown = 0.5f;
     private bool _isActive = false;
+    
     private int[] _dx = { -1, 0, 1, 0 };
     private int[] _dy = { 0, 1, 0, -1};
 
@@ -18,6 +19,11 @@ public class Enemy : Unit
     public Enemy(Vector2 position, FabricController fabricController) : base(position, fabricController)
     {
         //_target = target;
+    }
+
+    public override void GetDamage(int damage)
+    {
+        base.GetDamage(damage);
     }
 
     public override void Update(double deltaTime)

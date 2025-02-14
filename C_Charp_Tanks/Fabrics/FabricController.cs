@@ -6,13 +6,13 @@ public class FabricController
 {
     public UnitFabric UnitFabric { get; private set; }
     public BlocksFabric BlocksFabric { get; private set; }
-    public BulletFabric BulletsFabric { get; private set; }
+    public ShellFabric ShellsFabric { get; private set; }
 
     public FabricController(UnitFabric unitFabric, BlocksFabric blocksFabric)
     {
         UnitFabric = unitFabric;
         BlocksFabric = blocksFabric;
-        BulletsFabric = new BulletFabric(this);
+        ShellsFabric = new ShellFabric(this);
     }
 
     public void Initialize()

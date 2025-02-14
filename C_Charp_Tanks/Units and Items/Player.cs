@@ -88,11 +88,8 @@ public class Player : Unit
 
     public void Shoot()
     {
-        
-        _fabricController.BulletsFabric.CreateBullet(Position + CurrentDirection + Vector2.One, CurrentDirection);
-        OnShoot?.Invoke(CurrentDirection);
-        //Bullet bullet = new Bullet(Position + CurrentDirection + Vector2.One, CurrentDirection);
-        //BulletObjects.Instance.AddObject(bullet);
+        _fabricController.ShellsFabric.CreateShell(
+            _fabricController, Position + CurrentDirection + Vector2.One, CurrentDirection);
     }
 
     public override void Destroy()
