@@ -10,7 +10,7 @@ public class ShellFabric : AbstractShellsFactory
     
     public override void CreateShell(FabricController fabricController, Vector2 position, Vector2 direction)
     {
-        Shell shell = new Bullet(_fabricController, position, direction);
+        Shell shell = new Bullet(position, direction);
         _shells.Add(shell);
     }
 
@@ -19,5 +19,6 @@ public class ShellFabric : AbstractShellsFactory
     public override void RemoveShell(Shell bullet) => _shells.Remove(bullet);
     
     public override List<Shell> GetShells() => _shells;
-
+    public override void ClearShells() => _shells.Clear();
+  
 }

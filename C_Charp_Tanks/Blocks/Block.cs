@@ -11,9 +11,9 @@ public abstract class Block : IUpdatable
     
     protected char Symbol;
     public BlockType Type {get; protected set;}
+    
     protected byte Color;
-    public bool IsDestroyed { get; protected set; } = false;  
-
+    
     public Block(BlockType type, char symbol, Vector2 position)
     {
         Type = type;
@@ -50,7 +50,9 @@ public abstract class Block : IUpdatable
     {
         
     }
-    
+
     public virtual void GetDamage()
-    {}
+    {
+        
+    }
 }

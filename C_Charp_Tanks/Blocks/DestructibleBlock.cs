@@ -8,7 +8,8 @@ public class DestructibleBlock: Block
 {
     private FabricController _fabricController;
     public int Lives { get; private set; } = 2;
-    public DestructibleBlock(FabricController fabricController, BlockType type, char symbol, Vector2 position) : base(type, symbol, position)
+    public DestructibleBlock(FabricController fabricController, BlockType type, char symbol, Vector2 position) 
+        : base(type, symbol, position)
     {
         _fabricController = fabricController;
         Color = 5;
@@ -17,7 +18,7 @@ public class DestructibleBlock: Block
     public override void GetDamage()
     {
         Symbol = Symbols.BrockenWall;
-        this.FillBlock();
+        FillBlock();
         Lives--;
     }
 

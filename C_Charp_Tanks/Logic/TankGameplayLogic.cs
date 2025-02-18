@@ -28,7 +28,7 @@ public class TankGameplayLogic : BaseGameLogic
     public void GotoGamePlay()
     {
         _mazeCreator.Initialize();
-        _fabricController.Initialize();
+        _fabricController.Initialize(_currentLevel);
         
         _tankGameplayState.Level = _currentLevel;
         _tankGameplayState.FieldWidth = this.ScreenWidth;

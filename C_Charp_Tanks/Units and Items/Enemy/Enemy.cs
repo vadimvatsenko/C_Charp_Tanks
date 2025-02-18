@@ -1,4 +1,5 @@
 ﻿using C_Charp_Tanks.Blocks;
+using C_Charp_Tanks.Engine;
 using C_Charp_Tanks.Fabrics;
 
 namespace C_Charp_Tanks.Venicals.Enemy;
@@ -6,10 +7,11 @@ namespace C_Charp_Tanks.Venicals.Enemy;
 public class Enemy : Unit
 {
     private Vector2 _target;
-    private Direction _direction;
     private double _timeToMove = 0;
     private double _moveCooldown = 0.5f;
     private bool _isActive = false;
+
+    private Direction _direction = Direction.Up;
     
     private int[] _dx = { -1, 0, 1, 0 };
     private int[] _dy = { 0, 1, 0, -1};
@@ -18,7 +20,8 @@ public class Enemy : Unit
     
     public Enemy(Vector2 position, FabricController fabricController) : base(position, fabricController)
     {
-        //_target = target;
+        UnitType = UnitType.Enemy;
+        Speed = 2f;
     }
 
     public override void GetDamage(int damage)
@@ -28,43 +31,36 @@ public class Enemy : Unit
 
     public override void Update(double deltaTime)
     {
+        _target = 
+            _fabricController.UnitFabric.GetUnits().Where(u => u.UnitType == UnitType.Player).First().Position;
+        List<Node> path = FindPath();
+         
+        if (path == null || path.Count <= 1) return;
+            
         _timer -= (float)deltaTime;
         _isActive = _timer <= 0;
-        //Console.WriteLine(_timer);
+        
         if (_isActive)
         {
-            //_timeToMove -= deltaTime;
-        
-            //if(_timeToMove > 0) return;
-        
-            List<Node> path = FindPath();
-
-            if (path == null || path.Count <= 1) return;
-        
             Node nextPos = path[1];
             
-            this.Position = nextPos.Position;
-        
-            //_timeToMove = _moveCooldown;
-
-            /*if (Position == _target)
+            if (nextPos.Position.X > Position.X) _direction = Direction.Right; // вправо
+            if (nextPos.Position.X < Position.X) _direction = Direction.Left; // влево
+            if (nextPos.Position.Y > Position.Y) _direction = Direction.Down; // вниз
+            if (nextPos.Position.Y < Position.Y) _direction = Direction.Up; // вверх
+            
+            SetDirection(_direction);
+            
+            _moveCooldown += deltaTime;
+            // Рассчитываем, сколько шагов можно сделать за накопленное время
+            while (_moveCooldown >= 1.0 / Speed)
             {
-                _target = new Vector2(50, 16);
-            }*/
-        
-            //if(_target == null || path == null || path.Count <= 1) return;
-        
-            //Node nextPos = path[1];
-        
-            //TryToMove()
-            //this.Position = nextPos.Position;
-            //Console.WriteLine(this.Position.X);
+                _moveCooldown -= 1.0 / Speed; // Уменьшаем накопленное время
+                Position = nextPos.Position;; // Делаем шаг в направлении
+            }
         }
-        
     }
     
-    public void SetDirection(Direction direction) => _direction = direction;
-
     private List<Node> FindPath()
     {
         Node startNode = new Node(Position);
@@ -107,21 +103,53 @@ public class Enemy : Unit
                 int newY = currentNode.Position.Y + _dy[i];
                 
                 // нужно проверить столкновение
+
                 
-                Node neighbor  = new Node(new Vector2(newX, newY));
-                
-                if(closedList.Contains(neighbor)) continue;
-                
-                if (!openList.Contains(neighbor))
+                if (!IsUnwalkable(newX, newY))
                 {
-                    neighbor.Parent = currentNode;
-                    neighbor.CalculateEstimate(_target);
-                    neighbor.CalculateValue();
-                    openList.Add(neighbor);
+                    Node neighbor  = new Node(new Vector2(newX, newY));
+                
+                    if(closedList.Contains(neighbor)) continue;
+                    
+                    if (!openList.Contains(neighbor))
+                    {
+                        neighbor.Parent = currentNode;
+                        neighbor.CalculateEstimate(_target);
+                        neighbor.CalculateValue();
+                        openList.Add(neighbor);
+                    }
                 }
+                
             }
         }
 
         return new List<Node>();
+    }
+    
+    private bool IsUnwalkable(int x, int y) 
+    {
+        BoxCollider2D tempColl = new BoxCollider2D(new Vector2(x,y), new Vector2(3, 3));
+        
+        return  
+            _fabricController.BlocksFabric.GetBlocks().Any(b => b.Collider.IsColliding(tempColl));
+    }
+
+    private void SetDirection(Direction direction)
+    {
+        switch (direction)
+        {
+            case Direction.Up:
+                View = PlayerData.Instance.TankUpView;
+                break;
+            case Direction.Down:
+                View = PlayerData.Instance.TankDownView;
+                break;
+            case Direction.Left:
+                View = PlayerData.Instance.TankLeftView;
+                break;
+            case Direction.Right:
+                View = PlayerData.Instance.TankRightView;
+                break;
+        }
     }
 }

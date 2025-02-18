@@ -1,27 +1,24 @@
-﻿using C_Charp_Tanks.Blocks;
-using C_Charp_Tanks.Engine;
-using C_Charp_Tanks.Fabrics;
-using C_Charp_Tanks.Renderer;
+﻿using C_Charp_Tanks.Renderer;
 
 namespace C_Charp_Tanks.Venicals;
 
 public class Bullet : Shell
 {
-    private double moveCooldown = 0;
-    public Bullet(FabricController fabricController, Vector2 position, Vector2 dir) : base(fabricController, position, dir)
+    private double _timeElapsed = 0;
+    public Bullet(Vector2 position, Vector2 dir) : base(position, dir)
     {
-        Speed = 8;
+        View = Symbols.Bullet;
+        Speed = 5;
     }
 
     public override void Update(double deltaTime)
     {
-        moveCooldown += deltaTime;
+        _timeElapsed += deltaTime * Speed;
 
-        // Рассчитываем, сколько шагов можно сделать за накопленное время
-        while (moveCooldown >= 1.0 / Speed)
+        if (_timeElapsed >= 1)
         {
-            moveCooldown -= 1.0 / Speed; // Уменьшаем накопленное время
-            Position += Direction; // Делаем шаг в направлении
+            _timeElapsed = 0; 
+            Position += Direction; 
         }
     }
 
@@ -32,8 +29,7 @@ public class Bullet : Shell
     
     public override void Destroy()
     {
-        IsDestroyed = true;
-        _fabricController.ShellsFabric.RemoveShell(this);
+        //da_fabricController.ShellsFabric.RemoveShell(this);
     }
     
 }

@@ -8,7 +8,6 @@ namespace C_Charp_Tanks.Venicals;
 public class Player : Unit
 {
     private readonly IConsoleInput _input;
-    private GameObjects<Bullet> _bullets;
     public event Action<Vector2> OnShoot;
 
     #region CoolDawn
@@ -20,10 +19,12 @@ public class Player : Unit
 
     public Player(Vector2 position, FabricController fabricController,  IConsoleInput input) : base(position, fabricController)
     {
+        UnitType = UnitType.Player;
+        
         _input = input;
         Collider = new BoxCollider2D(position, new Vector2(3, 3));
         CurrentDirection = Vector2.Up;
-
+        
         _input.MoveUp += MoveUp;
         _input.MoveDown += MoveDown;
         _input.MoveLeft += MoveLeft;
@@ -44,6 +45,7 @@ public class Player : Unit
     {
         View = PlayerData.Instance.TankUpView;
         CurrentDirection = Vector2.Up;
+        
         if (TryToMove(Vector2.Up))
         {
             Position += Vector2.Up;

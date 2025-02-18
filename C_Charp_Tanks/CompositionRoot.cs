@@ -13,8 +13,8 @@ public class CompositionRoot
     public ConsoleInput ConsoleInput { get; }
     public ConsoleRenderer CurrentRenderer { get; private set; }
     public ConsoleRenderer PrevRenderer { get; private set; }
-    public FabricController FabricController { get; }
-    public CollisionSystem CollisionSystem { get; }
+    private FabricController FabricController { get; }
+    private CollisionSystem CollisionSystem { get; }
     public TankGameplayLogic TankGameplayLogic { get; }
     public CompositionRoot()
     {
@@ -31,7 +31,7 @@ public class CompositionRoot
         UnitFabric unitFabric = new UnitFabric(ConsoleInput, mazeCreator);
         FabricController = new FabricController(unitFabric, blocksFabric);
         unitFabric.SetFabricController(FabricController); // Устанавливаем зависимость после создания
-        mazeCreator.SetFabricController(FabricController);
+        mazeCreator.SetFabricController(FabricController); // Устанавливаем зависимость после создания
 
         // Системы и логика игры
         CollisionSystem = new CollisionSystem(FabricController);

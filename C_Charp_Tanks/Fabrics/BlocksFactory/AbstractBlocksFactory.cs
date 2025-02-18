@@ -11,4 +11,5 @@ public abstract class AbstractBlocksFactory
     public abstract void AddBlock(Block block);
     public abstract void RemoveBlock(Block block);
     public abstract List<Block> GetBlocks();
+    public abstract void ClearBlocks();
 }

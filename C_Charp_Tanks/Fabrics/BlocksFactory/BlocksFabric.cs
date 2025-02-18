@@ -13,5 +13,6 @@ public class BlocksFabric : AbstractBlocksFactory
     public override void RemoveBlock(Block block) => _blocks.Remove(block);
     
     public override List<Block> GetBlocks() => _blocks;
-   
+    public override void ClearBlocks() => _blocks.Clear();
+    
 }

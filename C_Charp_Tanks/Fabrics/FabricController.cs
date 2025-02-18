@@ -15,10 +15,16 @@ public class FabricController
         ShellsFabric = new ShellFabric(this);
     }
 
-    public void Initialize()
+    public void Initialize(int level)
     {
-        UnitFabric.CreateUnits();
+        UnitFabric.CreateUnits(level);
         BlocksFabric.CreateBlocks();
+    }
+
+    public void CleanUp()
+    {
+        UnitFabric.ClearUnits();
+        BlocksFabric.ClearBlocks();
     }
     
 }

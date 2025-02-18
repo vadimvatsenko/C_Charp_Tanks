@@ -2,16 +2,18 @@
 using C_Charp_Tanks.Engine;
 using C_Charp_Tanks.Fabrics;
 using C_Charp_Tanks.Venicals;
+using C_Charp_Tanks.Venicals.Enemy;
 
 namespace C_Charp_Tanks.Systems;
 
 public class CollisionSystem : IUpdatable
 {
-    private List<Unit> _units = new List<Unit>();
+    #region ItemsLists
+    private List<Unit> _enemies = new List<Unit>();
     private List<Shell> _shells = new List<Shell>();
     private List<Block> _blocks = new List<Block>();
-    
     private Unit _player;
+    #endregion
     
     private FabricController _fabricController;
     private Random _random;
@@ -23,37 +25,40 @@ public class CollisionSystem : IUpdatable
 
     public void Update(double deltaTime)
     {
-        _units = _fabricController.UnitFabric.GetUnits().ToList();
+        _enemies = 
+            _fabricController.UnitFabric.GetUnits().ToList().Where(u => u.UnitType == UnitType.Enemy).ToList();
+        _player = 
+            _fabricController.UnitFabric.GetUnits().ToList().Where(u => u.UnitType == UnitType.Player).FirstOrDefault();
+        
         _blocks = _fabricController.BlocksFabric.GetBlocks().ToList();
         _shells = _fabricController.ShellsFabric.GetShells().ToList();
         
-        _player = _fabricController.UnitFabric.GetUnits().ToList().Where(u => u is Player).First();
-
         foreach (var shell in _shells)
         {
+            Vector2 newShellPos = shell.Position + shell.Direction;
+            BoxCollider2D shellCollider = new BoxCollider2D(newShellPos, shell.BoxCollider2D.Size);
+            
             foreach (var block in _blocks)
             {
-                Vector2 newShellPos = shell.Position + shell.Direction;
-                BoxCollider2D shellCollider = new BoxCollider2D(newShellPos, shell.BoxCollider2D.Size);
+                
                 if (shellCollider.IsColliding(block.Collider) && block.Type == BlockType.Destructible)
                 {
-                    shell.Destroy();
+                    _fabricController.ShellsFabric.RemoveShell(shell);
                     block.GetDamage();
                 }
                 else if (shellCollider.IsColliding(block.Collider) && block.Type == BlockType.Indestructible)
                 {
-                    shell.Destroy();
+                    _fabricController.ShellsFabric.RemoveShell(shell);
+                    //shell.Destroy();
                 }
             }
 
-            foreach (var unit in _units)
+            foreach (var unit in _enemies)
             {
-                Vector2 newShellPos = shell.Position + shell.Direction;
-                BoxCollider2D shellCollider = new BoxCollider2D(newShellPos, shell.BoxCollider2D.Size);
-                if (shellCollider.IsColliding(unit.Collider))
+                if (unit.Collider.IsColliding(shellCollider)) 
                 {
-                    shell.Destroy();
-                    //unit.GetDamage(_random.Next(0, 101));
+                    //shell.Destroy();
+                    unit.GetDamage(_random.Next(20, 40 ));
                 }
             }
         }

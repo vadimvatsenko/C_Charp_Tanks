@@ -16,4 +16,5 @@ public abstract class AbstractShellsFactory
     public abstract void AddShell(Shell bullet); 
     public abstract void RemoveShell(Shell bullet);
     public abstract List<Shell> GetShells();
+    public abstract void ClearShells();
 }

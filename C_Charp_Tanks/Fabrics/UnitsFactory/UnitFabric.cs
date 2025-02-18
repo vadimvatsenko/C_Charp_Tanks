@@ -14,7 +14,6 @@ public class UnitFabric : AbstractUnitsFactory
     
     public UnitFabric(ConsoleInput consoleInput, MazeCreator mazeCreator)
     {
-        _units = new List<Unit>();
         _consoleInput = consoleInput;
         _mazeCreator = mazeCreator;
     }
@@ -27,8 +26,10 @@ public class UnitFabric : AbstractUnitsFactory
     public override void AddUnit(Unit unit) => _units.Add(unit);
     public override void RemoveUnit(Unit unit) => _units.Remove(unit);
     public override List<Unit> GetUnits() => _units;
+    public override void ClearUnits() => _units.Clear();
     
-    public override void CreateUnits(int level = 3)
+
+    public override void CreateUnits(int level)
     {
         _emptyPositions = _mazeCreator._mazeVisualizer.EmptyFields;
         if(_emptyPositions.Count <= 0) return;

@@ -7,8 +7,6 @@ public class Program
     public static void Main(string[] args)
     {
         Console.OutputEncoding = System.Text.Encoding.UTF8;
-
-        // Создаём корневой объект, который содержит все зависимости
         CompositionRoot compositionRoot = new CompositionRoot();
 
         DateTime lastFrameTime = DateTime.Now;
@@ -26,11 +24,9 @@ public class Program
             lastFrameTime = frameStartTime;
 
             // Рендерим кадр, если рендерер сменился
-            if (!compositionRoot.CurrentRenderer.Equals(compositionRoot.PrevRenderer))
-            {
+            if (!compositionRoot.CurrentRenderer.Equals(compositionRoot.PrevRenderer)) 
                 compositionRoot.CurrentRenderer.Render();
-            }
-
+            
             // Меняем рендереры местами
             compositionRoot.SwapRenderers();
 

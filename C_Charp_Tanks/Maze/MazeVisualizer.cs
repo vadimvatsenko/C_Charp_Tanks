@@ -43,7 +43,7 @@ public class MazeVisualizer
                 {
                     WaterBlock waterBlock 
                         = new WaterBlock(
-                            BlockType.Water, Symbols.Wall, new Vector2(i * _step + _step + startX, j * _step + _step));
+                            BlockType.Water, Symbols.WaterStateOne, new Vector2(i * _step + _step + startX, j * _step + _step));
                     _fabricController.BlocksFabric.AddBlock(waterBlock);
                 }
                 else

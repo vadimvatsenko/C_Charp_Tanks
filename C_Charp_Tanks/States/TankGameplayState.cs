@@ -10,6 +10,7 @@ public class TankGameplayState : BaseGameState
 {
     private FabricController _fabricController;
     private CollisionSystem _collisionSystem;
+    
     private int _fieldWidth;
     private int _fieldHeight;
 
@@ -59,30 +60,22 @@ public class TankGameplayState : BaseGameState
     {
         // копия, нельзя удалять из списка, во время цикла
         var shells = _fabricController.ShellsFabric.GetShells().ToList();
-        var units = _fabricController.UnitFabric.GetUnits().ToList();
+        var allUnits = _fabricController.UnitFabric.GetUnits().ToList();
         var blocks = _fabricController.BlocksFabric.GetBlocks().ToList();
-        _collisionSystem.Update(deltaTime);
-
-        foreach (var shell in shells)
-        {
-            shell.Update(deltaTime);
-        }
-
-        /*foreach (var unit in units)
-        {
-            unit.Update(deltaTime);
-        }*/
-
-        foreach (var block in blocks)
-        {
-            block.Update(deltaTime);
-        }
-
-        var enemies = _fabricController.UnitFabric.GetUnits().Where(u => u is Enemy).ToList();
         
+        var enemies = _fabricController.UnitFabric.GetUnits().Where(u => u is Enemy).ToList();
         var player = _fabricController.UnitFabric.GetUnits().Where(u => u is Player).First();
         
+        _collisionSystem.Update(deltaTime);
+
+        foreach (var shell in shells) shell.Update(deltaTime);
+        
+        foreach (var unit in allUnits) unit.Update(deltaTime);
+        
+        foreach (var block in blocks) block.Update(deltaTime);
+        
         gameOver = player.Health <= 0;
+        hasWon = enemies.Count <= 0;
         
         _collisionSystem.Update(deltaTime);
     }
@@ -99,29 +92,33 @@ public class TankGameplayState : BaseGameState
     
     public override void Draw(ConsoleRenderer renderer)
     {
+        var player 
+            = _fabricController.UnitFabric.GetUnits().Where(u => u.UnitType == UnitType.Player).FirstOrDefault();
+        var enemies 
+            = _fabricController.UnitFabric.GetUnits().ToList().Where(u => u.UnitType == UnitType.Enemy);
+        var allUnits = _fabricController.UnitFabric.GetUnits().ToList();
+        
         var shells = _fabricController.ShellsFabric.GetShells().ToList();
-        var units = _fabricController.UnitFabric.GetUnits().ToList();
         var blocks = _fabricController.BlocksFabric.GetBlocks().ToList();
+        
         
         foreach (var block in blocks)
         {
             block.Render(renderer);
         }
         
-        foreach (var unit in units)
+        foreach (var unit in allUnits)
         {
             unit.Render(renderer);
         }
-
         
         foreach (var shell in shells)
         {
             shell.Render(renderer);
         }
         
-        var player = _fabricController.UnitFabric.GetUnits().Where(u => u is Player).First();
-        
         renderer.DrawString($"Score: {_score.ToString()}", FieldWidth / 2, 0, ConsoleColor.DarkBlue);
-        renderer.DrawString($"Health: {player.Health}%", 0, 0, ConsoleColor.DarkBlue);
+        renderer.DrawString($"Health: {player.Health}%", FieldWidth / 2 - 30 , 0, ConsoleColor.DarkBlue);
+        renderer.DrawString($"Enemies: {enemies.Count()}", FieldWidth / 2 + 23 , 0, ConsoleColor.DarkBlue);
     }
 }
