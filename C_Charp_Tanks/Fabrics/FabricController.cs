@@ -6,25 +6,25 @@ public class FabricController
 {
     public UnitFabric UnitFabric { get; private set; }
     public BlocksFabric BlocksFabric { get; private set; }
-    public ShellFabric ShellsFabric { get; private set; }
+    public BulletsFabric BulletsFabric { get; private set; }
 
     public FabricController(UnitFabric unitFabric, BlocksFabric blocksFabric)
     {
         UnitFabric = unitFabric;
         BlocksFabric = blocksFabric;
-        ShellsFabric = new ShellFabric(this);
+        BulletsFabric = new BulletsFabric(this);
     }
 
     public void Initialize(int level)
     {
-        UnitFabric.CreateUnits(level);
-        BlocksFabric.CreateBlocks();
+        UnitFabric.SetLevel(level);
+        UnitFabric.CreateItem();
+        BlocksFabric.CreateItem();
     }
 
     public void CleanUp()
     {
-        UnitFabric.ClearUnits();
-        BlocksFabric.ClearBlocks();
+        UnitFabric.CreateItem();
+        BlocksFabric.CreateItem();
     }
-    
 }

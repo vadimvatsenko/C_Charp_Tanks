@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|p:\\projects and documents\\visual studio apps\\c_charp_tanks\\c_charp_tanks\\units and items\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|solutionrelative:c_charp_tanks\\units and items\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|p:\\projects and documents\\visual studio apps\\c_charp_tanks\\c_charp_tanks\\units and items\\enemy\\node.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|solutionrelative:c_charp_tanks\\units and items\\enemy\\node.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|p:\\projects and documents\\visual studio apps\\c_charp_tanks\\c_charp_tanks\\fabrics\\bulletsfactory\\shellfabric.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4F920259-1074-4008-A9DF-18CCFE0087F7}|C_Charp_Tanks\\C_Charp_Tanks.csproj|solutionrelative:c_charp_tanks\\fabrics\\bulletsfactory\\shellfabric.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -107,11 +115,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 15,
               "Title": "MapObjects.cs",
               "DocumentMoniker": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\MapController\\MapObjects.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\MapController\\MapObjects.cs",
@@ -120,149 +128,6 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-07T20:20:19.966Z",
               "IsPinned": true
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ShellFabric.cs",
-              "DocumentMoniker": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Fabrics\\BulletsFactory\\ShellFabric.cs",
-              "RelativeDocumentMoniker": "C_Charp_Tanks\\Fabrics\\BulletsFactory\\ShellFabric.cs",
-              "ToolTip": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Fabrics\\BulletsFactory\\ShellFabric.cs",
-              "RelativeToolTip": "C_Charp_Tanks\\Fabrics\\BulletsFactory\\ShellFabric.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-18T19:16:45.052Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AbstractBulletsFactory.cs",
-              "DocumentMoniker": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Fabrics\\BulletsFactory\\AbstractBulletsFactory.cs",
-              "RelativeDocumentMoniker": "C_Charp_Tanks\\Fabrics\\BulletsFactory\\AbstractBulletsFactory.cs",
-              "ToolTip": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Fabrics\\BulletsFactory\\AbstractBulletsFactory.cs",
-              "RelativeToolTip": "C_Charp_Tanks\\Fabrics\\BulletsFactory\\AbstractBulletsFactory.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAABsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-18T19:16:30.276Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "BlocksFabric.cs",
-              "DocumentMoniker": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Fabrics\\BlocksFactory\\BlocksFabric.cs",
-              "RelativeDocumentMoniker": "C_Charp_Tanks\\Fabrics\\BlocksFactory\\BlocksFabric.cs",
-              "ToolTip": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Fabrics\\BlocksFactory\\BlocksFabric.cs",
-              "RelativeToolTip": "C_Charp_Tanks\\Fabrics\\BlocksFactory\\BlocksFabric.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-18T19:16:25.806Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "AbstractBlocksFactory.cs",
-              "DocumentMoniker": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Fabrics\\BlocksFactory\\AbstractBlocksFactory.cs",
-              "RelativeDocumentMoniker": "C_Charp_Tanks\\Fabrics\\BlocksFactory\\AbstractBlocksFactory.cs",
-              "ToolTip": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Fabrics\\BlocksFactory\\AbstractBlocksFactory.cs",
-              "RelativeToolTip": "C_Charp_Tanks\\Fabrics\\BlocksFactory\\AbstractBlocksFactory.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-18T19:16:23.811Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "PlayerData.cs",
-              "DocumentMoniker": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Data\\PlayerData.cs",
-              "RelativeDocumentMoniker": "C_Charp_Tanks\\Data\\PlayerData.cs",
-              "ToolTip": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Data\\PlayerData.cs",
-              "RelativeToolTip": "C_Charp_Tanks\\Data\\PlayerData.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAowDcAAAAzAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-18T19:15:54.808Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Shell.cs",
-              "DocumentMoniker": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Units and Items\\Shells\\Shell.cs",
-              "RelativeDocumentMoniker": "C_Charp_Tanks\\Units and Items\\Shells\\Shell.cs",
-              "ToolTip": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Units and Items\\Shells\\Shell.cs",
-              "RelativeToolTip": "C_Charp_Tanks\\Units and Items\\Shells\\Shell.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-18T19:13:00.09Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Bullet.cs",
-              "DocumentMoniker": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Units and Items\\Shells\\Bullet.cs",
-              "RelativeDocumentMoniker": "C_Charp_Tanks\\Units and Items\\Shells\\Bullet.cs",
-              "ToolTip": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Units and Items\\Shells\\Bullet.cs",
-              "RelativeToolTip": "C_Charp_Tanks\\Units and Items\\Shells\\Bullet.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-18T19:11:28.768Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "WaterBlock.cs",
-              "DocumentMoniker": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Blocks\\WaterBlock.cs",
-              "RelativeDocumentMoniker": "C_Charp_Tanks\\Blocks\\WaterBlock.cs",
-              "ToolTip": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Blocks\\WaterBlock.cs",
-              "RelativeToolTip": "C_Charp_Tanks\\Blocks\\WaterBlock.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-18T18:55:45.893Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "MazeVisualizer.cs",
-              "DocumentMoniker": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Maze\\MazeVisualizer.cs",
-              "RelativeDocumentMoniker": "C_Charp_Tanks\\Maze\\MazeVisualizer.cs",
-              "ToolTip": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Maze\\MazeVisualizer.cs",
-              "RelativeToolTip": "C_Charp_Tanks\\Maze\\MazeVisualizer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC0AAABCAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-18T18:52:55.331Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "MazeCreator.cs",
-              "DocumentMoniker": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Maze\\MazeCreator.cs",
-              "RelativeDocumentMoniker": "C_Charp_Tanks\\Maze\\MazeCreator.cs",
-              "ToolTip": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Maze\\MazeCreator.cs",
-              "RelativeToolTip": "C_Charp_Tanks\\Maze\\MazeCreator.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAB8AAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-18T18:52:18.092Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Symbols.cs",
-              "DocumentMoniker": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Data\\Symbols.cs",
-              "RelativeDocumentMoniker": "C_Charp_Tanks\\Data\\Symbols.cs",
-              "ToolTip": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Data\\Symbols.cs",
-              "RelativeToolTip": "C_Charp_Tanks\\Data\\Symbols.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-18T18:51:01.331Z",
-              "EditorCaption": ""
             },
             {
               "$type": "Bookmark",
@@ -274,7 +139,164 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Player.cs",
+              "DocumentMoniker": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Units and Items\\Player.cs",
+              "RelativeDocumentMoniker": "C_Charp_Tanks\\Units and Items\\Player.cs",
+              "ToolTip": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Units and Items\\Player.cs",
+              "RelativeToolTip": "C_Charp_Tanks\\Units and Items\\Player.cs",
+              "ViewState": "AgIAAFUAAAAAAAAAAAAuwBEAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-18T19:18:21.33Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Node.cs",
+              "DocumentMoniker": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Units and Items\\Enemy\\Node.cs",
+              "RelativeDocumentMoniker": "C_Charp_Tanks\\Units and Items\\Enemy\\Node.cs",
+              "ToolTip": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Units and Items\\Enemy\\Node.cs",
+              "RelativeToolTip": "C_Charp_Tanks\\Units and Items\\Enemy\\Node.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-18T19:18:02.31Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ShellFabric.cs",
+              "DocumentMoniker": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Fabrics\\BulletsFactory\\ShellFabric.cs",
+              "RelativeDocumentMoniker": "C_Charp_Tanks\\Fabrics\\BulletsFactory\\ShellFabric.cs",
+              "ToolTip": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Fabrics\\BulletsFactory\\ShellFabric.cs",
+              "RelativeToolTip": "C_Charp_Tanks\\Fabrics\\BulletsFactory\\ShellFabric.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-18T19:16:45.052Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AbstractBulletsFactory.cs",
+              "DocumentMoniker": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Fabrics\\BulletsFactory\\AbstractBulletsFactory.cs",
+              "RelativeDocumentMoniker": "C_Charp_Tanks\\Fabrics\\BulletsFactory\\AbstractBulletsFactory.cs",
+              "ToolTip": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Fabrics\\BulletsFactory\\AbstractBulletsFactory.cs",
+              "RelativeToolTip": "C_Charp_Tanks\\Fabrics\\BulletsFactory\\AbstractBulletsFactory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAABsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-18T19:16:30.276Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "BlocksFabric.cs",
+              "DocumentMoniker": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Fabrics\\BlocksFactory\\BlocksFabric.cs",
+              "RelativeDocumentMoniker": "C_Charp_Tanks\\Fabrics\\BlocksFactory\\BlocksFabric.cs",
+              "ToolTip": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Fabrics\\BlocksFactory\\BlocksFabric.cs",
+              "RelativeToolTip": "C_Charp_Tanks\\Fabrics\\BlocksFactory\\BlocksFabric.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-18T19:16:25.806Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AbstractBlocksFactory.cs",
+              "DocumentMoniker": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Fabrics\\BlocksFactory\\AbstractBlocksFactory.cs",
+              "RelativeDocumentMoniker": "C_Charp_Tanks\\Fabrics\\BlocksFactory\\AbstractBlocksFactory.cs",
+              "ToolTip": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Fabrics\\BlocksFactory\\AbstractBlocksFactory.cs",
+              "RelativeToolTip": "C_Charp_Tanks\\Fabrics\\BlocksFactory\\AbstractBlocksFactory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-18T19:16:23.811Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "PlayerData.cs",
+              "DocumentMoniker": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Data\\PlayerData.cs",
+              "RelativeDocumentMoniker": "C_Charp_Tanks\\Data\\PlayerData.cs",
+              "ToolTip": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Data\\PlayerData.cs",
+              "RelativeToolTip": "C_Charp_Tanks\\Data\\PlayerData.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAowDcAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-18T19:15:54.808Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Shell.cs",
+              "DocumentMoniker": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Units and Items\\Shells\\Shell.cs",
+              "RelativeDocumentMoniker": "C_Charp_Tanks\\Units and Items\\Shells\\Shell.cs",
+              "ToolTip": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Units and Items\\Shells\\Shell.cs",
+              "RelativeToolTip": "C_Charp_Tanks\\Units and Items\\Shells\\Shell.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-18T19:13:00.09Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Bullet.cs",
+              "DocumentMoniker": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Units and Items\\Shells\\Bullet.cs",
+              "RelativeDocumentMoniker": "C_Charp_Tanks\\Units and Items\\Shells\\Bullet.cs",
+              "ToolTip": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Units and Items\\Shells\\Bullet.cs",
+              "RelativeToolTip": "C_Charp_Tanks\\Units and Items\\Shells\\Bullet.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-18T19:11:28.768Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "WaterBlock.cs",
+              "DocumentMoniker": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Blocks\\WaterBlock.cs",
+              "RelativeDocumentMoniker": "C_Charp_Tanks\\Blocks\\WaterBlock.cs",
+              "ToolTip": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Blocks\\WaterBlock.cs",
+              "RelativeToolTip": "C_Charp_Tanks\\Blocks\\WaterBlock.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-18T18:55:45.893Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 12,
+              "Title": "MazeVisualizer.cs",
+              "DocumentMoniker": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Maze\\MazeVisualizer.cs",
+              "RelativeDocumentMoniker": "C_Charp_Tanks\\Maze\\MazeVisualizer.cs",
+              "ToolTip": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Maze\\MazeVisualizer.cs",
+              "RelativeToolTip": "C_Charp_Tanks\\Maze\\MazeVisualizer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC0AAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-18T18:52:55.331Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "MazeCreator.cs",
+              "DocumentMoniker": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Maze\\MazeCreator.cs",
+              "RelativeDocumentMoniker": "C_Charp_Tanks\\Maze\\MazeCreator.cs",
+              "ToolTip": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Maze\\MazeCreator.cs",
+              "RelativeToolTip": "C_Charp_Tanks\\Maze\\MazeCreator.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAB8AAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-18T18:52:18.092Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Symbols.cs",
+              "DocumentMoniker": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Data\\Symbols.cs",
+              "RelativeDocumentMoniker": "C_Charp_Tanks\\Data\\Symbols.cs",
+              "ToolTip": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Data\\Symbols.cs",
+              "RelativeToolTip": "C_Charp_Tanks\\Data\\Symbols.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-18T18:51:01.331Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
               "Title": "Program.cs",
               "DocumentMoniker": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Program.cs",
               "RelativeDocumentMoniker": "C_Charp_Tanks\\Program.cs",
@@ -282,12 +304,11 @@
               "RelativeToolTip": "C_Charp_Tanks\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-09T16:08:11.648Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-09T16:08:11.648Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 18,
               "Title": "BullletObjects.cs",
               "DocumentMoniker": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\MapController\\BullletObjects.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\MapController\\BullletObjects.cs",
@@ -299,7 +320,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 19,
               "Title": "BlockObjects.cs",
               "DocumentMoniker": "P:\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\MapController\\BlockObjects.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Projects\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\MapController\\BlockObjects.cs",
@@ -311,7 +332,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 16,
               "Title": "TankGameplayLogic.cs",
               "DocumentMoniker": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Logic\\TankGameplayLogic.cs",
               "RelativeDocumentMoniker": "C_Charp_Tanks\\Logic\\TankGameplayLogic.cs",
@@ -323,7 +344,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 17,
               "Title": "BlockType.cs",
               "DocumentMoniker": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Blocks\\BlockType.cs",
               "RelativeDocumentMoniker": "C_Charp_Tanks\\Blocks\\BlockType.cs",
@@ -335,7 +356,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "Block.cs",
               "DocumentMoniker": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Blocks\\Block.cs",
               "RelativeDocumentMoniker": "C_Charp_Tanks\\Blocks\\Block.cs",
@@ -343,12 +364,11 @@
               "RelativeToolTip": "C_Charp_Tanks\\Blocks\\Block.cs",
               "ViewState": "AgIAAA4AAAAAAAAAAAAIwBoAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T20:19:14.906Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-07T20:19:14.906Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 20,
               "Title": "PrimsMazeGenerator.cs",
               "DocumentMoniker": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\MazeGenerator\\PrimsMazeGenerator.cs",
               "RelativeDocumentMoniker": "C_Charp_Tanks\\MazeGenerator\\PrimsMazeGenerator.cs",
@@ -360,7 +380,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 21,
               "Title": "MazeVisualizer.cs",
               "DocumentMoniker": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\MazeGenerator\\MazeVisualizer.cs",
               "RelativeDocumentMoniker": "C_Charp_Tanks\\MazeGenerator\\MazeVisualizer.cs",
@@ -372,7 +392,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 22,
               "Title": "MazeHelper.cs",
               "DocumentMoniker": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\MazeGenerator\\MazeHelper.cs",
               "RelativeDocumentMoniker": "C_Charp_Tanks\\MazeGenerator\\MazeHelper.cs",
@@ -384,7 +404,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 23,
               "Title": "MazeGenerator.cs",
               "DocumentMoniker": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\MazeGenerator\\MazeGenerator.cs",
               "RelativeDocumentMoniker": "C_Charp_Tanks\\MazeGenerator\\MazeGenerator.cs",
@@ -396,7 +416,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 24,
               "Title": "MazeConfiguration.cs",
               "DocumentMoniker": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\MazeGenerator\\MazeConfiguration.cs",
               "RelativeDocumentMoniker": "C_Charp_Tanks\\MazeGenerator\\MazeConfiguration.cs",
@@ -408,7 +428,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 25,
               "Title": "Map.cs",
               "DocumentMoniker": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\MazeGenerator\\Map.cs",
               "RelativeDocumentMoniker": "C_Charp_Tanks\\MazeGenerator\\Map.cs",
@@ -420,7 +440,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 26,
               "Title": "Bullet.cs",
               "DocumentMoniker": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Units\\Bullet.cs",
               "RelativeDocumentMoniker": "C_Charp_Tanks\\Units\\Bullet.cs",

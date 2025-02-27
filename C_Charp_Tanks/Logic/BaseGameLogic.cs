@@ -3,17 +3,13 @@ using C_Charp_Tanks.States;
 
 namespace C_Charp_Tanks.Logic;
 
-public abstract class BaseGameLogic : IConsoleInput
+public abstract class BaseGameLogic: IUpdatable
 {
     protected BaseGameState? CurrentState { get; private set; }
     protected float Time {get; private set;}
     protected int ScreenWidth {get; private set;}
     protected int ScreenHeight {get; private set;}
-    public event Action? MoveUp;
-    public event Action? MoveDown;
-    public event Action? MoveLeft;
-    public event Action? MoveRight;
-    public event Action? Shoot;
+    
     public abstract void Update(float deltaTime);
 
     public void ChangeState(BaseGameState state)
@@ -30,5 +26,10 @@ public abstract class BaseGameLogic : IConsoleInput
         CurrentState?.Update(deltaTime);
         CurrentState?.Draw(renderer);
         this.Update(deltaTime);
+    }
+
+    public void Update(double deltaTime)
+    {
+        throw new NotImplementedException();
     }
 }

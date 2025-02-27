@@ -8,15 +8,19 @@ namespace C_Charp_Tanks.Venicals;
 
 public abstract class Unit
 {
+    protected FabricController _fabricController;
     public UnitType UnitType { get; protected set; }
     public Vector2 Position { get; protected set; }
+    public Vector2 CurrentDirection { get; protected set; }
     public BoxCollider2D Collider { get; protected set; }
     public float Speed { get; protected set; }
     public char[,] View  { get; protected set; }
     public int Health { get; protected set; } = 100;
-    private double moveCooldown = 0;
-    public Vector2 CurrentDirection { get; protected set; }
-    protected FabricController _fabricController;
+    
+    // Время между выстрелами (2 секунды)
+    private float _shootCooldown = 2f;
+    // Текущее время до готовности следующего выстрела
+    private float _currentShootTimer = 0f;
     
     public Unit(Vector2 position, FabricController fabricController)
     {
@@ -29,30 +33,6 @@ public abstract class Unit
     public virtual void Update(double deltaTime)
     {
         UpdateCollider();
-    }
-    
-    // Метод проверки столкновения с блоками
-    public virtual bool TryToMove(Vector2 direction)
-    {
-        var blocks = _fabricController.BlocksFabric.GetBlocks().ToList();
-        var units = _fabricController.UnitFabric.GetUnits().ToList();
-        
-        Vector2 newPosition = Position + direction; // Новая позиция после движения
-        BoxCollider2D newCollider = new BoxCollider2D(newPosition, Collider.Size); // Создаём временный коллайдер
-        
-        foreach (var block in blocks)
-        {
-            if (newCollider.IsColliding(block.Collider)) // Проверяем столкновение
-                return false; // Есть столкновение — нельзя двигаться
-        }
-
-        foreach (var unit in units)
-        {
-            if (!(unit is Player) && newCollider.IsColliding(unit.Collider)) // Проверяем столкновение
-                return false; // Есть столкновение — нельзя двигаться
-        }
-
-        return true; // Нет столкновения — можно двигаться
     }
     
     public virtual void Render(IRenderer renderer)
@@ -83,6 +63,6 @@ public abstract class Unit
 
     public virtual void Destroy()
     {
-        _fabricController.UnitFabric.RemoveUnit(this);
+        _fabricController.UnitFabric.RemoveItem(this);
     }
 }

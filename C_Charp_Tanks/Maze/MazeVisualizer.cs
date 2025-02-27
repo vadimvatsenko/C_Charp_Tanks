@@ -44,7 +44,7 @@ public class MazeVisualizer
                     WaterBlock waterBlock 
                         = new WaterBlock(
                             BlockType.Water, Symbols.WaterStateOne, new Vector2(i * _step + _step + startX, j * _step + _step));
-                    _fabricController.BlocksFabric.AddBlock(waterBlock);
+                    _fabricController.BlocksFabric.AddItem(waterBlock);
                 }
                 else
                 {
@@ -53,7 +53,7 @@ public class MazeVisualizer
                         = new DestructibleBlock(
                             _fabricController, BlockType.Destructible, Symbols.Wall, 
                             new Vector2(i * _step + _step + startX, j * _step + _step)); 
-                    _fabricController.BlocksFabric.AddBlock(destructibleBlock);
+                    _fabricController.BlocksFabric.AddItem(destructibleBlock);
                 }
             }
 
@@ -78,12 +78,12 @@ public class MazeVisualizer
         {
             IndestructibleBlock indestructibleBlockLeft =
                 new IndestructibleBlock(BlockType.Indestructible, Symbols.Wall, new Vector2(startX, i));
-            _fabricController.BlocksFabric.AddBlock(indestructibleBlockLeft);
+            _fabricController.BlocksFabric.AddItem(indestructibleBlockLeft);
 
             IndestructibleBlock indestructibleBlockRight =
                 new IndestructibleBlock(
                     BlockType.Indestructible, Symbols.Wall, new Vector2(startX + mazeWidth * _step, i));
-            _fabricController.BlocksFabric.AddBlock(indestructibleBlockRight);
+            _fabricController.BlocksFabric.AddItem(indestructibleBlockRight);
 
         }
         
@@ -94,11 +94,11 @@ public class MazeVisualizer
             IndestructibleBlock indestructibleBlockLeft =
                new IndestructibleBlock(
                    BlockType.Indestructible, Symbols.Wall, new Vector2(startX + j, 0));
-            _fabricController.BlocksFabric.AddBlock(indestructibleBlockLeft);
+            _fabricController.BlocksFabric.AddItem(indestructibleBlockLeft);
 
             IndestructibleBlock indestructibleBlockRight =
                 new IndestructibleBlock(BlockType.Indestructible, Symbols.Wall, new Vector2(startX + j, mazeHeight * _step));
-            _fabricController.BlocksFabric.AddBlock(indestructibleBlockRight);
+            _fabricController.BlocksFabric.AddItem(indestructibleBlockRight);
         }
     }
 }

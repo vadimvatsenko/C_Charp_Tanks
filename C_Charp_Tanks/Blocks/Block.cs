@@ -8,11 +8,9 @@ public abstract class Block : IUpdatable
     public BoxCollider2D Collider {get; protected set;}
     public Vector2 Position {get; protected set;}
     public char[,] View { get; protected set; }
-    
-    protected char Symbol;
+    public char Symbol {get; protected set; }
     public BlockType Type {get; protected set;}
-    
-    protected byte Color;
+    public byte Color {get; protected set; }
     
     public Block(BlockType type, char symbol, Vector2 position)
     {
@@ -35,7 +33,7 @@ public abstract class Block : IUpdatable
         }
     }
 
-    public void Render(IRenderer renderer)
+    public virtual void Render(IRenderer renderer)
     {
         for (int x = 0; x < View.GetLength(0); x++)
         {
@@ -46,13 +44,7 @@ public abstract class Block : IUpdatable
         }
     }
 
-    public virtual void Update(double deltaTime)
-    {
-        
-    }
+    public abstract void Update(double deltaTime);
+    public abstract void GetDamage();
 
-    public virtual void GetDamage()
-    {
-        
-    }
 }

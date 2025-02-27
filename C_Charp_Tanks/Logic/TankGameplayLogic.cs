@@ -20,13 +20,12 @@ public class TankGameplayLogic : BaseGameLogic
         _mazeCreator = mazeCreator;
         _tankGameplayState = tankGameplayState;
         _fabricController = fabricController;
-        
-        // Temp
-        
     }
     
     public void GotoGamePlay()
     {
+        _tankGameplayState.Reset();//
+        
         _mazeCreator.Initialize();
         _fabricController.Initialize(_currentLevel);
         
@@ -34,7 +33,6 @@ public class TankGameplayLogic : BaseGameLogic
         _tankGameplayState.FieldWidth = this.ScreenWidth;
         _tankGameplayState.FieldHeight = this.ScreenHeight;
         ChangeState(_tankGameplayState);
-        _tankGameplayState.Reset();
     }
 
     public void GotoGameOver()

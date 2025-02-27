@@ -25,6 +25,10 @@ public struct Vector2
     public static bool operator !=(Vector2 left, Vector2 right) => !(left == right);
     public static Vector2 operator *(Vector2 left, int numb) => new Vector2(left.X * numb, left.Y * numb);
     public static Vector2 operator /(Vector2 left, int numb) => new Vector2(left.X / numb, left.Y / numb);
+    public static bool operator <(Vector2 left, Vector2 right) => left.X < right.X && left.Y < right.Y;
+    public static bool operator >(Vector2 left, Vector2 right) => left.X > right.X && left.Y > right.Y;
+    public static bool operator <=(Vector2 left, Vector2 right) => left.X <= right.X && left.Y <= right.Y;
+    public static bool operator >=(Vector2 left, Vector2 right) => left.X >= right.X && left.Y >= right.Y;
     
     public float Magnitude() => MathF.Sqrt(X * X + Y * Y);
     

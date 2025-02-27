@@ -115,7 +115,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
@@ -130,6 +130,14 @@
               "IsPinned": true
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Player.cs",
@@ -137,7 +145,7 @@
               "RelativeDocumentMoniker": "C_Charp_Tanks\\Units and Items\\Player.cs",
               "ToolTip": "P:\\Projects and Documents\\Visual Studio Apps\\C_Charp_Tanks\\C_Charp_Tanks\\Units and Items\\Player.cs",
               "RelativeToolTip": "C_Charp_Tanks\\Units and Items\\Player.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAOAAAAAAAAAA==",
+              "ViewState": "AgIAAFUAAAAAAAAAAAAuwBEAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-18T19:18:21.33Z",
               "EditorCaption": ""
@@ -152,8 +160,7 @@
               "RelativeToolTip": "C_Charp_Tanks\\Units and Items\\Enemy\\Node.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-18T19:18:02.31Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-18T19:18:02.31Z"
             },
             {
               "$type": "Document",
@@ -165,8 +172,7 @@
               "RelativeToolTip": "C_Charp_Tanks\\Fabrics\\BulletsFactory\\ShellFabric.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-18T19:16:45.052Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-18T19:16:45.052Z"
             },
             {
               "$type": "Document",
@@ -178,8 +184,7 @@
               "RelativeToolTip": "C_Charp_Tanks\\Fabrics\\BulletsFactory\\AbstractBulletsFactory.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAABsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-18T19:16:30.276Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-18T19:16:30.276Z"
             },
             {
               "$type": "Document",
@@ -191,8 +196,7 @@
               "RelativeToolTip": "C_Charp_Tanks\\Fabrics\\BlocksFactory\\BlocksFabric.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-18T19:16:25.806Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-18T19:16:25.806Z"
             },
             {
               "$type": "Document",
@@ -204,8 +208,7 @@
               "RelativeToolTip": "C_Charp_Tanks\\Fabrics\\BlocksFactory\\AbstractBlocksFactory.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-18T19:16:23.811Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-18T19:16:23.811Z"
             },
             {
               "$type": "Document",
@@ -217,8 +220,7 @@
               "RelativeToolTip": "C_Charp_Tanks\\Data\\PlayerData.cs",
               "ViewState": "AgIAAB4AAAAAAAAAAAAowDcAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-18T19:15:54.808Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-18T19:15:54.808Z"
             },
             {
               "$type": "Document",
@@ -230,8 +232,7 @@
               "RelativeToolTip": "C_Charp_Tanks\\Units and Items\\Shells\\Shell.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-18T19:13:00.09Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-18T19:13:00.09Z"
             },
             {
               "$type": "Document",
@@ -243,8 +244,7 @@
               "RelativeToolTip": "C_Charp_Tanks\\Units and Items\\Shells\\Bullet.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-18T19:11:28.768Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-18T19:11:28.768Z"
             },
             {
               "$type": "Document",
@@ -256,8 +256,7 @@
               "RelativeToolTip": "C_Charp_Tanks\\Blocks\\WaterBlock.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-18T18:55:45.893Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-18T18:55:45.893Z"
             },
             {
               "$type": "Document",
@@ -269,8 +268,7 @@
               "RelativeToolTip": "C_Charp_Tanks\\Maze\\MazeVisualizer.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAC0AAABCAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-18T18:52:55.331Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-18T18:52:55.331Z"
             },
             {
               "$type": "Document",
@@ -282,8 +280,7 @@
               "RelativeToolTip": "C_Charp_Tanks\\Maze\\MazeCreator.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAB8AAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-18T18:52:18.092Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-18T18:52:18.092Z"
             },
             {
               "$type": "Document",
@@ -295,16 +292,7 @@
               "RelativeToolTip": "C_Charp_Tanks\\Data\\Symbols.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-18T18:51:01.331Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+              "WhenOpened": "2025-02-18T18:51:01.331Z"
             },
             {
               "$type": "Document",
@@ -316,8 +304,7 @@
               "RelativeToolTip": "C_Charp_Tanks\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-09T16:08:11.648Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-09T16:08:11.648Z"
             },
             {
               "$type": "Document",
@@ -377,8 +364,7 @@
               "RelativeToolTip": "C_Charp_Tanks\\Blocks\\Block.cs",
               "ViewState": "AgIAAA4AAAAAAAAAAAAIwBoAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T20:19:14.906Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-07T20:19:14.906Z"
             },
             {
               "$type": "Document",

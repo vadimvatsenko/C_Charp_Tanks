@@ -1,22 +1,28 @@
 ﻿using C_Charp_Tanks.Blocks;
 using C_Charp_Tanks.Engine;
+using C_Charp_Tanks.Engine.Ray;
 using C_Charp_Tanks.Fabrics;
 
 namespace C_Charp_Tanks.Venicals.Enemy;
 
-public class Enemy : Unit
+public class Enemy : Unit, IShoot
 {
-    private Vector2 _target;
+    private Unit _player;
     private double _timeToMove = 0;
     private double _moveCooldown = 0.5f;
     private bool _isActive = false;
+    private bool _isPlayerInZone = false;
 
-    private Direction _direction = Direction.Up;
+    private Vector2 _direction = Vector2.Up;
+    private Vector2 _shootDirection;
     
     private int[] _dx = { -1, 0, 1, 0 };
     private int[] _dy = { 0, 1, 0, -1};
 
     private double _timer = 1;
+    
+    private float _shootCooldown = 2f;
+    private float _currentShootTimer = 0f;
     
     public Enemy(Vector2 position, FabricController fabricController) : base(position, fabricController)
     {
@@ -31,8 +37,13 @@ public class Enemy : Unit
 
     public override void Update(double deltaTime)
     {
-        _target = 
-            _fabricController.UnitFabric.GetUnits().Where(u => u.UnitType == UnitType.Player).First().Position;
+        FindPlayer();
+
+        if (RayCast())
+        {
+            Shoot();
+        }
+        
         List<Node> path = FindPath();
          
         if (path == null || path.Count <= 1) return;
@@ -44,10 +55,10 @@ public class Enemy : Unit
         {
             Node nextPos = path[1];
             
-            if (nextPos.Position.X > Position.X) _direction = Direction.Right; // вправо
-            if (nextPos.Position.X < Position.X) _direction = Direction.Left; // влево
-            if (nextPos.Position.Y > Position.Y) _direction = Direction.Down; // вниз
-            if (nextPos.Position.Y < Position.Y) _direction = Direction.Up; // вверх
+            if (nextPos.Position.X > Position.X) _direction = Vector2.Right; // вправо
+            if (nextPos.Position.X < Position.X) _direction = Vector2.Left; // влево
+            if (nextPos.Position.Y > Position.Y) _direction = Vector2.Down; // вниз
+            if (nextPos.Position.Y < Position.Y) _direction = Vector2.Up; // вверх
             
             SetDirection(_direction);
             
@@ -60,11 +71,33 @@ public class Enemy : Unit
             }
         }
     }
+
+    private void FindPlayer()
+    {
+        _player = 
+            _fabricController.UnitFabric.GetItem().Where(u => u.UnitType == UnitType.Player).FirstOrDefault();
+    }
+
+    private bool RayCast()
+    {
+        int maxDistance = 30;
     
+        for (int i = 1; i <= maxDistance; i++) // i идёт от 1, чтобы не проверять свою же позицию
+        {
+            Vector2 tempPos = this.Position + _direction * i; // Смещаемся в направлении игрока
+            if (new BoxCollider2D(tempPos, new Vector2(1, 1)).IsColliding(_player.Collider))
+            {
+                return true;
+            }
+        }
+    
+        return false;
+    }
+
     private List<Node> FindPath()
     {
         Node startNode = new Node(Position);
-        Node targetNode = new Node(_target);
+        Node targetNode = new Node(_player.Position);
         
         List<Node> openList = new List<Node>() {startNode};
         List<Node> closedList = new List<Node>();
@@ -103,7 +136,6 @@ public class Enemy : Unit
                 int newY = currentNode.Position.Y + _dy[i];
                 
                 // нужно проверить столкновение
-
                 
                 if (!IsUnwalkable(newX, newY))
                 {
@@ -114,7 +146,7 @@ public class Enemy : Unit
                     if (!openList.Contains(neighbor))
                     {
                         neighbor.Parent = currentNode;
-                        neighbor.CalculateEstimate(_target);
+                        neighbor.CalculateEstimate(_player.Position);
                         neighbor.CalculateValue();
                         openList.Add(neighbor);
                     }
@@ -129,27 +161,44 @@ public class Enemy : Unit
     private bool IsUnwalkable(int x, int y) 
     {
         BoxCollider2D tempColl = new BoxCollider2D(new Vector2(x,y), new Vector2(3, 3));
-        
-        return  
-            _fabricController.BlocksFabric.GetBlocks().Any(b => b.Collider.IsColliding(tempColl));
+
+        return
+            _fabricController.BlocksFabric.GetItem().Any(b => b.Collider.IsColliding(tempColl));
     }
 
-    private void SetDirection(Direction direction)
+    private void SetDirection(Vector2 direction)
     {
-        switch (direction)
+        if (direction == Vector2.Up)
+            View = PlayerData.Instance.TankUpView;
+        else if (direction == Vector2.Down)
+            View = PlayerData.Instance.TankDownView;
+        else if (direction == Vector2.Left)
+            View = PlayerData.Instance.TankLeftView;
+        else if (direction == Vector2.Right)
+            View = PlayerData.Instance.TankRightView;
+    }
+
+    public void Shoot()
+    {
+        if (_currentShootTimer > 0f)
         {
-            case Direction.Up:
-                View = PlayerData.Instance.TankUpView;
-                break;
-            case Direction.Down:
-                View = PlayerData.Instance.TankDownView;
-                break;
-            case Direction.Left:
-                View = PlayerData.Instance.TankLeftView;
-                break;
-            case Direction.Right:
-                View = PlayerData.Instance.TankRightView;
-                break;
+            return;
         }
+        
+        Vector2 shellPosition = Position + _shootDirection + Vector2.One;
+        Vector2 shellDirection = CurrentDirection;
+        
+        _fabricController.ShellsFabric.CreateShell(
+            _fabricController, 
+            shellPosition, 
+            shellDirection
+        );
+        
+        _currentShootTimer = _shootCooldown;
+    }
+
+    public override void Destroy()
+    {
+        base.Destroy();
     }
 }

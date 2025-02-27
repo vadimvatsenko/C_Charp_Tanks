@@ -9,5 +9,14 @@ public class IndestructibleBlock : Block
     {
         Color = 6;
     }
-    
+
+    public override void Update(double deltaTime)
+    {
+        
+    }
+
+    public override void GetDamage()
+    {
+        
+    }
 }

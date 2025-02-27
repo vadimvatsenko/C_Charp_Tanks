@@ -1,13 +1,10 @@
-﻿using System.Collections.Immutable;
-using C_Charp_Tanks.Fabrics;
-using C_Charp_Tanks.Renderer;
-
+﻿using C_Charp_Tanks.Fabrics;
 namespace C_Charp_Tanks.Blocks;
 
 public class DestructibleBlock: Block
 {
-    private FabricController _fabricController;
-    public int Lives { get; private set; } = 2;
+    private readonly FabricController _fabricController;
+    private int _lives = 2;
     public DestructibleBlock(FabricController fabricController, BlockType type, char symbol, Vector2 position) 
         : base(type, symbol, position)
     {
@@ -19,16 +16,16 @@ public class DestructibleBlock: Block
     {
         Symbol = Symbols.BrockenWall;
         FillBlock();
-        Lives--;
+        _lives--;
     }
 
     public override void Update(double deltaTime)
     {
-        if (Lives == 1)
+        if (_lives == 1)
         {
             Symbol = Symbols.BrockenWall;
         }
-        else if (Lives <= 0)
+        else if (_lives <= 0)
         {
             this.Destroy();
         }
@@ -36,6 +33,6 @@ public class DestructibleBlock: Block
     
     public void Destroy()
     {
-        _fabricController.BlocksFabric.RemoveBlock(this);
+        _fabricController.BlocksFabric.RemoveItem(this);
     }
 }

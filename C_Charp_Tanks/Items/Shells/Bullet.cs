@@ -1,8 +1,9 @@
-﻿using C_Charp_Tanks.Renderer;
+﻿using C_Charp_Tanks.Fabrics;
+using C_Charp_Tanks.Renderer;
 
 namespace C_Charp_Tanks.Venicals;
 
-public class Bullet : Shell
+public class Bullet : Ammunition
 {
     private double _timeElapsed = 0;
     public Bullet(Vector2 position, Vector2 dir) : base(position, dir)
@@ -27,9 +28,8 @@ public class Bullet : Shell
         renderer.SetPixel(Position.X, Position.Y, View, 4);
     }
     
-    public override void Destroy()
+    public override void Destroy(FabricController fabricController)
     {
-        //da_fabricController.ShellsFabric.RemoveShell(this);
+        fabricController.BulletsFabric.RemoveShell(this);
     }
-    
 }
