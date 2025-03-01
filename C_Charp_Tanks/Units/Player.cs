@@ -10,8 +10,9 @@ public class Player : Unit, IShoot
 {
     private readonly IConsoleInput _input;
     
-    private float _shootCooldown = 2f;
-    private float _currentShootTimer = 0f;
+    private bool _canShoot = true;
+    private double _currentShootTimer = 0;
+    private const double CoolDownTime = 2.0;
     
     public Player(Vector2 position, FabricController fabricController,  IConsoleInput input) 
         : base(position, fabricController)
@@ -36,6 +37,18 @@ public class Player : Unit, IShoot
         _input.MoveLeft -= MoveLeft;
         _input.MoveRight -= MoveRight;
         _input.Shoot -= Shoot;
+    }
+   
+    public override void Update(double deltaTime)
+    {
+        if (!_canShoot)
+        {
+            _currentShootTimer += deltaTime;
+            if (_currentShootTimer >= CoolDownTime)
+            {
+                _canShoot = true;
+            }
+        }
     }
    
     private void MoveUp()
@@ -79,27 +92,21 @@ public class Player : Unit, IShoot
         }
     }
     
-    public override void Update(double deltaTime)
-    {
-        base.Update(deltaTime);
-        if (_currentShootTimer > 0f)
-        {
-            _currentShootTimer -= (float)deltaTime;
-        }
-    }
-    
     private bool TryToMove(Vector2 direction)
     {
-        var blocks = _fabricController.BlocksFabric.GetItem().ToList();
-        var units = _fabricController.UnitFabric.GetItem().ToList();
+        var blocks = _fabricController.BlocksFabric.GetItems().ToList();
+        var units = _fabricController.UnitFabric.GetItems().ToList();
         
         Vector2 newPosition = Position + direction; // Новая позиция после движения
         BoxCollider2D newCollider = new BoxCollider2D(newPosition, Collider.Size); // Создаём временный коллайдер
         
         foreach (var block in blocks)
         {
+            Console.WriteLine("true");
             if (newCollider.IsColliding(block.Collider)) // Проверяем столкновение
+            {
                 return false; // Есть столкновение — нельзя двигаться
+            }
         }
 
         foreach (var unit in units)
@@ -108,25 +115,19 @@ public class Player : Unit, IShoot
                 return false; // Есть столкновение — нельзя двигаться
         }
 
+        
         return true; // Нет столкновения — можно двигаться
     }
     
     public void Shoot()
     {
-        if (_currentShootTimer > 0f)
-        {
-            return;
-        }
+        if (!_canShoot) return;
         
         Vector2 shellPosition = Position + CurrentDirection + Vector2.One;
         Vector2 shellDirection = CurrentDirection;
         
-        _fabricController.ShellsFabric.CreateShell(
-            _fabricController, 
-            shellPosition, 
-            shellDirection
-        );
-        
-        _currentShootTimer = _shootCooldown;
+        _fabricController.BulletsFabric.CreateBullet(shellPosition, shellDirection);
+        _canShoot = false;
+        _currentShootTimer = 0;
     }
 }

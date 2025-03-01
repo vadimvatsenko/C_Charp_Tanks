@@ -3,12 +3,10 @@ namespace C_Charp_Tanks.Blocks;
 
 public class DestructibleBlock: Block
 {
-    private readonly FabricController _fabricController;
     private int _lives = 2;
-    public DestructibleBlock(FabricController fabricController, BlockType type, char symbol, Vector2 position) 
-        : base(type, symbol, position)
+    public event Action? OnDestructionBlock;
+    public DestructibleBlock(BlockType type, char symbol, Vector2 position) : base(type, symbol, position)
     {
-        _fabricController = fabricController;
         Color = 5;
     }
 
@@ -27,12 +25,7 @@ public class DestructibleBlock: Block
         }
         else if (_lives <= 0)
         {
-            this.Destroy();
+            OnDestructionBlock?.Invoke();
         }
-    }
-    
-    public void Destroy()
-    {
-        _fabricController.BlocksFabric.RemoveItem(this);
     }
 }

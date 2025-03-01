@@ -41,8 +41,6 @@ public class Map
 
         var closestRoad = MazeHelper.GetClosestRoad(map, x, y);
         
-        Console.WriteLine("closestRoad");
-
         //_hero.position = new Vector3(closestRoad.Item1, 0, closestRoad.Item2);
     }
 }

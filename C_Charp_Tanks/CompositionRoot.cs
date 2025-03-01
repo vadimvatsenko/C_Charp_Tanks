@@ -21,6 +21,7 @@ public class CompositionRoot
         // Независимые объекты
         ConsoleInput = new ConsoleInput();
         BlocksFabric blocksFabric = new BlocksFabric();
+        BulletsFabric bulletsFabric = new BulletsFabric();
         MazeCreator mazeCreator = new MazeCreator();
 
         // Рендеринг
@@ -28,8 +29,8 @@ public class CompositionRoot
         CurrentRenderer = new ConsoleRenderer(Pallete.Colors);
 
         // Фабрики и контроллеры
-        UnitFabric unitFabric = new UnitFabric(ConsoleInput, mazeCreator);
-        FabricController = new FabricController(unitFabric, blocksFabric);
+        UnitFabric unitFabric = new UnitFabric(ConsoleInput);
+        FabricController = new FabricController(unitFabric, blocksFabric, bulletsFabric);
         unitFabric.SetFabricController(FabricController); // Устанавливаем зависимость после создания
         mazeCreator.SetFabricController(FabricController); // Устанавливаем зависимость после создания
 

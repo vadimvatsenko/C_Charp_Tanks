@@ -27,9 +27,4 @@ public class Bullet : Ammunition
     {
         renderer.SetPixel(Position.X, Position.Y, View, 4);
     }
-    
-    public override void Destroy(FabricController fabricController)
-    {
-        fabricController.BulletsFabric.RemoveShell(this);
-    }
 }

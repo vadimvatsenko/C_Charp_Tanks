@@ -32,6 +32,9 @@ public class TankGameplayLogic : BaseGameLogic
         _tankGameplayState.Level = _currentLevel;
         _tankGameplayState.FieldWidth = this.ScreenWidth;
         _tankGameplayState.FieldHeight = this.ScreenHeight;
+        
+        _fabricController.Clean();
+        
         ChangeState(_tankGameplayState);
     }
 
@@ -41,6 +44,8 @@ public class TankGameplayLogic : BaseGameLogic
         _tankGameplayState.Score = 0;
         _newGamePending = true;
         _showTextState.Text = "GAME OVER";
+        
+        _fabricController.Clean();
         ChangeState(_showTextState);
     }
 
@@ -49,6 +54,9 @@ public class TankGameplayLogic : BaseGameLogic
         _currentLevel++;
         _newGamePending = false;
         _showTextState.Text = $"Level: {_currentLevel}";
+        
+        _fabricController.Clean();
+        
         ChangeState(_showTextState);
     }
     public override void Update(float deltaTime)

@@ -21,5 +21,4 @@ public abstract class Ammunition: IUpdatable
     
     public abstract void Update(double deltaTime);
     public abstract void Render(IRenderer renderer);
-    public abstract void Destroy(FabricController fabricController);
 }

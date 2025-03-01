@@ -8,7 +8,7 @@ namespace C_Charp_Tanks.Venicals;
 
 public abstract class Unit
 {
-    protected FabricController _fabricController;
+    protected readonly FabricController _fabricController;
     public UnitType UnitType { get; protected set; }
     public Vector2 Position { get; protected set; }
     public Vector2 CurrentDirection { get; protected set; }
@@ -16,11 +16,6 @@ public abstract class Unit
     public float Speed { get; protected set; }
     public char[,] View  { get; protected set; }
     public int Health { get; protected set; } = 100;
-    
-    // Время между выстрелами (2 секунды)
-    private float _shootCooldown = 2f;
-    // Текущее время до готовности следующего выстрела
-    private float _currentShootTimer = 0f;
     
     public Unit(Vector2 position, FabricController fabricController)
     {
@@ -59,10 +54,5 @@ public abstract class Unit
     protected void UpdateCollider()
     {
         Collider.Position = Position;
-    }
-
-    public virtual void Destroy()
-    {
-        _fabricController.UnitFabric.RemoveItem(this);
     }
 }

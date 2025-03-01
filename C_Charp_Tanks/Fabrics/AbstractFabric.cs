@@ -3,12 +3,23 @@
 public abstract class AbstractFabric<T>
 {
     protected List<T> _list = new List<T>();
-    public abstract event Action<T>? OnItemDestroyed;
-    public abstract event Action? OnItemCreated;
+    public event Action? OnItemsUpdated;
     
-    public abstract void CreateItem();
-    public abstract void AddItem(T item);
-    public abstract void RemoveItem(T item);
-    public abstract List<T> GetItem();
-    public abstract void ClearItem();
+    protected void AddItem(T item)
+    {
+        _list.Add(item);
+        OnItemsUpdated?.Invoke();
+    }
+    
+    public void RemoveItem(T item)
+    {
+        _list.Remove(item);
+        OnItemsUpdated?.Invoke();
+    }
+    public List<T> GetItems() => _list;
+    
+    public void ClearItems()
+    {
+        _list.Clear();
+    }
 }

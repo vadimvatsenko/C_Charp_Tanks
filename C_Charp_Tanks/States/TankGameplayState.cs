@@ -3,10 +3,8 @@ using C_Charp_Tanks.Engine;
 using C_Charp_Tanks.Fabrics;
 using C_Charp_Tanks.Systems;
 using C_Charp_Tanks.Venicals;
-using C_Charp_Tanks.Venicals.Enemy;
 
 namespace C_Charp_Tanks.States;
-
 public class TankGameplayState : BaseGameState
 {
     private FabricController _fabricController;
@@ -14,11 +12,11 @@ public class TankGameplayState : BaseGameState
     private Random _random = new Random();
 
     #region GameObjects
-    private List<Shell> _shells = new List<Shell>();
+    private List<Ammunition> _bullets = new List<Ammunition>();
     private List<Unit> _allUnits = new List<Unit>();
     private List<Unit> _enemies = new List<Unit>();
     private List<Block> _blocks = new List<Block>();
-    private List<Unit> _players = new List<Unit>();
+    private Unit? _player;
     #endregion
     
     private int _fieldWidth;
@@ -27,9 +25,10 @@ public class TankGameplayState : BaseGameState
     private int _score = 0;
     private int _level = 1;
     
-    public bool gameOver { get; private set; }
+    public bool gameOver { get; private set; } = false;
     public bool hasWon { get; private set; } = false;
     
+    #region Property
     public int FieldWidth
     {
         get => _fieldWidth;
@@ -53,18 +52,27 @@ public class TankGameplayState : BaseGameState
         get => _level;
         set => _level = value;
     }
+    #endregion
 
     public TankGameplayState(FabricController fabricController, CollisionSystem collisionSystem)
     {
         _collisionSystem = collisionSystem;
         _fabricController = fabricController;
 
-        _allUnits = _fabricController.UnitFabric.GetItem();
-        _players = _allUnits.FindAll(u => u.UnitType == UnitType.Player);
-        _enemies = _allUnits.FindAll(u => u.UnitType == UnitType.Enemy);
-        _blocks = 
-            _fabricController.BlocksFabric.GetItem().Where(b => b.Type != BlockType.Indestructible).ToList();
+        _fabricController.UnitFabric.OnItemsUpdated += UpdateUnits;
+        _fabricController.BlocksFabric.OnItemsUpdated += UpdateBlocks;
+        _fabricController.BulletsFabric.OnItemsUpdated += UpdateBullets;
         
+        _collisionSystem.OnChangeScore += ChangeScore;
+    }
+
+    ~TankGameplayState()
+    {
+        _fabricController.UnitFabric.OnItemsUpdated -= UpdateUnits;
+        _fabricController.BlocksFabric.OnItemsUpdated -= UpdateBlocks;
+        _fabricController.BulletsFabric.OnItemsUpdated -= UpdateBullets;
+        
+        _collisionSystem.OnChangeScore -= ChangeScore;
     }
     
     public override bool IsDone()
@@ -74,80 +82,77 @@ public class TankGameplayState : BaseGameState
 
     public override void Update(float deltaTime)
     {
-        _shells.ForEach(s => s.Update(deltaTime));
+        _bullets.ForEach(s => s.Update(deltaTime));
         _enemies.ForEach(e => e.Update(deltaTime));
         _blocks.ForEach(b => b.Update(deltaTime));
-        _players.ForEach(p => p.Update(deltaTime));
+        _player?.Update(deltaTime);
         
-        CheckCollisions(_blocks, _shells, _enemies, _players[0]);
+        _collisionSystem.Update(deltaTime);
         
-        //_collisionSystem.Update(deltaTime);
-        
-        gameOver = _players[0].Health <= 0;
+        gameOver = _player == null;
         hasWon = _enemies.Count <= 0;
     }
-
-    private void CheckCollisions(List<Block> blocks, List<Shell> shells, List<Unit> enemies, Unit player)
-    {
-        foreach (var shell in shells)
-        {
-            Vector2 newShellPos = shell.Position + shell.Direction;
-            BoxCollider2D shellCollider = new BoxCollider2D(newShellPos, shell.Collider.Size);
-            
-            foreach (var block in blocks)
-            {
-                if (shellCollider.IsColliding(block.Collider) && block.Type == BlockType.Destructible)
-                {
-                    shell.Destroy(_fabricController);
-                    block.GetDamage();
-                }
-
-                if (shellCollider.IsColliding(block.Collider) && block.Type == BlockType.Indestructible)
-                {
-                    shell.Destroy(_fabricController);
-                }
-                
-            }
-            foreach (var enemy in enemies)
-            {
-                if (shellCollider.IsColliding(enemy.Collider))
-                {
-                    _fabricController.ShellsFabric.RemoveShell(shell);
-                    enemy.GetDamage(_random.Next(0, 101));
-                    if (enemy.Health <= 0)
-                    {
-                        enemy.Destroy();
-                        Score += 100;
-                    }
-                }
-            }
-        }
-    }
-
+    
     public override void Reset()
     {
+        _fabricController.Clean();
+        
         gameOver = false;
         hasWon = false;
-        int middleX = FieldWidth / 2; 
-        int middleY = FieldHeight / 2; 
-        
-        _fabricController.ShellsFabric.GetShells().Clear();
-        _fabricController.UnitFabric.GetItem().Clear();
-        _fabricController.BlocksFabric.GetItem().Clear();
     }
     
     public override void Draw(ConsoleRenderer renderer)
     {
         _blocks.ForEach(b => b.Render(renderer));
         _enemies.ForEach(e => e.Render(renderer));
-        _shells.ForEach(s => s.Render(renderer));
-        _players.ForEach(p => p.Render(renderer));
+        _bullets.ForEach(s => s.Render(renderer));
+        _player?.Render(renderer);
+        
+        ConsoleColor healthColor = ConsoleColor.Cyan;
+        if (_player != null)
+        {
+            healthColor = ChangeHealthColor(_player.Health);
+        }
         
         renderer.DrawString
-            ($"Score: {_score.ToString()}", FieldWidth / 2, 0, ConsoleColor.DarkBlue);
+            ($"Score: {_score.ToString()}", FieldWidth / 2, 0, ConsoleColor.DarkGreen);
         renderer.DrawString
-            ($"Health: {_players[0].Health}%", FieldWidth / 2 - 30 , 0, ConsoleColor.DarkBlue);
+            ($"Health: {_player?.Health}%", FieldWidth / 4, 0, healthColor);
         renderer.DrawString
-            ($"Enemies: {_enemies.Count()}", FieldWidth / 2 + 23 , 0, ConsoleColor.DarkBlue);
+            ($"Enemies: {_enemies.Count()}", FieldWidth / 2 + FieldWidth / 4 , 0, ConsoleColor.DarkRed);
+    }
+
+    private ConsoleColor ChangeHealthColor(int health)
+    {
+        if(health >= 70 && health <= 100) 
+            return ConsoleColor.DarkGreen;
+        
+        else if(health >= 50 && health < 70) 
+            return ConsoleColor.DarkBlue;
+        
+        else 
+            return ConsoleColor.DarkRed;
+    }
+    
+    private void UpdateBullets()
+    {
+        _bullets = _fabricController.BulletsFabric.GetItems().ToList();
+    }
+
+    private void UpdateBlocks()
+    {
+        _blocks = _fabricController.BlocksFabric.GetItems().ToList();
+    }
+
+    private void UpdateUnits()
+    {
+        _allUnits = _fabricController.UnitFabric.GetItems().ToList();
+        _enemies = _allUnits.FindAll(u => u.UnitType == UnitType.Enemy);
+        _player = _allUnits.Find(u => u.UnitType == UnitType.Player);
+    }
+
+    private void ChangeScore()
+    {
+        Score += 100;
     }
 }

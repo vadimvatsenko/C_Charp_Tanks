@@ -25,7 +25,7 @@ public class ShowTextState: BaseGameState
         Text = text;
         _duration = duration;
         
-        Reset();
+          Reset();
     }
     
     public override void Draw(ConsoleRenderer consoleRenderer)

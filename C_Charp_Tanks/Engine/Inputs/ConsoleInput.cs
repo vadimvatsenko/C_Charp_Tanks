@@ -16,30 +16,39 @@ public class ConsoleInput : IConsoleInput
 
     public void Update(double deltaTime)
     {
-        ConsoleKeyInfo keyInfo;
-
-        if (Console.KeyAvailable)
+        while (Console.KeyAvailable) // Обрабатываем все входящие события
         {
-            keyInfo = Console.ReadKey(true);
+            ConsoleKeyInfo keyInfo = Console.ReadKey(true);
 
-            switch (keyInfo.Key)
+            if (!_keyState.ContainsKey(keyInfo.Key) || !_keyState[keyInfo.Key]) // Если кнопка не была зажата
             {
-                case ConsoleKey.UpArrow or ConsoleKey.W:
-                    MoveUp?.Invoke();
-                    break;
-                case ConsoleKey.DownArrow or ConsoleKey.S:
-                    MoveDown?.Invoke();
-                    break;
-                case ConsoleKey.LeftArrow or ConsoleKey.A:
-                    MoveLeft?.Invoke();
-                    break;
-                case ConsoleKey.RightArrow or ConsoleKey.D:
-                    MoveRight?.Invoke();
-                    break;
-                case ConsoleKey.Spacebar:
-                    Shoot?.Invoke();
-                    break;
+                _keyState[keyInfo.Key] = true; // Помечаем, что кнопка нажата
+                
+                switch (keyInfo.Key)
+                {
+                    case ConsoleKey.UpArrow or ConsoleKey.W:
+                        MoveUp?.Invoke();
+                        break;
+                    case ConsoleKey.DownArrow or ConsoleKey.S:
+                        MoveDown?.Invoke();
+                        break;
+                    case ConsoleKey.LeftArrow or ConsoleKey.A:
+                        MoveLeft?.Invoke();
+                        break;
+                    case ConsoleKey.RightArrow or ConsoleKey.D:
+                        MoveRight?.Invoke();
+                        break;
+                    case ConsoleKey.Spacebar:
+                        Shoot?.Invoke();
+                        break;
+                }
             }
+        }
+
+        // Очищаем состояние клавиш, если больше нет входных событий
+        if (!Console.KeyAvailable)
+        {
+            _keyState.Clear();
         }
     }
 }

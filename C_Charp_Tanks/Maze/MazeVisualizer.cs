@@ -11,7 +11,14 @@ public class MazeVisualizer
     private Random _random = new Random();
     public List<Vector2> EmptyFields { get; private set; }
     public FabricController _fabricController;
-    private int _step = 3;
+    private readonly int _step = 3;
+    
+    public int StartX { get; private set; }
+    public int StartY { get; private set; }
+    public int EndX { get; private set; }
+    public int MazeWidth { get; private set; }
+    public int MazeHeight { get; private set; }
+    
     public void Visualise(bool[,] maze)
     {
         BuildWalls(maze);
@@ -26,79 +33,88 @@ public class MazeVisualizer
     
     private void BuildWalls(bool[,] maze)
     {
-        int mazeHeight = maze.GetLength(1);
-        int mazeWidth = maze.GetLength(0);
+        MazeHeight = maze.GetLength(1);
+        MazeWidth = maze.GetLength(0);
 
         // Определяем начальную позицию отрисовки (по центру окна)
-        int startX = Console.WindowWidth / 2 - mazeWidth / 2 * _step;
-        int startY = Console.WindowHeight / 2 - mazeHeight / 2 * _step;
+        StartX = (Console.WindowWidth / 2 - MazeWidth / 2 * _step) + _step;
+        StartY = (Console.WindowHeight / 2 - MazeHeight / 2 * _step) + _step;
         
-        for (int i = 0; i < mazeWidth - 1; i ++)
-        for (int j = 0; j < mazeHeight - 1; j ++)
+        EndX = Console.WindowWidth / 2 + MazeWidth / 2 * _step;
+        
+        for (int i = 0; i < MazeWidth - 1; i ++)
+        for (int j = 0; j < MazeHeight - 1; j ++)
         {
             if (maze[i, j] == false)
             {
                 int randomBlock = _random.Next(2);
                 if (randomBlock == 0)
                 {
-                    WaterBlock waterBlock 
-                        = new WaterBlock(
-                            BlockType.Water, Symbols.WaterStateOne, new Vector2(i * _step + _step + startX, j * _step + _step));
-                    _fabricController.BlocksFabric.AddItem(waterBlock);
+                    //Vector2 pos = new Vector2(i * _step + _step, j * _step + _step); // - лево верх
+                    //Vector2 pos = new Vector2(i * _step + _step + StartX, j * _step + _step); // - центр верх
+                    Vector2 pos = new Vector2(i * _step + _step + StartX, j * _step + _step + StartY); // - центр - центр
+                    WaterBlock waterBlock = new WaterBlock(BlockType.Water, Symbols.WaterStateOne, pos);
+                    _fabricController.BlocksFabric.CreateBlock(waterBlock);
                 }
                 else
                 {
-                    
-                    DestructibleBlock destructibleBlock 
-                        = new DestructibleBlock(
-                            _fabricController, BlockType.Destructible, Symbols.Wall, 
-                            new Vector2(i * _step + _step + startX, j * _step + _step)); 
-                    _fabricController.BlocksFabric.AddItem(destructibleBlock);
+                    //Vector2 pos = new Vector2(i * _step + _step, j * _step + _step); // - лево верх
+                    //Vector2 pos = new Vector2(i * _step + _step + StartX, j * _step + _step); // - центр верх
+                    Vector2 pos = new Vector2(i * _step + _step + StartX, j * _step + _step + StartY); // - центр - центр
+                    DestructibleBlock destructibleBlock =
+                        new DestructibleBlock(BlockType.Destructible, Symbols.Wall, pos);
+                    _fabricController.BlocksFabric.CreateBlock(destructibleBlock);
                 }
             }
 
             else
             {
-                EmptyFields.Add(new Vector2(i * _step + _step + startX, j * _step + _step));
+                //Vector2 pos = new Vector2(i * _step + _step, j * _step + _step); // - лево верх
+                //Vector2 pos = new Vector2(i * _step + _step + StartX, j * _step + _step); // - центр верх
+                Vector2 pos = new Vector2(i * _step + _step + StartX, j * _step + _step + StartY); // - центр - центр
+               _fabricController.AddEmptyPosition(pos);
             }
         }
     }
 
     private void BuildWallsAround(bool[,] maze)
     {
-        int mazeHeight = maze.GetLength(1);
-        int mazeWidth = maze.GetLength(0);
-
-        // Определяем начальную позицию отрисовки (по центру окна)
-        int startX = Console.WindowWidth / 2 - mazeWidth / 2 * _step;
-        int startY = Console.WindowHeight / 2 - mazeHeight / 2 * _step;
-        
        // вертикаль
-        for (int i = 0; i <= mazeHeight * _step; i += _step)
+       // левая
+        for (int i = 0; i <= MazeHeight * _step; i += _step)
         {
+            //Vector2 posY1 = new Vector2(0, i); // лево - верх
+            //Vector2 posY1 = new Vector2(StartX, i); // центр - верх
+            Vector2 posY1 = new Vector2(StartX, i + StartY); // центр - центр
             IndestructibleBlock indestructibleBlockLeft =
-                new IndestructibleBlock(BlockType.Indestructible, Symbols.Wall, new Vector2(startX, i));
-            _fabricController.BlocksFabric.AddItem(indestructibleBlockLeft);
-
+                new IndestructibleBlock(BlockType.Indestructible, Symbols.Wall, posY1);
+            _fabricController.BlocksFabric.CreateBlock(indestructibleBlockLeft);
+            
+            // правая
+            //Vector2 posY2 = new Vector2(MazeWidth * _step, i); // лево - верх
+            //Vector2 posY2 = new Vector2(StartX + MazeWidth * _step, i); // центр - верх
+            Vector2 posY2 = new Vector2(StartX + MazeWidth * _step, i + StartY); // центр - центр
             IndestructibleBlock indestructibleBlockRight =
                 new IndestructibleBlock(
-                    BlockType.Indestructible, Symbols.Wall, new Vector2(startX + mazeWidth * _step, i));
-            _fabricController.BlocksFabric.AddItem(indestructibleBlockRight);
+                    BlockType.Indestructible, Symbols.Wall, posY2);
+            _fabricController.BlocksFabric.CreateBlock(indestructibleBlockRight);
 
         }
-        
         // горизонталь
-        
-        for (int j = 0; j <= mazeWidth * _step; j += _step)
+        for (int j = 0; j <= MazeWidth * _step; j += _step)
         {
+            //Vector2 posX1 = new Vector2(j, 0); // лево - вверх
+            Vector2 posX1 = new Vector2(StartX + j, StartY); // центр - центр
             IndestructibleBlock indestructibleBlockLeft =
                new IndestructibleBlock(
-                   BlockType.Indestructible, Symbols.Wall, new Vector2(startX + j, 0));
-            _fabricController.BlocksFabric.AddItem(indestructibleBlockLeft);
-
+                   BlockType.Indestructible, Symbols.Wall, posX1);
+            _fabricController.BlocksFabric.CreateBlock(indestructibleBlockLeft);
+            
+            //Vector2 posX2 = new Vector2(j, MazeHeight * _step); // лево - верх
+            Vector2 posX2 = new Vector2(j + StartX, MazeHeight * _step + StartY); // центр - центр
             IndestructibleBlock indestructibleBlockRight =
-                new IndestructibleBlock(BlockType.Indestructible, Symbols.Wall, new Vector2(startX + j, mazeHeight * _step));
-            _fabricController.BlocksFabric.AddItem(indestructibleBlockRight);
+                new IndestructibleBlock(BlockType.Indestructible, Symbols.Wall, posX2);
+            _fabricController.BlocksFabric.CreateBlock(indestructibleBlockRight);
         }
     }
 }
