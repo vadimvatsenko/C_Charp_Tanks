@@ -37,92 +37,120 @@ public class CollisionSystem : IUpdatable
     
     public void Update(double deltaTime)
     {
-        foreach (var bullet in _bullets)
-        {
-            Vector2 newBulltetPos = bullet.Position + bullet.Direction;
-            BoxCollider2D bulletColl = new BoxCollider2D(newBulltetPos, bullet.Collider.Size);
-            
-            foreach (var block in _blocks)
-            {
-                if (bulletColl.IsColliding(block.Collider) && block.Type == BlockType.Destructible)
-                {
-                    _fabricController.BulletsFabric.RemoveItem(bullet);
-                    block.GetDamage();
-                }
+        BulletsCollision();
+    }
 
-                if (bulletColl.IsColliding(block.Collider) && block.Type == BlockType.Indestructible)
-                {
-                    _fabricController.BulletsFabric.RemoveItem(bullet);
-                }
-                
-            }
-            foreach (var u in _allUnits)
+    private void BulletsCollision()
+    {
+        
+        if (_bullets.Count > 0)
+        {
+            var bulletsToRemove = new HashSet<Ammunition>();
+            var unitsToRemove = new HashSet<Unit>();
+            var blocksToRemove = new HashSet<Block>();
+
+            foreach (var bullet in _bullets)
             {
-                if (bulletColl.IsColliding(u.Collider))
+                Vector2 newBulletPos = bullet.Position + bullet.Direction;
+                BoxCollider2D bulletColl = new BoxCollider2D(newBulletPos, bullet.Collider.Size);
+
+                // Проверяем столкновение с блоками
+                
+                foreach (var block in _blocks)
                 {
-                    _fabricController.BulletsFabric.RemoveItem(bullet);
-                    
-                    if (u.UnitType == UnitType.Player) u.GetDamage(_random.Next(0, 51));
-                    if (u.UnitType == UnitType.Enemy) u.GetDamage(_random.Next(0, 101));
-                    
-                    if (u.Health <= 0)
+                    if (bulletColl.IsColliding(block.Collider) && block.Type != BlockType.Water)
                     {
-                        _fabricController.UnitFabric.RemoveItem(u);
-                        if (u.UnitType == UnitType.Enemy)
+                        if (block.Type == BlockType.Destructible)
                         {
-                            //Score += 100;
-                            OnChangeScore?.Invoke();
+                            DestructibleBlock? destructibleBlock = block as DestructibleBlock;
+                            destructibleBlock?.GetDamage();
+                            if (destructibleBlock.Lives <= 0)
+                            {
+                                blocksToRemove.Add(block);
+                            }
+                            
                         }
-                        
+
+                        bulletsToRemove.Add(bullet);
+                        break; // Пуля не может пройти дальше, выходим из проверки блоков
                     }
                 }
-            }
 
-            foreach (var bul in _bullets.Where(b => b != bullet))
-            {
-                if (bulletColl.IsColliding(bul.Collider))
+                // Проверяем столкновение с юнитами (игроком и врагами)
+                foreach (var unit in _allUnits)
                 {
-                    _fabricController.BulletsFabric.RemoveItem(bul);
-                    _fabricController.BulletsFabric.RemoveItem(bullet);
+                    if (bulletColl.IsColliding(unit.Collider))
+                    {
+                        unit.GetDamage(unit.UnitType == UnitType.Player ? _random.Next(0, 51) : _random.Next(0, 101));
+
+                        if (unit.Health <= 0)
+                        {
+                            unitsToRemove.Add(unit);
+
+                            if (unit.UnitType == UnitType.Enemy)
+                            {
+                                OnChangeScore?.Invoke();
+                            }
+                        }
+
+                        bulletsToRemove.Add(bullet);
+                        break;
+                    }
                 }
+
+                // Проверяем столкновение с другими пулями
+                /*foreach (var otherBullet in _bullets.Where(b => b != bullet))
+                {
+                    if (bulletColl.IsColliding(otherBullet.Collider))
+                    {
+                        bulletsToRemove.Add(bullet);
+                        bulletsToRemove.Add(otherBullet);
+                        break;
+                    }
+                }
+                */
+
+
             }
+
+            // Удаляем все пули, которые столкнулись
+            foreach (var bullet in bulletsToRemove)
+            {
+                _fabricController.BulletsFabric.RemoveItem(bullet);
+            }
+
+            foreach (var u in unitsToRemove)
+            {
+                _fabricController.UnitFabric.RemoveItem(u);
+            }
+
+            foreach (var b in blocksToRemove)
+            {
+                _fabricController.BlocksFabric.RemoveItem(b);
+            }
+            
+            
         }
+
     }
-    public bool CanMove(Unit unit, Vector2 direction)
+
+    public bool IsUnwalkable(int x, int y, Unit currentUnit)
     {
-        Vector2 newPosition = unit.Position + direction;
-        BoxCollider2D newCollider = new BoxCollider2D(newPosition, unit.Collider.Size);
-
+        Vector2 pos = new Vector2(x, y);
+        BoxCollider2D tempCollider = new BoxCollider2D(pos, Vector2.Tree);
         
-        // Проверка столкновения с блоками
-        foreach (var block in _blocks)
-        {
-
-            if (newCollider.IsColliding(block.Collider))
-            {
-                return false;
-            }
-        }
-
-        // Проверка столкновения с другими юнитами
-        foreach (var otherUnit in _allUnits)
-        {
-            if (otherUnit != unit && newCollider.IsColliding(otherUnit.Collider))
-            {
-                return false;
-            }
-        }
-
-        return true; // Можно двигаться
+        bool isBlock = _blocks.Any(b => b.Collider.IsColliding(tempCollider));
+        return !isBlock;
     }
     
-    public bool IsUnwalkable(int x, int y)
+    public bool IsUnwalkable(int x, int y, Vector2 direction)
     {
-        BoxCollider2D tempColl = new BoxCollider2D(new Vector2(x, y), new Vector2(3, 3));
-
-        bool canWalk = _fabricController.BlocksFabric.GetItems().Any(b => b.Collider.IsColliding(tempColl));
-            
-        return canWalk;
+        
+        Vector2 nextPos = new Vector2(x, y) + direction;
+        BoxCollider2D tempCollider = new BoxCollider2D(nextPos, Vector2.Tree);
+        
+        bool isBlock = _blocks.Any(b => b.Collider.IsColliding(tempCollider));
+        return !isBlock;
     }
     
     private void UpdateBullets()

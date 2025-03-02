@@ -54,7 +54,7 @@ public class MazeVisualizer
                     //Vector2 pos = new Vector2(i * _step + _step + StartX, j * _step + _step); // - центр верх
                     Vector2 pos = new Vector2(i * _step + _step + StartX, j * _step + _step + StartY); // - центр - центр
                     WaterBlock waterBlock = new WaterBlock(BlockType.Water, Symbols.WaterStateOne, pos);
-                    _fabricController.BlocksFabric.CreateBlock(waterBlock);
+                    _fabricController.BlocksFabric.AddItem(waterBlock);
                 }
                 else
                 {
@@ -63,7 +63,7 @@ public class MazeVisualizer
                     Vector2 pos = new Vector2(i * _step + _step + StartX, j * _step + _step + StartY); // - центр - центр
                     DestructibleBlock destructibleBlock =
                         new DestructibleBlock(BlockType.Destructible, Symbols.Wall, pos);
-                    _fabricController.BlocksFabric.CreateBlock(destructibleBlock);
+                    _fabricController.BlocksFabric.AddItem(destructibleBlock);
                 }
             }
 
@@ -88,7 +88,7 @@ public class MazeVisualizer
             Vector2 posY1 = new Vector2(StartX, i + StartY); // центр - центр
             IndestructibleBlock indestructibleBlockLeft =
                 new IndestructibleBlock(BlockType.Indestructible, Symbols.Wall, posY1);
-            _fabricController.BlocksFabric.CreateBlock(indestructibleBlockLeft);
+            _fabricController.BlocksFabric.AddItem(indestructibleBlockLeft);
             
             // правая
             //Vector2 posY2 = new Vector2(MazeWidth * _step, i); // лево - верх
@@ -97,7 +97,7 @@ public class MazeVisualizer
             IndestructibleBlock indestructibleBlockRight =
                 new IndestructibleBlock(
                     BlockType.Indestructible, Symbols.Wall, posY2);
-            _fabricController.BlocksFabric.CreateBlock(indestructibleBlockRight);
+            _fabricController.BlocksFabric.AddItem(indestructibleBlockRight);
 
         }
         // горизонталь
@@ -108,13 +108,13 @@ public class MazeVisualizer
             IndestructibleBlock indestructibleBlockLeft =
                new IndestructibleBlock(
                    BlockType.Indestructible, Symbols.Wall, posX1);
-            _fabricController.BlocksFabric.CreateBlock(indestructibleBlockLeft);
+            _fabricController.BlocksFabric.AddItem(indestructibleBlockLeft);
             
             //Vector2 posX2 = new Vector2(j, MazeHeight * _step); // лево - верх
             Vector2 posX2 = new Vector2(j + StartX, MazeHeight * _step + StartY); // центр - центр
             IndestructibleBlock indestructibleBlockRight =
                 new IndestructibleBlock(BlockType.Indestructible, Symbols.Wall, posX2);
-            _fabricController.BlocksFabric.CreateBlock(indestructibleBlockRight);
+            _fabricController.BlocksFabric.AddItem(indestructibleBlockRight);
         }
     }
 }

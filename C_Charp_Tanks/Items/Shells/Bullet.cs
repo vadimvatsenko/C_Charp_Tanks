@@ -21,6 +21,8 @@ public class Bullet : Ammunition
             _timeElapsed = 0; 
             Position += Direction; 
         }
+        
+        Collider.Position = Position;
     }
 
     public override void Render(IRenderer renderer)

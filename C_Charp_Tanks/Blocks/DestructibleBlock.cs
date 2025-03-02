@@ -3,7 +3,7 @@ namespace C_Charp_Tanks.Blocks;
 
 public class DestructibleBlock: Block
 {
-    private int _lives = 2;
+    public int Lives { get; private set; } = 2;
     public event Action? OnDestructionBlock;
     public DestructibleBlock(BlockType type, char symbol, Vector2 position) : base(type, symbol, position)
     {
@@ -14,16 +14,16 @@ public class DestructibleBlock: Block
     {
         Symbol = Symbols.BrockenWall;
         FillBlock();
-        _lives--;
+        Lives--;
     }
 
     public override void Update(double deltaTime)
     {
-        if (_lives == 1)
+        if (Lives == 1)
         {
             Symbol = Symbols.BrockenWall;
         }
-        else if (_lives <= 0)
+        else if (Lives <= 0)
         {
             OnDestructionBlock?.Invoke();
         }

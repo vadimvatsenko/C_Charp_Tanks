@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "C_Charp_Tanks", "C_Charp_Tanks\C_Charp_Tanks.csproj", "{4F920259-1074-4008-A9DF-18CCFE0087F7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TankTests", "TankTests\TankTests.csproj", "{912CE1CE-555C-4A74-9C29-43DAC79BB045}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{4F920259-1074-4008-A9DF-18CCFE0087F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F920259-1074-4008-A9DF-18CCFE0087F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4F920259-1074-4008-A9DF-18CCFE0087F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{912CE1CE-555C-4A74-9C29-43DAC79BB045}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{912CE1CE-555C-4A74-9C29-43DAC79BB045}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{912CE1CE-555C-4A74-9C29-43DAC79BB045}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{912CE1CE-555C-4A74-9C29-43DAC79BB045}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

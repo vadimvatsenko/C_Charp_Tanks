@@ -54,6 +54,4 @@ public class PlayerData
     public char[,] TankDownView => _tankDownView;
     public char[,] TankLeftView => _tankLeftView;
     public char[,] TankRightView => _tankRightView;
-    
-    
 }

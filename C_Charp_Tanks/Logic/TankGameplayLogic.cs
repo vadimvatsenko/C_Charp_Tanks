@@ -8,10 +8,11 @@ namespace C_Charp_Tanks.Logic;
 
 public class TankGameplayLogic : BaseGameLogic
 {
-    private TankGameplayState _tankGameplayState;
-    private ShowTextState _showTextState = new ShowTextState(2f);
-    private MazeCreator _mazeCreator;
-    private FabricController _fabricController;
+    private readonly TankGameplayState _tankGameplayState;
+    private readonly ShowTextState _showTextState = new ShowTextState(2f);
+    private readonly MazeCreator _mazeCreator;
+    private readonly FabricController _fabricController;
+    
     private bool _newGamePending = false;
     private int _currentLevel = 0;
     
@@ -24,8 +25,7 @@ public class TankGameplayLogic : BaseGameLogic
     
     public void GotoGamePlay()
     {
-        _tankGameplayState.Reset();//
-        
+        _fabricController.Clean();
         _mazeCreator.Initialize();
         _fabricController.Initialize(_currentLevel);
         
@@ -33,29 +33,26 @@ public class TankGameplayLogic : BaseGameLogic
         _tankGameplayState.FieldWidth = this.ScreenWidth;
         _tankGameplayState.FieldHeight = this.ScreenHeight;
         
-        _fabricController.Clean();
-        
         ChangeState(_tankGameplayState);
     }
 
     public void GotoGameOver()
     {
+        _fabricController.Clean();
         _currentLevel = 0;
         _tankGameplayState.Score = 0;
         _newGamePending = true;
         _showTextState.Text = "GAME OVER";
         
-        _fabricController.Clean();
         ChangeState(_showTextState);
     }
 
     public void GotoNextLevel()
     {
+        _fabricController.Clean();
         _currentLevel++;
         _newGamePending = false;
         _showTextState.Text = $"Level: {_currentLevel}";
-        
-        _fabricController.Clean();
         
         ChangeState(_showTextState);
     }

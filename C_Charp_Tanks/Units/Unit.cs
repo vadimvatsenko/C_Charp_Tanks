@@ -23,6 +23,7 @@ public abstract class Unit
     {
         _collisionSystem = collisionSystem;
         _fabricController = fabricController;
+        
         Position = position;
         Collider = new BoxCollider2D(position, new Vector2(3, 3));
         View = PlayerData.Instance.TankUpView;
@@ -35,7 +36,6 @@ public abstract class Unit
     
     public virtual void Render(IRenderer renderer)
     {
-        UpdateCollider();
         for (int x = 0; x < View.GetLength(0); x++)
         {
             for (int y = 0; y < View.GetLength(1); y++)

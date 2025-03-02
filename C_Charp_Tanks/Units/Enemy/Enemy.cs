@@ -29,6 +29,8 @@ public class Enemy : Unit, IShoot
     private bool _isShooting = false;
     
     private RayCast _rayCast;
+    
+    
 
     public Enemy(Vector2 position, FabricController fabricController, CollisionSystem collisionSystem) 
         : base(position, fabricController, collisionSystem)
@@ -173,7 +175,7 @@ public class Enemy : Unit, IShoot
                 int newX = currentNode.Position.X + _dx[i];
                 int newY = currentNode.Position.Y + _dy[i];
                 
-                if (!_collisionSystem.IsUnwalkable(newX, newY))
+                if (_collisionSystem.IsUnwalkable(newX, newY, this))
                 {
                     Node neighbor = new Node(new Vector2(newX, newY));
 

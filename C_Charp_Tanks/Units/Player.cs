@@ -10,14 +10,10 @@ namespace C_Charp_Tanks.Venicals;
 public class Player : Unit, IShoot
 {
     private readonly IConsoleInput _input;
-    private readonly CollisionSystem _collisionSystem;
-    
+
     private bool _canShoot = true;
     private double _currentShootTimer = 0;
     private const double CoolDownTime = 2.0;
-    
-    private List<Block> _blocks = new List<Block>();
-    private List<Unit> _units = new List<Unit>();
     
     public Player(Vector2 position, FabricController fabricController,  IConsoleInput input, CollisionSystem collisionSystem) 
         : base(position, fabricController, collisionSystem)
@@ -55,11 +51,6 @@ public class Player : Unit, IShoot
                 _canShoot = true;
             }
         }
-        
-        _blocks = _fabricController.BlocksFabric.GetItems().ToList();
-        _units = _fabricController.UnitFabric.GetItems().ToList();
-        
-        
     }
    
     private void MoveUp()
@@ -67,7 +58,7 @@ public class Player : Unit, IShoot
         View = PlayerData.Instance.TankUpView;
         CurrentDirection = Vector2.Up;
         
-        if (_collisionSystem.CanMove(this, Vector2.Up))
+        if (_collisionSystem.IsUnwalkable(this.Position.X, this.Position.Y, this.CurrentDirection))
         {
             Position += Vector2.Up;
         }
@@ -77,7 +68,7 @@ public class Player : Unit, IShoot
     {
         View = PlayerData.Instance.TankDownView;
         CurrentDirection = Vector2.Down;
-        if (_collisionSystem.CanMove(this, Vector2.Up))
+        if (_collisionSystem.IsUnwalkable(this.Position.X, this.Position.Y, this.CurrentDirection))
         {
             Position += Vector2.Down;
         }
@@ -87,7 +78,7 @@ public class Player : Unit, IShoot
     {
         View = PlayerData.Instance.TankLeftView;
         CurrentDirection = Vector2.Left;
-        if (_collisionSystem.CanMove(this, Vector2.Up))
+        if (_collisionSystem.IsUnwalkable(this.Position.X, this.Position.Y, this.CurrentDirection))
         {
             Position += Vector2.Left;
         }
@@ -97,7 +88,7 @@ public class Player : Unit, IShoot
     {
         View = PlayerData.Instance.TankRightView;
         CurrentDirection = Vector2.Right;
-        if (_collisionSystem.CanMove(this, Vector2.Up))
+        if (_collisionSystem.IsUnwalkable(this.Position.X, this.Position.Y, this.CurrentDirection))
         {
             Position += Vector2.Right;
         }

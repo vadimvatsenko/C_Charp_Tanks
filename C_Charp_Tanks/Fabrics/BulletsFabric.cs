@@ -9,4 +9,25 @@ public class BulletsFabric : AbstractFabric<Ammunition>
         Bullet bullet = new Bullet(position, direction);
         AddItem(bullet);
     }
+
+    public override event Action? OnItemsUpdated;
+    public override void AddItem(Ammunition item)
+    {
+        _list.Add(item);
+        OnItemsUpdated?.Invoke();
+    }
+
+    public override void RemoveItem(Ammunition item)
+    {
+        _list.Remove(item);
+        OnItemsUpdated?.Invoke();
+    }
+
+    public override void Clear()
+    {
+        _list.Clear();
+    }
+
+    public override List<Ammunition> GetItems() => _list;
+
 }

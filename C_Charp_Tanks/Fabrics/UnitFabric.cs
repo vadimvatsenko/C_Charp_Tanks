@@ -18,6 +18,8 @@ public class UnitFabric : AbstractFabric<Unit>
     
     private int _level;
     
+    public override event Action? OnItemsUpdated;
+    
     public UnitFabric(ConsoleInput consoleInput, CollisionSystem collisionSystem)
     {
         _consoleInput = consoleInput;
@@ -52,4 +54,15 @@ public class UnitFabric : AbstractFabric<Unit>
             AddItem(enemy);
         }
     }
+    
+    public override void AddItem(Unit item)
+    {
+        _list.Add(item);
+        OnItemsUpdated?.Invoke();
+    }
+
+    public override void RemoveItem(Unit item) => _list.Remove(item);
+    public override void Clear() => _list.Clear();
+    public override List<Unit> GetItems() => _list;
+ 
 }

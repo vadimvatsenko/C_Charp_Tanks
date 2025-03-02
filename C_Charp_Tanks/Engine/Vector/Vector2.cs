@@ -11,6 +11,7 @@ public struct Vector2
     public static Vector2 Right => new Vector2(1, 0);
     public static Vector2 Left => new Vector2(-1, 0);
     public static Vector2 One => new Vector2(1, 1);
+    public static Vector2 Tree => new Vector2(3, 3);
     
     public Vector2(int x, int y)
     {

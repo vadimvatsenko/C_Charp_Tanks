@@ -7,8 +7,8 @@ using C_Charp_Tanks.Venicals;
 namespace C_Charp_Tanks.States;
 public class TankGameplayState : BaseGameState
 {
-    private FabricController _fabricController;
-    private CollisionSystem _collisionSystem;
+    private readonly FabricController _fabricController;
+    private readonly CollisionSystem _collisionSystem;
     private Random _random = new Random();
 
     #region GameObjects
@@ -56,6 +56,7 @@ public class TankGameplayState : BaseGameState
 
     public TankGameplayState(FabricController fabricController, CollisionSystem collisionSystem)
     {
+        
         _collisionSystem = collisionSystem;
         _fabricController = fabricController;
         
@@ -89,7 +90,7 @@ public class TankGameplayState : BaseGameState
         
         _collisionSystem.Update(deltaTime);
         
-        gameOver = _player == null;
+        gameOver = _player == null || _player.Health <= 0;
         hasWon = _enemies.Count <= 0;
     }
     

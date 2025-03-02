@@ -20,25 +20,26 @@ public class CompositionRoot
     {
         // Независимые объекты
         ConsoleInput = new ConsoleInput();
+        CollisionSystem = new CollisionSystem();
+        
+        // фабрики
+        MazeCreator mazeCreator = new MazeCreator();
         BlocksFabric blocksFabric = new BlocksFabric();
         BulletsFabric bulletsFabric = new BulletsFabric();
-        MazeCreator mazeCreator = new MazeCreator();
-
+        UnitFabric unitFabric = new UnitFabric(ConsoleInput, CollisionSystem);
+        
+        FabricController = new FabricController(unitFabric, blocksFabric, bulletsFabric);
+        
         // Рендеринг
         PrevRenderer = new ConsoleRenderer(Pallete.Colors);
         CurrentRenderer = new ConsoleRenderer(Pallete.Colors);
-
-        // Фабрики и контроллеры
-        CollisionSystem collisionSystem = new CollisionSystem();
-        UnitFabric unitFabric = new UnitFabric(ConsoleInput, collisionSystem);
-        FabricController = new FabricController(unitFabric, blocksFabric, bulletsFabric);
         
         unitFabric.SetFabricController(FabricController); // Устанавливаем зависимость после создания
         mazeCreator.SetFabricController(FabricController); // Устанавливаем зависимость после создания
-        collisionSystem.SetFabricController(FabricController); // Устанавливаем зависимость после создания
+        CollisionSystem.SetFabricController(FabricController); // Устанавливаем зависимость после создания
 
         // Системы и логика игры
-        TankGameplayState tankGameplayState = new TankGameplayState(FabricController, collisionSystem);
+        TankGameplayState tankGameplayState = new TankGameplayState(FabricController, CollisionSystem);
         TankGameplayLogic = new TankGameplayLogic(tankGameplayState, mazeCreator, FabricController);
     }
     
