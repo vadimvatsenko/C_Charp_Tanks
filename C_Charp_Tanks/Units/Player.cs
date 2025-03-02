@@ -2,6 +2,7 @@
 using C_Charp_Tanks.Engine;
 using  C_Charp_Tanks;
 using C_Charp_Tanks.Fabrics;
+using C_Charp_Tanks.Systems;
 using C_Charp_Tanks.Venicals.Enemy;
 
 namespace C_Charp_Tanks.Venicals;
@@ -9,14 +10,19 @@ namespace C_Charp_Tanks.Venicals;
 public class Player : Unit, IShoot
 {
     private readonly IConsoleInput _input;
+    private readonly CollisionSystem _collisionSystem;
     
     private bool _canShoot = true;
     private double _currentShootTimer = 0;
     private const double CoolDownTime = 2.0;
     
-    public Player(Vector2 position, FabricController fabricController,  IConsoleInput input) 
-        : base(position, fabricController)
+    private List<Block> _blocks = new List<Block>();
+    private List<Unit> _units = new List<Unit>();
+    
+    public Player(Vector2 position, FabricController fabricController,  IConsoleInput input, CollisionSystem collisionSystem) 
+        : base(position, fabricController, collisionSystem)
     {
+        
         UnitType = UnitType.Player;
         
         _input = input;
@@ -49,6 +55,11 @@ public class Player : Unit, IShoot
                 _canShoot = true;
             }
         }
+        
+        _blocks = _fabricController.BlocksFabric.GetItems().ToList();
+        _units = _fabricController.UnitFabric.GetItems().ToList();
+        
+        
     }
    
     private void MoveUp()
@@ -56,7 +67,7 @@ public class Player : Unit, IShoot
         View = PlayerData.Instance.TankUpView;
         CurrentDirection = Vector2.Up;
         
-        if (TryToMove(Vector2.Up))
+        if (_collisionSystem.CanMove(this, Vector2.Up))
         {
             Position += Vector2.Up;
         }
@@ -66,7 +77,7 @@ public class Player : Unit, IShoot
     {
         View = PlayerData.Instance.TankDownView;
         CurrentDirection = Vector2.Down;
-        if (TryToMove(Vector2.Down))
+        if (_collisionSystem.CanMove(this, Vector2.Up))
         {
             Position += Vector2.Down;
         }
@@ -76,7 +87,7 @@ public class Player : Unit, IShoot
     {
         View = PlayerData.Instance.TankLeftView;
         CurrentDirection = Vector2.Left;
-        if (TryToMove(Vector2.Left))
+        if (_collisionSystem.CanMove(this, Vector2.Up))
         {
             Position += Vector2.Left;
         }
@@ -86,38 +97,12 @@ public class Player : Unit, IShoot
     {
         View = PlayerData.Instance.TankRightView;
         CurrentDirection = Vector2.Right;
-        if (TryToMove(Vector2.Right))
+        if (_collisionSystem.CanMove(this, Vector2.Up))
         {
             Position += Vector2.Right;
         }
     }
     
-    private bool TryToMove(Vector2 direction)
-    {
-        var blocks = _fabricController.BlocksFabric.GetItems().ToList();
-        var units = _fabricController.UnitFabric.GetItems().ToList();
-        
-        Vector2 newPosition = Position + direction; // Новая позиция после движения
-        BoxCollider2D newCollider = new BoxCollider2D(newPosition, Collider.Size); // Создаём временный коллайдер
-        
-        foreach (var block in blocks)
-        {
-            Console.WriteLine("true");
-            if (newCollider.IsColliding(block.Collider)) // Проверяем столкновение
-            {
-                return false; // Есть столкновение — нельзя двигаться
-            }
-        }
-
-        foreach (var unit in units)
-        {
-            if (!(unit is Player) && newCollider.IsColliding(unit.Collider)) // Проверяем столкновение
-                return false; // Есть столкновение — нельзя двигаться
-        }
-
-        
-        return true; // Нет столкновения — можно двигаться
-    }
     
     public void Shoot()
     {

@@ -58,7 +58,7 @@ public class TankGameplayState : BaseGameState
     {
         _collisionSystem = collisionSystem;
         _fabricController = fabricController;
-
+        
         _fabricController.UnitFabric.OnItemsUpdated += UpdateUnits;
         _fabricController.BlocksFabric.OnItemsUpdated += UpdateBlocks;
         _fabricController.BulletsFabric.OnItemsUpdated += UpdateBullets;
@@ -120,6 +120,7 @@ public class TankGameplayState : BaseGameState
             ($"Health: {_player?.Health}%", FieldWidth / 4, 0, healthColor);
         renderer.DrawString
             ($"Enemies: {_enemies.Count()}", FieldWidth / 2 + FieldWidth / 4 , 0, ConsoleColor.DarkRed);
+        
     }
 
     private ConsoleColor ChangeHealthColor(int health)

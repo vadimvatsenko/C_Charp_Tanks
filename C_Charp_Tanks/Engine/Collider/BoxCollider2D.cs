@@ -13,10 +13,23 @@ public class BoxCollider2D : Collider2D
     {
         if (other is BoxCollider2D box)
         {
-            return !(Position.X + Size.X <= box.Position.X || // Лево одного за правым другого
-                     Position.X >= box.Position.X + box.Size.X || // Право одного за левым другого
-                     Position.Y + Size.Y <= box.Position.Y || // Низ одного выше верха другого
-                     Position.Y >= box.Position.Y + box.Size.Y); // Верх одного ниже низа другого
+            float leftA = Position.X;
+            float rightA = Position.X + Size.X;
+            float topA = Position.Y;
+            float bottomA = Position.Y + Size.Y;
+
+            float leftB = box.Position.X;
+            float rightB = box.Position.X + box.Size.X;
+            float topB = box.Position.Y;
+            float bottomB = box.Position.Y + box.Size.Y;
+
+            // Проверяем, не находятся ли коллайдеры вне друг друга
+            bool noCollision = rightA <= leftB || // A полностью слева от B
+                               leftA >= rightB || // A полностью справа от B
+                               bottomA <= topB || // A полностью выше B
+                               topA >= bottomB; // A полностью ниже B
+
+            return !noCollision;
         }
 
         throw new NotSupportedException("Intersection with this collider type is not supported.");

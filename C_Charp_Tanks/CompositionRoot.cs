@@ -29,14 +29,16 @@ public class CompositionRoot
         CurrentRenderer = new ConsoleRenderer(Pallete.Colors);
 
         // Фабрики и контроллеры
-        UnitFabric unitFabric = new UnitFabric(ConsoleInput);
+        CollisionSystem collisionSystem = new CollisionSystem();
+        UnitFabric unitFabric = new UnitFabric(ConsoleInput, collisionSystem);
         FabricController = new FabricController(unitFabric, blocksFabric, bulletsFabric);
+        
         unitFabric.SetFabricController(FabricController); // Устанавливаем зависимость после создания
         mazeCreator.SetFabricController(FabricController); // Устанавливаем зависимость после создания
+        collisionSystem.SetFabricController(FabricController); // Устанавливаем зависимость после создания
 
         // Системы и логика игры
-        CollisionSystem = new CollisionSystem(FabricController);
-        TankGameplayState tankGameplayState = new TankGameplayState(FabricController, CollisionSystem);
+        TankGameplayState tankGameplayState = new TankGameplayState(FabricController, collisionSystem);
         TankGameplayLogic = new TankGameplayLogic(tankGameplayState, mazeCreator, FabricController);
     }
     

@@ -7,7 +7,6 @@ public class FabricController
     public UnitFabric UnitFabric { get; private set; }
     public BlocksFabric BlocksFabric { get; private set; }
     public BulletsFabric BulletsFabric { get; private set; }
-    
     public List<Vector2> EmptyPositions { get; private set; } = new List<Vector2>();
     
     public FabricController(UnitFabric unitFabric, BlocksFabric blocksFabric, BulletsFabric bulletsFabric)

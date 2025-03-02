@@ -3,12 +3,14 @@ using C_Charp_Tanks.Blocks;
 using C_Charp_Tanks.Engine;
 using C_Charp_Tanks.Fabrics;
 using C_Charp_Tanks.Renderer;
+using C_Charp_Tanks.Systems;
 
 namespace C_Charp_Tanks.Venicals;
 
 public abstract class Unit
 {
     protected readonly FabricController _fabricController;
+    protected readonly CollisionSystem _collisionSystem;
     public UnitType UnitType { get; protected set; }
     public Vector2 Position { get; protected set; }
     public Vector2 CurrentDirection { get; protected set; }
@@ -17,8 +19,9 @@ public abstract class Unit
     public char[,] View  { get; protected set; }
     public int Health { get; protected set; } = 100;
     
-    public Unit(Vector2 position, FabricController fabricController)
+    public Unit(Vector2 position, FabricController fabricController, CollisionSystem collisionSystem)
     {
+        _collisionSystem = collisionSystem;
         _fabricController = fabricController;
         Position = position;
         Collider = new BoxCollider2D(position, new Vector2(3, 3));

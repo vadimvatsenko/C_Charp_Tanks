@@ -2,6 +2,7 @@
 using C_Charp_Tanks.Engine;
 using C_Charp_Tanks.Engine.Ray;
 using C_Charp_Tanks.Fabrics;
+using C_Charp_Tanks.Systems;
 
 namespace C_Charp_Tanks.Venicals.Enemy;
 
@@ -29,7 +30,8 @@ public class Enemy : Unit, IShoot
     
     private RayCast _rayCast;
 
-    public Enemy(Vector2 position, FabricController fabricController) : base(position, fabricController)
+    public Enemy(Vector2 position, FabricController fabricController, CollisionSystem collisionSystem) 
+        : base(position, fabricController, collisionSystem)
     {
         UnitType = UnitType.Enemy;
         Speed = 2f;
@@ -171,7 +173,7 @@ public class Enemy : Unit, IShoot
                 int newX = currentNode.Position.X + _dx[i];
                 int newY = currentNode.Position.Y + _dy[i];
                 
-                if (!IsUnwalkable(newX, newY))
+                if (!_collisionSystem.IsUnwalkable(newX, newY))
                 {
                     Node neighbor = new Node(new Vector2(newX, newY));
 
@@ -190,13 +192,5 @@ public class Enemy : Unit, IShoot
 
         return new List<Node>();
     }
-
-    private bool IsUnwalkable(int x, int y)
-    {
-        BoxCollider2D tempColl = new BoxCollider2D(new Vector2(x, y), new Vector2(3, 3));
-
-        bool canWalk = _fabricController.BlocksFabric.GetItems().Any(b => b.Collider.IsColliding(tempColl));
-            
-        return canWalk;
-    }
+    
 }
