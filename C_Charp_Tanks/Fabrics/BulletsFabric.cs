@@ -26,6 +26,7 @@ public class BulletsFabric : AbstractFabric<Ammunition>
     public override void Clear()
     {
         _list.Clear();
+        OnItemsUpdated?.Invoke();
     }
 
     public override List<Ammunition> GetItems() => _list;
