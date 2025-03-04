@@ -9,15 +9,12 @@ using C_Sharp_Maze_Generator.Maze;
 public class UnitFabric : AbstractFabric<Unit>
 {
     private readonly ConsoleInput _consoleInput;
-    private readonly MazeCreator _mazeCreator;
     private readonly CollisionSystem _collisionSystem;
     private FabricController _fabricController;
+    
     private Random _rand = new Random();
-    
     private List<Vector2> _emptyPositions = new List<Vector2>();
-    
     private int _level;
-    
     public override event Action? OnItemsUpdated;
     
     public UnitFabric(ConsoleInput consoleInput, CollisionSystem collisionSystem)
@@ -61,7 +58,11 @@ public class UnitFabric : AbstractFabric<Unit>
         OnItemsUpdated?.Invoke();
     }
 
-    public override void RemoveItem(Unit item) => _list.Remove(item);
+    public override void RemoveItem(Unit item)
+    {
+        _list.Remove(item);
+        OnItemsUpdated?.Invoke();
+    }
     public override void Clear() => _list.Clear();
     public override List<Unit> GetItems() => _list;
  

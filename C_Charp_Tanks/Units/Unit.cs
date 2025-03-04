@@ -45,7 +45,7 @@ public abstract class Unit
         }
     }
 
-    public virtual void GetDamage(int damage)
+    public void GetDamage(int damage)
     {
         Health -= damage;
         if (damage >= Health)
@@ -54,7 +54,7 @@ public abstract class Unit
         }
     }
     
-    protected void UpdateCollider()
+    private void UpdateCollider()
     {
         Collider.Position = Position;
     }

@@ -56,7 +56,6 @@ public class TankGameplayState : BaseGameState
 
     public TankGameplayState(FabricController fabricController, CollisionSystem collisionSystem)
     {
-        
         _collisionSystem = collisionSystem;
         _fabricController = fabricController;
         
@@ -83,12 +82,13 @@ public class TankGameplayState : BaseGameState
 
     public override void Update(float deltaTime)
     {
+        _collisionSystem.Update(deltaTime);
+        
         _bullets.ForEach(s => s.Update(deltaTime));
         _enemies.ForEach(e => e.Update(deltaTime));
         _blocks.ForEach(b => b.Update(deltaTime));
         _player?.Update(deltaTime);
         
-        _collisionSystem.Update(deltaTime);
         
         gameOver = _player == null || _player.Health <= 0;
         hasWon = _enemies.Count <= 0;
@@ -96,16 +96,16 @@ public class TankGameplayState : BaseGameState
     
     public override void Reset()
     {
-        _fabricController.Clean();
-        
         gameOver = false;
         hasWon = false;
+        
+        _fabricController.Clean();
     }
     
     public override void Draw(ConsoleRenderer renderer)
     {
         _blocks.ForEach(b => b.Render(renderer));
-        _enemies.ForEach(e => e.Render(renderer));
+        _enemies?.ForEach(e => e.Render(renderer));
         _bullets.ForEach(s => s.Render(renderer));
         _player?.Render(renderer);
         
@@ -120,8 +120,9 @@ public class TankGameplayState : BaseGameState
         renderer.DrawString
             ($"Health: {_player?.Health}%", FieldWidth / 4, 0, healthColor);
         renderer.DrawString
-            ($"Enemies: {_enemies.Count()}", FieldWidth / 2 + FieldWidth / 4 , 0, ConsoleColor.DarkRed);
-        
+            ($"Level: {Level}", FieldWidth / 4, 2, healthColor);
+        renderer.DrawString
+            ($"Enemies: {_enemies.Count}", FieldWidth / 4 + FieldWidth / 2, 0, ConsoleColor.DarkGreen);
     }
 
     private ConsoleColor ChangeHealthColor(int health)
@@ -138,17 +139,17 @@ public class TankGameplayState : BaseGameState
     
     private void UpdateBullets()
     {
-        _bullets = _fabricController.BulletsFabric.GetItems().ToList();
+        _bullets = _fabricController.BulletsFabric.GetItems();
     }
 
     private void UpdateBlocks()
     {
-        _blocks = _fabricController.BlocksFabric.GetItems().ToList();
+        _blocks = _fabricController.BlocksFabric.GetItems();
     }
 
     private void UpdateUnits()
     {
-        _allUnits = _fabricController.UnitFabric.GetItems().ToList();
+        _allUnits = _fabricController.UnitFabric.GetItems();
         _enemies = _allUnits.FindAll(u => u.UnitType == UnitType.Enemy);
         _player = _allUnits.Find(u => u.UnitType == UnitType.Player);
     }

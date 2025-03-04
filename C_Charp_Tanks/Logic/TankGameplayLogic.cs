@@ -21,11 +21,12 @@ public class TankGameplayLogic : BaseGameLogic
         _mazeCreator = mazeCreator;
         _tankGameplayState = tankGameplayState;
         _fabricController = fabricController;
+        
+        
     }
     
     public void GotoGamePlay()
     {
-        _fabricController.Clean();
         _mazeCreator.Initialize();
         _fabricController.Initialize(_currentLevel);
         
@@ -38,7 +39,6 @@ public class TankGameplayLogic : BaseGameLogic
 
     public void GotoGameOver()
     {
-        _fabricController.Clean();
         _currentLevel = 0;
         _tankGameplayState.Score = 0;
         _newGamePending = true;
@@ -49,7 +49,6 @@ public class TankGameplayLogic : BaseGameLogic
 
     public void GotoNextLevel()
     {
-        _fabricController.Clean();
         _currentLevel++;
         _newGamePending = false;
         _showTextState.Text = $"Level: {_currentLevel}";

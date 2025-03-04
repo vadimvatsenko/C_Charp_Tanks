@@ -43,6 +43,7 @@ public class Player : Unit, IShoot
    
     public override void Update(double deltaTime)
     {
+        base.Update(deltaTime);
         if (!_canShoot)
         {
             _currentShootTimer += deltaTime;

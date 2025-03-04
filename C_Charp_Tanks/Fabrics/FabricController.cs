@@ -27,6 +27,7 @@ public class FabricController
         UnitFabric.Clear();
         BlocksFabric.Clear();
         BulletsFabric.Clear();
+        EmptyPositions.Clear();
     }
 
     public void AddEmptyPosition(Vector2 position)

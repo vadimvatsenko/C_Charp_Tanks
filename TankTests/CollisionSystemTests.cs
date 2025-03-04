@@ -55,6 +55,32 @@ namespace C_Charp_Tanks.Tests
             
             Assert.True(isPlayerDetection);
         }
+
+        [Fact]
+        public void CheckEnemyGetDamage()
+        {
+            
+            Enemy enemy = new Enemy(Vector2.Zero, _fabricController, _collisionSystem);
+            Bullet bullet = new Bullet(Vector2.One, enemy.CurrentDirection);
+
+            List<Unit> units = new List<Unit>();
+            units.Add(enemy);
+            
+            int initialHealth = enemy.Health; // Запоминаем текущее здоровье
+            int damage = 10;
+
+            if (bullet.Collider.IsColliding(enemy.Collider))
+            {
+                enemy.GetDamage(101);
+                if (enemy.Health <= 0)
+                {
+                    units.Remove(enemy);
+                }
+            }
+            
+            Assert.Equal(initialHealth - damage, enemy.Health);
+            
+        }
         
     }
 }

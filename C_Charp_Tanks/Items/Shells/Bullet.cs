@@ -14,6 +14,7 @@ public class Bullet : Ammunition
 
     public override void Update(double deltaTime)
     {
+        Collider.Position = Position;
         _timeElapsed += deltaTime * Speed;
 
         if (_timeElapsed >= 1)
@@ -21,8 +22,6 @@ public class Bullet : Ammunition
             _timeElapsed = 0; 
             Position += Direction; 
         }
-        
-        Collider.Position = Position;
     }
 
     public override void Render(IRenderer renderer)

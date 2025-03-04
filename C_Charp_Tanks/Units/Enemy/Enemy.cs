@@ -28,36 +28,50 @@ public class Enemy : Unit, IShoot
     private const double CoolDownTime = 2.5;
     private bool _isShooting = false;
     
+    private bool _isPlayerDetection = false;
+    private Random _random = new Random();
+    
     private RayCast _rayCast;
     
-    
-
     public Enemy(Vector2 position, FabricController fabricController, CollisionSystem collisionSystem) 
         : base(position, fabricController, collisionSystem)
     {
         UnitType = UnitType.Enemy;
         Speed = 2f;
-        
+
         _player =
-            _fabricController.UnitFabric.GetItems().Where(u => u.UnitType == UnitType.Player).FirstOrDefault();
-    }
+            _fabricController.UnitFabric.GetItems().Find(u => u.UnitType == UnitType.Player);
 
-    public override void GetDamage(int damage)
-    {
-        base.GetDamage(damage);
+        GetRandomTarget();
     }
-
+    
     public override void Update(double deltaTime)
     {
+        base.Update(deltaTime);
+       
         ShootCoolDown(deltaTime);
+        
+        _isPlayerDetection = IsPlayerDetected();
 
-        _rayCast = new RayCast(this.Position, CurrentDirection, 30);
+        if (this.Position == _target)
+        {
+            if (!_isPlayerDetection)
+            {
+                GetRandomTarget();
+            }
+        }
+        else if(_isPlayerDetection && _canShoot)
+        {
+            Shoot();
+        }
         
-        bool isPlayerDetection = _rayCast.CheckDetection(_player.Collider);
+        if(_isShooting) return; // если стреляю, то стою на месте
+
+        /*if (!_isPlayerDetection)
+        {
+            Patrol();
+        }*/
         
-        if (isPlayerDetection && _canShoot) Shoot();
-        
-        if(_isShooting) return;
 
         List<Node> path = FindPath();
 
@@ -91,6 +105,19 @@ public class Enemy : Unit, IShoot
                 ; // Делаем шаг в направлении
             }
         }
+    }
+
+    private void Patrol()
+    {
+        if (this.Position == _target)
+        {
+            GetRandomTarget();
+        }
+    }
+
+    private void GetRandomTarget()
+    {
+        _target = _fabricController.EmptyPositions[_random.Next(_fabricController.EmptyPositions.Count)];
     }
 
     private void SetDirection(Vector2 direction)
@@ -132,11 +159,18 @@ public class Enemy : Unit, IShoot
             }
         }
     }
+
+    private bool IsPlayerDetected()
+    {
+        _rayCast = new RayCast(this.Position, CurrentDirection, 30);
+        bool isPlayerDetection = _rayCast.CheckDetection(_player.Collider);
+        return isPlayerDetection;
+    }
     
     private List<Node> FindPath()
     {
         Node startNode = new Node(Position);
-        Node targetNode = new Node(_player.Position);
+        Node targetNode = new Node(_target);
 
         List<Node> openList = new List<Node>() { startNode };
         List<Node> closedList = new List<Node>();
@@ -175,7 +209,7 @@ public class Enemy : Unit, IShoot
                 int newX = currentNode.Position.X + _dx[i];
                 int newY = currentNode.Position.Y + _dy[i];
                 
-                if (_collisionSystem.IsUnwalkable(newX, newY, this))
+                if (_collisionSystem.IsUnwalkable(newX, newY))
                 {
                     Node neighbor = new Node(new Vector2(newX, newY));
 
@@ -184,15 +218,13 @@ public class Enemy : Unit, IShoot
                     if (!openList.Contains(neighbor))
                     {
                         neighbor.Parent = currentNode;
-                        neighbor.CalculateEstimate(_player.Position);
+                        neighbor.CalculateEstimate(_target);
                         neighbor.CalculateValue();
                         openList.Add(neighbor);
                     }
                 }
             }
         }
-
         return new List<Node>();
     }
-    
 }

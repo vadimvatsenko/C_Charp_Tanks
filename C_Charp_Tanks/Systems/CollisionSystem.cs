@@ -10,22 +10,14 @@ public class CollisionSystem : IUpdatable
 {
     private List<Unit> _allUnits = new List<Unit>();
     private List<Unit> _enemies = new List<Unit>();
-    private Unit _player;
-    
     private List<Ammunition> _bullets = new List<Ammunition>();
     private List<Block> _blocks = new List<Block>();
+    private Unit _player;
     
     private FabricController _fabricController;
     private Random _random = new Random();
     public event Action OnChangeScore;
     
-    ~CollisionSystem()
-    {
-        _fabricController.UnitFabric.OnItemsUpdated -= UpdateUnits;
-        _fabricController.BlocksFabric.OnItemsUpdated -= UpdateBlocks;
-        _fabricController.BulletsFabric.OnItemsUpdated -= UpdateBullets;
-    }
-
     public void SetFabricController(FabricController fabricController)
     {
         _fabricController = fabricController;
@@ -35,6 +27,13 @@ public class CollisionSystem : IUpdatable
         _fabricController.BulletsFabric.OnItemsUpdated += UpdateBullets;
     }
     
+    ~CollisionSystem()
+    {
+        _fabricController.UnitFabric.OnItemsUpdated -= UpdateUnits;
+        _fabricController.BlocksFabric.OnItemsUpdated -= UpdateBlocks;
+        _fabricController.BulletsFabric.OnItemsUpdated -= UpdateBullets;
+    }
+    
     public void Update(double deltaTime)
     {
         BulletsCollision();
@@ -42,7 +41,6 @@ public class CollisionSystem : IUpdatable
 
     private void BulletsCollision()
     {
-        
         if (_bullets.Count > 0)
         {
             var bulletsToRemove = new HashSet<Ammunition>();
@@ -55,7 +53,6 @@ public class CollisionSystem : IUpdatable
                 BoxCollider2D bulletColl = new BoxCollider2D(newBulletPos, bullet.Collider.Size);
 
                 // Проверяем столкновение с блоками
-                
                 foreach (var block in _blocks)
                 {
                     if (bulletColl.IsColliding(block.Collider) && block.Type != BlockType.Water)
@@ -64,11 +61,11 @@ public class CollisionSystem : IUpdatable
                         {
                             DestructibleBlock? destructibleBlock = block as DestructibleBlock;
                             destructibleBlock?.GetDamage();
+                            
                             if (destructibleBlock.Lives <= 0)
                             {
                                 blocksToRemove.Add(block);
                             }
-                            
                         }
 
                         bulletsToRemove.Add(bullet);
@@ -81,16 +78,16 @@ public class CollisionSystem : IUpdatable
                 {
                     if (bulletColl.IsColliding(unit.Collider))
                     {
-                        unit.GetDamage(unit.UnitType == UnitType.Player ? _random.Next(0, 51) : _random.Next(0, 101));
+                        unit.GetDamage(unit.UnitType == UnitType.Player ? _random.Next(0, 51) : 101);//_random.Next(0, 101));
 
                         if (unit.Health <= 0)
                         {
                             unitsToRemove.Add(unit);
-
                             if (unit.UnitType == UnitType.Enemy)
                             {
                                 OnChangeScore?.Invoke();
                             }
+                            
                         }
 
                         bulletsToRemove.Add(bullet);
@@ -99,7 +96,7 @@ public class CollisionSystem : IUpdatable
                 }
 
                 // Проверяем столкновение с другими пулями
-                /*foreach (var otherBullet in _bullets.Where(b => b != bullet))
+                foreach (var otherBullet in _bullets.Where(b => b != bullet))
                 {
                     if (bulletColl.IsColliding(otherBullet.Collider))
                     {
@@ -108,9 +105,6 @@ public class CollisionSystem : IUpdatable
                         break;
                     }
                 }
-                */
-
-
             }
 
             // Удаляем все пули, которые столкнулись
@@ -129,43 +123,37 @@ public class CollisionSystem : IUpdatable
                 _fabricController.BlocksFabric.RemoveItem(b);
             }
             
-            
+            bulletsToRemove.Clear();
+            unitsToRemove.Clear();
+            blocksToRemove.Clear();
         }
-
     }
 
-    public bool IsUnwalkable(int x, int y, Unit currentUnit)
+    public bool IsUnwalkable(int x, int y)
     {
         Vector2 pos = new Vector2(x, y);
         BoxCollider2D tempCollider = new BoxCollider2D(pos, Vector2.Tree);
-        
         bool isBlock = _blocks.Any(b => b.Collider.IsColliding(tempCollider));
+
         return !isBlock;
     }
     
+    // для игрока проверка на столкновения со стенами и врагами.
     public bool IsUnwalkable(int x, int y, Vector2 direction)
     {
-        
         Vector2 nextPos = new Vector2(x, y) + direction;
         BoxCollider2D tempCollider = new BoxCollider2D(nextPos, Vector2.Tree);
         
         bool isBlock = _blocks.Any(b => b.Collider.IsColliding(tempCollider));
+
         return !isBlock;
     }
     
-    private void UpdateBullets()
-    {
-        _bullets = _fabricController.BulletsFabric.GetItems().ToList();
-    }
-
-    private void UpdateBlocks()
-    {
-        _blocks = _fabricController.BlocksFabric.GetItems().ToList();
-    }
-
+    private void UpdateBullets() => _bullets = _fabricController.BulletsFabric.GetItems();
+    private void UpdateBlocks() => _blocks = _fabricController.BlocksFabric.GetItems();
     private void UpdateUnits()
     {
-        _allUnits = _fabricController.UnitFabric.GetItems().ToList();
+        _allUnits = _fabricController.UnitFabric.GetItems();
         _enemies = _allUnits.FindAll(u => u.UnitType == UnitType.Enemy);
         _player = _allUnits.Find(u => u.UnitType == UnitType.Player);
     }
