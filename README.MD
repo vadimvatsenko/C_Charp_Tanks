@@ -37,6 +37,10 @@
 git clone https://github.com/vadimvatsenko/C_Charp_Tanks.git
 cd C_Charp_Tanks
 ```
+### 3. ▶ Запусти проект:
+```sh
+dotnet run
+```
 
 ```sh
 C_Charp_Tanks/
