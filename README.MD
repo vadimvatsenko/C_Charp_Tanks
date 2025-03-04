@@ -6,6 +6,9 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/vadimvatsenko/C_Charp_Tanks)
 ![GitHub repo size](https://img.shields.io/github/repo-size/vadimvatsenko/C_Charp_Tanks)
 
+🔥 Поддержи проект!
+⭐ Если тебе понравился проект, поставь звёздочку (Star) на GitHub!
+
 🚀 Простая, но захватывающая консольная игра в духе классических танковых баталий!
 
 ## 🎮 Описание проекта
