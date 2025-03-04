@@ -21,8 +21,6 @@ public class TankGameplayLogic : BaseGameLogic
         _mazeCreator = mazeCreator;
         _tankGameplayState = tankGameplayState;
         _fabricController = fabricController;
-        
-        
     }
     
     public void GotoGamePlay()

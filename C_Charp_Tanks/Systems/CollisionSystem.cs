@@ -145,8 +145,20 @@ public class CollisionSystem : IUpdatable
         BoxCollider2D tempCollider = new BoxCollider2D(nextPos, Vector2.Tree);
         
         bool isBlock = _blocks.Any(b => b.Collider.IsColliding(tempCollider));
+        bool isOtherUnit = _allUnits.Any(e => e.Collider.IsColliding(tempCollider) && e.UnitType != UnitType.Player);
 
-        return !isBlock;
+        return !isBlock && !isOtherUnit;
+    }
+    
+    public bool IsUnwalkable(int x, int y, Vector2 direction, Unit self)
+    {
+        Vector2 nextPos = new Vector2(x, y) + direction;
+        BoxCollider2D tempCollider = new BoxCollider2D(nextPos, Vector2.Tree);
+        
+        bool isOtherUnit = 
+            _allUnits.Where(e => e !=self && e is not Player).Any(e => e.Collider.IsColliding(tempCollider));
+
+        return !isOtherUnit;
     }
     
     private void UpdateBullets() => _bullets = _fabricController.BulletsFabric.GetItems();

@@ -28,20 +28,7 @@ public class Map
     {
         map = _mazeGenerator.Generate(width, height, gaps);
         _mazeVisualizer.Visualise(map);
-
-        PlaceHero();
-
         onMapChanged?.Invoke();
-    }
-    
-    private void PlaceHero()
-    {
-        int x = _random.Next(0, map.GetLength(1));
-        int y = _random.Next(0, map.GetLength(0));
-
-        var closestRoad = MazeHelper.GetClosestRoad(map, x, y);
-        
-        //_hero.position = new Vector3(closestRoad.Item1, 0, closestRoad.Item2);
     }
 }
 

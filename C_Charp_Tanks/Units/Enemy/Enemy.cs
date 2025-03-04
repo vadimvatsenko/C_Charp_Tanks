@@ -64,15 +64,13 @@ public class Enemy : Unit, IShoot
         {
             Shoot();
         }
+
+        bool isWalk = _collisionSystem.IsUnwalkable(Position.X, Position.Y, CurrentDirection, this);
+
+        if (!isWalk) GetRandomTarget();
         
         if(_isShooting) return; // если стреляю, то стою на месте
-
-        /*if (!_isPlayerDetection)
-        {
-            Patrol();
-        }*/
         
-
         List<Node> path = FindPath();
 
         if (path == null || path.Count <= 1) return;
