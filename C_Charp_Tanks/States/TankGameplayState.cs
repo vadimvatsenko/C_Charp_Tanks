@@ -120,7 +120,7 @@ public class TankGameplayState : BaseGameState
         renderer.DrawString
             ($"Health: {_player?.Health}%", FieldWidth / 4, 0, healthColor);
         renderer.DrawString
-            ($"Level: {Level}", FieldWidth / 4, 2, healthColor);
+            ($"Level: {Level}", FieldWidth / 2, 2, healthColor);
         renderer.DrawString
             ($"Enemies: {_enemies.Count}", FieldWidth / 4 + FieldWidth / 2, 0, ConsoleColor.DarkGreen);
     }

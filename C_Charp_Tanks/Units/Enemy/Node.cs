@@ -28,4 +28,9 @@ public class Node
         if(obj is not Node node) return false;
         return Position.Equals(node.Position);
     }
+
+    public override int GetHashCode()
+    {
+        return Position.GetHashCode();
+    }
 }

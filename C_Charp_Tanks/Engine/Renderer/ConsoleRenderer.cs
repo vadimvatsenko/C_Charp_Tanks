@@ -22,8 +22,6 @@ public class ConsoleRenderer : IRenderer
     private readonly int _maxHeight; // Максимальная высота консольного окна, которые могут быть использованы для отрисовки.
     
     public bool IsRenderChanged = true;
-
-    private ConsoleRenderer _currentRenderer;
     
     // Индексатор  Позволяет получить или установить символ для конкретной координаты пикселя (w, h), используя синтаксис renderer[w, h]
     public char this[int w, int h]
@@ -35,9 +33,6 @@ public class ConsoleRenderer : IRenderer
     // Конструктор
     public ConsoleRenderer(ConsoleColor[] colors)
     {
-        
-        _currentRenderer = this;
-        
         if (colors.Length > MaxColors) 
         {
             // Принимает массив цветов colors. Если количество цветов превышает MaxColors, они обрезаются до этого значения.
@@ -52,6 +47,8 @@ public class ConsoleRenderer : IRenderer
         _maxHeight = Console.LargestWindowHeight; // установка максимальной высоты экрана
         width = Console.WindowWidth; // ширина консольного окна
         height = Console.WindowHeight; // высота консольного окна
+        //width = 100;
+        //height = 40;
 
         _pixels = new char[_maxWidth, _maxHeight]; // инициализация массива пикселей
         _pixelColors = new byte[_maxWidth, _maxHeight]; // инициализация цвета пикселей
