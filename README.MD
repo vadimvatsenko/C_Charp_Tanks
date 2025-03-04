@@ -24,3 +24,7 @@
 ```sh
 git clone https://github.com/vadimvatsenko/C_Charp_Tanks.git
 cd C_Charp_Tanks
+
+
+![GitHub last commit](https://img.shields.io/github/last-commit/vadimvatsenko/C_Charp_Tanks)
+![GitHub repo size](https://img.shields.io/github/repo-size/vadimvatsenko/C_Charp_Tanks)
