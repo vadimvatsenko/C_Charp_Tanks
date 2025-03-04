@@ -31,3 +31,14 @@ cd C_Charp_Tanks
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/vadimvatsenko/C_Charp_Tanks)
 ![GitHub repo size](https://img.shields.io/github/repo-size/vadimvatsenko/C_Charp_Tanks)
+
+C_Charp_Tanks/
+│── Blocks/         # Объекты окружения (декорации, стены)
+│── Engine/         # Основной движок игры
+│── Fabrics/        # Фабрики для создания объектов (юниты, пули)
+│── Systems/        # Коллизии, физика, AI
+│── Venicals/       # Классы танков (игрок, враги)
+│── States/         # Система состояний игры (меню, игровой процесс)
+│── Program.cs      # Точка входа
+│── README.md       # Этот файл
+
