@@ -1,3 +1,124 @@
+🏆 C# Tanks — Retro Tanks in C#
+
+![C#](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white)
+![.NET](https://img.shields.io/badge/.NET-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)
+
+![GitHub last commit](https://img.shields.io/github/last-commit/vadimvatsenko/C_Charp_Tanks)
+![GitHub repo size](https://img.shields.io/github/repo-size/vadimvatsenko/C_Charp_Tanks)
+
+🔥 Support the project! ⭐ If you like the project, give it a Star on GitHub!
+
+🚀 A simple yet engaging console game in the spirit of classic tank battles!
+
+🎮 Project Description
+"C# Tanks" is a game inspired by classic tank battles, written in C# using console graphics.
+The player controls a tank, destroys enemies, and tries to survive as long as possible.
+
+🎮 Gameplay
+🔸 The player controls a tank, moves around the map, and destroys enemies
+🔸 Enemies patrol the area and react to the player
+🔸 Destructible and indestructible blocks create strategic opportunities
+🔸 Score tracking for destroyed enemies
+
+
+✨ Features
+✅ Tank movement (player and enemies)
+✅ Shooting and collisions with objects
+✅ Basic AI for enemies
+✅ Destructible blocks
+✅ Score tracking
+
+🚀 How to Run?
+1. 📦 Download and install .NET SDK
+Download from official website
+(Project requires .NET 6+, make sure it is installed!)
+
+2. 📂 Clone the repository:
+git clone https://github.com/vadimvatsenko/C_Charp_Tanks.git
+cd C_Charp_Tanks
+3. ▶ Run the project:
+dotnet run
+C_Charp_Tanks/
+│── Blocks/         # Environment objects (decorations, walls)
+│── Engine/         # Core game engine
+│── Fabrics/        # Factories for object creation (units, bullets)
+│── Systems/        # Collisions, physics, AI
+│── Venicals/       # Tank classes (player, enemies)
+│── States/         # Game state system (menu, gameplay)
+│── Program.cs      # Entry point
+│── README.md       # This file
+🛠 Technologies
+📌 Language: C#
+📌 Framework: .NET 6
+📌 Core concepts: OOP, FSM (Finite State Machine), event system
+
+🌟 TODO / Plans
+✔ Improve enemy AI
+✔ Optimize collisions
+❌ Add sound support
+❌ Implement multiplayer
+
+🏆 C# Tanks — Ретро-танки на C#
+🔥 Підтримай проєкт! ⭐ Якщо тобі сподобався проєкт, постав зірочку (Star) на GitHub!
+
+🚀 Проста, але захоплива консольна гра у дусі класичних танкових битв!
+
+🎮 Опис проєкту
+"C# Tanks" — це гра, натхненна класичними танковими битвами, написана на C# з використанням консольної графіки.
+Гравець керує танком, знищує ворогів і намагається вижити якомога довше.
+
+🎮 Геймплей
+🔸 Гравець керує танком, пересувається картою і знищує ворогів
+🔸 Вороги патрулюють територію і реагують на гравця
+🔸 Руйновані та неруйновані блоки створюють стратегічні можливості
+🔸 Підрахунок очок за знищених ворогів
+
+✨ Функціональність
+✅ Рух танків (гравця і ворогів)
+✅ Стрільба та зіткнення з об'єктами
+✅ Простий AI супротивників
+✅ Руйновані блоки
+✅ Підрахунок очок
+
+🚀 Як запустити?
+1. 📦 Завантаж та встанови .NET SDK
+Завантаж з офіційного сайту
+(Проєкт використовує .NET 6+, переконайся, що він встановлений!)
+
+2. 📂 Клонуй репозиторій:
+git clone https://github.com/vadimvatsenko/C_Charp_Tanks.git
+cd C_Charp_Tanks
+3. ▶ Запусти проєкт:
+dotnet run
+🌟 Плани
+✔ Покращення AI ворогів
+✔ Оптимізація колізій
+❌ Додати підтримку звуку
+❌ Реалізувати мультиплеєр
+
+🏆 C# Tanks — Ретро-танки на C#
+🔥 Поддержи проект! ⭐ Если тебе понравился проект, поставь звёздочку (Star) на GitHub!
+
+🚀 Простая, но захватывающая консольная игра в духе классических танковых баталий!
+
+🎮 Описание проекта
+"C# Tanks" — это игра, вдохновлённая классическими танковыми битвами, написанная на C# с использованием консольной графики.
+Игрок управляет танком, уничтожает врагов и старается выжить как можно дольше.
+
+🎮 Геймплей
+🔸 Игрок управляет танком, передвигается по карте и уничтожает врагов
+🔸 Враги патрулируют территорию и реагируют на игрока
+🔸 Разрушаемые и неразрушаемые блоки создают стратегические возможности
+🔸 Подсчёт очков за уничтоженных врагов
+
+🌟 TODO / Планы
+✔ Улучшение AI врагов
+✔ Оптимизация коллизий
+❌ Добавить поддержку звука
+❌ Реализовать мультиплеер
+
+
+
 # 🏆 C# Tanks — Ретро-танки на C#
 
 ![C#](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white)
