@@ -41,3 +41,31 @@ Download from the [official website](https://dotnet.microsoft.com/en-us/download
 ```sh
 git clone https://github.com/vadimvatsenko/C_Charp_Tanks.git
 cd C_Charp_Tanks
+
+### 3. ▶ Run the project:
+```sh
+dotnet run
+```
+
+```sh
+C_Charp_Tanks/
+│── Blocks/         # Environment objects (decorations, walls)
+│── Engine/         # Core game engine
+│── Fabrics/        # Factories for creating objects (units, bullets)
+│── Systems/        # Collisions, physics, AI
+│── Venicals/       # Tank classes (player, enemies)
+│── States/         # Game state system (menu, gameplay)
+│── Program.cs      # Entry point
+│── README.md       # This file
+```
+🛠 Technologies
+<p>📌 Language: C# </p> 
+<p> 📌 Framework: .NET 6+ </p> 
+<p> 📌 Key concepts: OOP, FSM (Finite State Machine), event system </p>
+
+🌟 TODO / Plans
+<p> ✔ Improve enemy AI </p> 
+<p> ✔ Optimize collisions </p> 
+<p> ❌ Add sound support </p> 
+<p> ❌ Implement multiplayer </p> 
+```
