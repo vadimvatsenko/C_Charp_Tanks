@@ -68,4 +68,3 @@ C_Charp_Tanks/
 <p> ✔ Optimize collisions </p> 
 <p> ❌ Add sound support </p> 
 <p> ❌ Implement multiplayer </p> 
-```
