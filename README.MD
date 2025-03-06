@@ -1,6 +1,6 @@
 # 🏆 C# Tanks — Retro Tanks in C#
 
-[Русский](README.md) | [Українська](README_UA.md)
+[Українська](README_UA.md) | [Русский](README_RUS.md)
 
 ![C#](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white)
 ![.NET](https://img.shields.io/badge/.NET-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)
