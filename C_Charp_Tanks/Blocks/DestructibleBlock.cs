@@ -1,5 +1,4 @@
-﻿using C_Charp_Tanks.Fabrics;
-namespace C_Charp_Tanks.Blocks;
+﻿namespace C_Charp_Tanks.Blocks;
 
 public class DestructibleBlock: Block
 {

@@ -1,7 +1,6 @@
-﻿using System.Drawing;
-using C_Charp_Tanks.States;
+﻿using C_Charp_Tanks.States;
 
-namespace C_Charp_Tanks.Logic;
+namespace C_Charp_Tanks.C_Charp_Tanks.Logic;
 
 public abstract class BaseGameLogic: IUpdatable
 {

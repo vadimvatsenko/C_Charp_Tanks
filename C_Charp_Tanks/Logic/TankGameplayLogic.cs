@@ -1,10 +1,8 @@
-﻿using C_Charp_Tanks.Blocks;
-using C_Charp_Tanks.Fabrics;
+﻿using C_Charp_Tanks.C_Charp_Tanks.Fabrics;
 using C_Charp_Tanks.States;
-using C_Charp_Tanks.Venicals;
 using C_Sharp_Maze_Generator.Maze;
 
-namespace C_Charp_Tanks.Logic;
+namespace C_Charp_Tanks.C_Charp_Tanks.Logic;
 
 public class TankGameplayLogic : BaseGameLogic
 {

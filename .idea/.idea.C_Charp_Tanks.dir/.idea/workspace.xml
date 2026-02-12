@@ -8,8 +8,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="763c6498-a8c4-4eba-9ada-facba24a1dae" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/C_Charp_Tanks/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/C_Charp_Tanks/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.C_Charp_Tanks.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.C_Charp_Tanks.dir/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,6 +94,12 @@
       <updated>1766949484918</updated>
       <workItem from="1766949484921" duration="2240000" />
       <workItem from="1767014150230" duration="352000" />
+      <workItem from="1767262950739" duration="848000" />
+      <workItem from="1767358736476" duration="648000" />
+      <workItem from="1767600894739" duration="4852000" />
+      <workItem from="1767689304411" duration="2599000" />
+      <workItem from="1767873069292" duration="2688000" />
+      <workItem from="1767966926660" duration="1846000" />
     </task>
     <servers />
   </component>

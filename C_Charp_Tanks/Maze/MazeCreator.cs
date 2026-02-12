@@ -1,5 +1,4 @@
-﻿using C_Charp_Tanks.Fabrics;
-using C_Charp_Tanks.Fabrics.BlocksFactory;
+﻿using C_Charp_Tanks.C_Charp_Tanks.Fabrics;
 using C_Charp_Tanks.Renderer;
 
 namespace C_Sharp_Maze_Generator.Maze;

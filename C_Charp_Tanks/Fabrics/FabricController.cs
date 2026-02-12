@@ -1,7 +1,4 @@
-﻿using C_Charp_Tanks.Fabrics.BlocksFactory;
-using C_Charp_Tanks.Fabrics.BulletsFactory;
-
-namespace C_Charp_Tanks.Fabrics;
+﻿namespace C_Charp_Tanks.C_Charp_Tanks.Fabrics;
 public class FabricController
 {
     public UnitFabric UnitFabric { get; private set; }
