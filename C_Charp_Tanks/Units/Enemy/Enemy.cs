@@ -1,14 +1,14 @@
-﻿using C_Charp_Tanks.Blocks;
-using C_Charp_Tanks.Engine;
-using C_Charp_Tanks.Engine.Ray;
+﻿using C_Charp_Tanks.Engine.Ray;
 using C_Charp_Tanks.Fabrics;
 using C_Charp_Tanks.Systems;
+using C_Charp_Tanks.Venicals;
+using C_Charp_Tanks.Venicals.Enemy;
 
-namespace C_Charp_Tanks.Venicals.Enemy;
+namespace C_Charp_Tanks.Units.Enemy;
 
 public class Enemy : Unit, IShoot
 {
-    private Unit _player;
+    private readonly Unit _player;
     private Vector2 _target;
     
     private double _timeToMove = 0;
@@ -40,7 +40,7 @@ public class Enemy : Unit, IShoot
         Speed = 2f;
 
         _player =
-            _fabricController.UnitFabric.GetItems().Find(u => u.UnitType == UnitType.Player);
+            FabricController.UnitFabric.GetItems().Find(u => u.UnitType == UnitType.Player);
 
         GetRandomTarget();
     }
@@ -65,7 +65,7 @@ public class Enemy : Unit, IShoot
             Shoot();
         }
 
-        bool isWalk = _collisionSystem.IsUnwalkable(Position.X, Position.Y, CurrentDirection, this);
+        bool isWalk = CollisionSystem.IsUnwalkable(Position.X, Position.Y, CurrentDirection, this);
 
         if (!isWalk) GetRandomTarget();
         
@@ -115,7 +115,7 @@ public class Enemy : Unit, IShoot
 
     private void GetRandomTarget()
     {
-        _target = _fabricController.EmptyPositions[_random.Next(_fabricController.EmptyPositions.Count)];
+        _target = FabricController.EmptyPositions[_random.Next(FabricController.EmptyPositions.Count)];
     }
 
     private void SetDirection(Vector2 direction)
@@ -139,7 +139,7 @@ public class Enemy : Unit, IShoot
         Vector2 bulletPos = Position + CurrentDirection + Vector2.One;
         Vector2 buttetDir = CurrentDirection;
 
-        _fabricController.BulletsFabric.CreateBullet(bulletPos, buttetDir);
+        FabricController.BulletsFabric.CreateBullet(bulletPos, buttetDir);
         _canShoot = false;
         _currentShootTimer = 0;
         
@@ -207,7 +207,7 @@ public class Enemy : Unit, IShoot
                 int newX = currentNode.Position.X + _dx[i];
                 int newY = currentNode.Position.Y + _dy[i];
                 
-                if (_collisionSystem.IsUnwalkable(newX, newY))
+                if (CollisionSystem.IsUnwalkable(newX, newY))
                 {
                     Node neighbor = new Node(new Vector2(newX, newY));
 

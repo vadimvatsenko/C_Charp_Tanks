@@ -1,8 +1,9 @@
-﻿using System.Drawing;
+﻿using C_Charp_Tanks.Blocks;
+using C_Charp_Tanks.C_Charp_Tanks.Engine.Collider;
 using C_Charp_Tanks.Engine;
 using C_Charp_Tanks.Renderer;
 
-namespace C_Charp_Tanks.Blocks;
+namespace C_Charp_Tanks.C_Charp_Tanks.Blocks;
 public abstract class Block : IUpdatable
 {
     public BoxCollider2D Collider {get; protected set;}

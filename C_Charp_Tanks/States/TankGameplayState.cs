@@ -1,7 +1,9 @@
-﻿using C_Charp_Tanks.Blocks;
-using C_Charp_Tanks.Engine;
+﻿using C_Charp_Tanks.C_Charp_Tanks.Blocks;
+using C_Charp_Tanks.Engine.Renderer;
 using C_Charp_Tanks.Fabrics;
+using C_Charp_Tanks.Items.Shells;
 using C_Charp_Tanks.Systems;
+using C_Charp_Tanks.Units;
 using C_Charp_Tanks.Venicals;
 
 namespace C_Charp_Tanks.States;
@@ -101,8 +103,8 @@ public class TankGameplayState : BaseGameState
         
         _fabricController.Clean();
     }
-    
-    public override void Draw(ConsoleRenderer renderer)
+
+    public override void Draw(BaseRenderer renderer)
     {
         _blocks.ForEach(b => b.Render(renderer));
         _enemies?.ForEach(e => e.Render(renderer));
@@ -125,6 +127,7 @@ public class TankGameplayState : BaseGameState
             ($"Enemies: {_enemies.Count}", FieldWidth / 4 + FieldWidth / 2, 0, ConsoleColor.DarkGreen);
     }
 
+    
     private ConsoleColor ChangeHealthColor(int health)
     {
         if(health >= 70 && health <= 100) 

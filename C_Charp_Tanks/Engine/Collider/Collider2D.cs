@@ -1,4 +1,4 @@
-﻿namespace C_Charp_Tanks.Engine;
+﻿namespace C_Charp_Tanks.C_Charp_Tanks.Engine.Collider;
 
 public abstract class Collider2D
 {

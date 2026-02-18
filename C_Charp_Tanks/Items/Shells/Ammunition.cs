@@ -1,8 +1,7 @@
-﻿using C_Charp_Tanks.Engine;
-using C_Charp_Tanks.Fabrics;
-using C_Charp_Tanks.Renderer;
+﻿using C_Charp_Tanks.C_Charp_Tanks.Engine.Collider;
+using C_Charp_Tanks.Engine.Renderer;
 
-namespace C_Charp_Tanks.Venicals;
+namespace C_Charp_Tanks.Items.Shells;
 
 public abstract class Ammunition: IUpdatable
 {
@@ -20,5 +19,5 @@ public abstract class Ammunition: IUpdatable
     }
     
     public abstract void Update(double deltaTime);
-    public abstract void Render(IRenderer renderer);
+    public abstract void Render(BaseRenderer renderer);
 }

@@ -1,7 +1,6 @@
-﻿using C_Charp_Tanks.Fabrics;
-using C_Charp_Tanks.Renderer;
+﻿using C_Charp_Tanks.Engine.Renderer;
 
-namespace C_Charp_Tanks.Venicals;
+namespace C_Charp_Tanks.Items.Shells;
 
 public class Bullet : Ammunition
 {
@@ -24,8 +23,9 @@ public class Bullet : Ammunition
         }
     }
 
-    public override void Render(IRenderer renderer)
+    public override void Render(BaseRenderer renderer)
     {
+        renderer.DrawChar();
         renderer.SetPixel(Position.X, Position.Y, View, 4);
     }
 }

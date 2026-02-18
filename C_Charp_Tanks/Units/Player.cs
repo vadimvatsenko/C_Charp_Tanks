@@ -1,8 +1,10 @@
 ﻿using C_Charp_Tanks.Blocks;
 using C_Charp_Tanks.Engine;
 using  C_Charp_Tanks;
+using C_Charp_Tanks.C_Charp_Tanks.Engine.Collider;
 using C_Charp_Tanks.Fabrics;
 using C_Charp_Tanks.Systems;
+using C_Charp_Tanks.Units;
 using C_Charp_Tanks.Venicals.Enemy;
 
 namespace C_Charp_Tanks.Venicals;
@@ -15,10 +17,9 @@ public class Player : Unit, IShoot
     private double _currentShootTimer = 0;
     private const double CoolDownTime = 2.0;
     
-    public Player(Vector2 position, FabricController fabricController,  IConsoleInput input, CollisionSystem collisionSystem) 
-        : base(position, fabricController, collisionSystem)
+    public Player(Vector2 position, FabricController fabricController, IConsoleInput input, CollisionSystem collisionSystem, char[,] layer) 
+        : base(position, fabricController, collisionSystem, layer)
     {
-        
         UnitType = UnitType.Player;
         
         _input = input;
@@ -32,7 +33,7 @@ public class Player : Unit, IShoot
         _input.Shoot += Shoot;
     }
 
-   ~Player()
+    ~Player()
     {
         _input.MoveUp -= MoveUp;
         _input.MoveDown -= MoveDown;
@@ -59,7 +60,7 @@ public class Player : Unit, IShoot
         View = PlayerData.Instance.TankUpView;
         CurrentDirection = Vector2.Up;
         
-        if (_collisionSystem.IsUnwalkable(this.Position.X, this.Position.Y, this.CurrentDirection))
+        if (CollisionSystem.IsUnwalkable(this.Position.X, this.Position.Y, this.CurrentDirection))
         {
             Position += Vector2.Up;
         }
@@ -69,7 +70,7 @@ public class Player : Unit, IShoot
     {
         View = PlayerData.Instance.TankDownView;
         CurrentDirection = Vector2.Down;
-        if (_collisionSystem.IsUnwalkable(this.Position.X, this.Position.Y, this.CurrentDirection))
+        if (CollisionSystem.IsUnwalkable(this.Position.X, this.Position.Y, this.CurrentDirection))
         {
             Position += Vector2.Down;
         }
@@ -79,7 +80,7 @@ public class Player : Unit, IShoot
     {
         View = PlayerData.Instance.TankLeftView;
         CurrentDirection = Vector2.Left;
-        if (_collisionSystem.IsUnwalkable(this.Position.X, this.Position.Y, this.CurrentDirection))
+        if (CollisionSystem.IsUnwalkable(this.Position.X, this.Position.Y, this.CurrentDirection))
         {
             Position += Vector2.Left;
         }
@@ -89,7 +90,7 @@ public class Player : Unit, IShoot
     {
         View = PlayerData.Instance.TankRightView;
         CurrentDirection = Vector2.Right;
-        if (_collisionSystem.IsUnwalkable(this.Position.X, this.Position.Y, this.CurrentDirection))
+        if (CollisionSystem.IsUnwalkable(this.Position.X, this.Position.Y, this.CurrentDirection))
         {
             Position += Vector2.Right;
         }
@@ -103,7 +104,7 @@ public class Player : Unit, IShoot
         Vector2 shellPosition = Position + CurrentDirection + Vector2.One;
         Vector2 shellDirection = CurrentDirection;
         
-        _fabricController.BulletsFabric.CreateBullet(shellPosition, shellDirection);
+        FabricController.BulletsFabric.CreateBullet(shellPosition, shellDirection);
         _canShoot = false;
         _currentShootTimer = 0;
     }

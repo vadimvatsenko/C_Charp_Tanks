@@ -1,11 +1,13 @@
-﻿using C_Charp_Tanks.Renderer;
+﻿using C_Charp_Tanks.Engine;
+using C_Charp_Tanks.Engine.Renderer;
 
 namespace C_Charp_Tanks.States;
 
 public abstract class BaseGameState
 {
+    protected MapConfig mapConfig;
     public abstract bool IsDone();
     public abstract void Update(float deltaTime);
     public abstract void Reset();
-    public abstract void Draw(ConsoleRenderer renderer);
+    public abstract void Draw(BaseRenderer renderer);
 }

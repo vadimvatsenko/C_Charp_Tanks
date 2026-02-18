@@ -1,10 +1,9 @@
-﻿using C_Charp_Tanks;
-using C_Charp_Tanks.Fabrics;
-using C_Charp_Tanks.Fabrics.BlocksFactory;
-using C_Charp_Tanks.Systems;
+﻿using C_Charp_Tanks.Systems;
+using C_Charp_Tanks.Units;
+using C_Charp_Tanks.Units.Enemy;
 using C_Charp_Tanks.Venicals;
-using C_Charp_Tanks.Venicals.Enemy;
-using C_Sharp_Maze_Generator.Maze;
+
+namespace C_Charp_Tanks.Fabrics;
 
 public class UnitFabric : AbstractFabric<Unit>
 {
@@ -12,7 +11,7 @@ public class UnitFabric : AbstractFabric<Unit>
     private readonly CollisionSystem _collisionSystem;
     private FabricController _fabricController;
     
-    private Random _rand = new Random();
+    private readonly Random _rand = new Random();
     private List<Vector2> _emptyPositions = new List<Vector2>();
     private int _level;
     public override event Action? OnItemsUpdated;

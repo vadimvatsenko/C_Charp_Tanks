@@ -1,4 +1,6 @@
-﻿namespace C_Charp_Tanks.Engine;
+﻿using C_Charp_Tanks.Engine;
+
+namespace C_Charp_Tanks.C_Charp_Tanks.Engine.Collider;
 
 public class CircleCollider2D : Collider2D
 {

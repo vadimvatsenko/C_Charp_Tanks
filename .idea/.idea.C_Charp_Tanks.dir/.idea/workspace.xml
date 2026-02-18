@@ -8,8 +8,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="763c6498-a8c4-4eba-9ada-facba24a1dae" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/C_Charp_Tanks/Engine/MapConfig.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/C_Charp_Tanks/Engine/Renderer/BaseRenderer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.C_Charp_Tanks.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.C_Charp_Tanks.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/C_Charp_Tanks/Blocks/Block.cs" beforeDir="false" afterPath="$PROJECT_DIR$/C_Charp_Tanks/Blocks/Block.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/C_Charp_Tanks/Blocks/DestructibleBlock.cs" beforeDir="false" afterPath="$PROJECT_DIR$/C_Charp_Tanks/Blocks/DestructibleBlock.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/C_Charp_Tanks/Blocks/IndestructibleBlock.cs" beforeDir="false" afterPath="$PROJECT_DIR$/C_Charp_Tanks/Blocks/IndestructibleBlock.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/C_Charp_Tanks/Blocks/WaterBlock.cs" beforeDir="false" afterPath="$PROJECT_DIR$/C_Charp_Tanks/Blocks/WaterBlock.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/C_Charp_Tanks/CompositionRoot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/C_Charp_Tanks/CompositionRoot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/C_Charp_Tanks/Engine/Collider/BoxCollider2D.cs" beforeDir="false" afterPath="$PROJECT_DIR$/C_Charp_Tanks/Engine/Collider/BoxCollider2D.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/C_Charp_Tanks/Engine/Collider/CircleCollider2D.cs" beforeDir="false" afterPath="$PROJECT_DIR$/C_Charp_Tanks/Engine/Collider/CircleCollider2D.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/C_Charp_Tanks/Engine/Collider/Collider2D.cs" beforeDir="false" afterPath="$PROJECT_DIR$/C_Charp_Tanks/Engine/Collider/Collider2D.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/C_Charp_Tanks/Engine/Ray/RayCast.cs" beforeDir="false" afterPath="$PROJECT_DIR$/C_Charp_Tanks/Engine/Ray/RayCast.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/C_Charp_Tanks/Engine/Renderer/ConsoleRenderer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/C_Charp_Tanks/Engine/Renderer/IRenderer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/C_Charp_Tanks/Engine/Update/Update.cs" beforeDir="false" afterPath="$PROJECT_DIR$/C_Charp_Tanks/Engine/Update/Update.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/C_Charp_Tanks/Fabrics/BlocksFabric.cs" beforeDir="false" afterPath="$PROJECT_DIR$/C_Charp_Tanks/Fabrics/BlocksFabric.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/C_Charp_Tanks/Fabrics/BulletsFabric.cs" beforeDir="false" afterPath="$PROJECT_DIR$/C_Charp_Tanks/Fabrics/BulletsFabric.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/C_Charp_Tanks/Fabrics/FabricController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/C_Charp_Tanks/Fabrics/FabricController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/C_Charp_Tanks/Fabrics/UnitFabric.cs" beforeDir="false" afterPath="$PROJECT_DIR$/C_Charp_Tanks/Fabrics/UnitFabric.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/C_Charp_Tanks/Items/Shells/Ammunition.cs" beforeDir="false" afterPath="$PROJECT_DIR$/C_Charp_Tanks/Items/Shells/Ammunition.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/C_Charp_Tanks/Items/Shells/Bullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/C_Charp_Tanks/Items/Shells/Bullet.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/C_Charp_Tanks/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/C_Charp_Tanks/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/C_Charp_Tanks/States/BaseGameState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/C_Charp_Tanks/States/BaseGameState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/C_Charp_Tanks/States/ShowTextState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/C_Charp_Tanks/States/ShowTextState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/C_Charp_Tanks/States/TankGameplayState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/C_Charp_Tanks/States/TankGameplayState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/C_Charp_Tanks/Systems/CollisionSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/C_Charp_Tanks/Systems/CollisionSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/C_Charp_Tanks/Units/Enemy/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/C_Charp_Tanks/Units/Enemy/Enemy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/C_Charp_Tanks/Units/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/C_Charp_Tanks/Units/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/C_Charp_Tanks/Units/Unit.cs" beforeDir="false" afterPath="$PROJECT_DIR$/C_Charp_Tanks/Units/Unit.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TankTests/.idea/.idea.TankTests.dir/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TankTests/.idea/.idea.TankTests.dir/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TankTests/.idea/.idea.TankTests.dir/.idea/indexLayout.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TankTests/.idea/.idea.TankTests.dir/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TankTests/CollisionSystemTests.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TankTests/TankTests.csproj" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +67,9 @@
     &quot;accountId&quot;: &quot;fbb12f01-8a29-46b7-981e-a3e0472ceccb&quot;
   }
 }</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/C_Charp_Tanks/Engine/MapConfig.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 0
@@ -43,24 +79,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;.NET Project.C_Charp_Tanks.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Project.C_Charp_Tanks.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "ReBuild",
+    "junie.onboarding.icon.badge.shown": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="C_Charp_Tanks" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="$PROJECT_DIR$/bin/Debug/net9.0/C_Charp_Tanks.exe" />
@@ -95,6 +131,7 @@
       <updated>1766949484918</updated>
       <workItem from="1766949484921" duration="2240000" />
       <workItem from="1767014150230" duration="352000" />
+      <workItem from="1771401616460" duration="2830000" />
     </task>
     <servers />
   </component>

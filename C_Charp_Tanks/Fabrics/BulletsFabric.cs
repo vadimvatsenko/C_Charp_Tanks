@@ -1,6 +1,6 @@
-﻿using C_Charp_Tanks.Venicals;
+﻿using C_Charp_Tanks.Items.Shells;
 
-namespace C_Charp_Tanks.Fabrics.BulletsFactory;
+namespace C_Charp_Tanks.Fabrics;
 
 public class BulletsFabric : AbstractFabric<Ammunition>
 {

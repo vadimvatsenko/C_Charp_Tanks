@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using C_Charp_Tanks.Engine.Renderer;
 
 namespace C_Charp_Tanks.States;
 
@@ -28,7 +29,7 @@ public class ShowTextState: BaseGameState
           Reset();
     }
     
-    public override void Draw(ConsoleRenderer consoleRenderer)
+    public override void Draw(BaseRenderer consoleRenderer)
     {
         int textHalfLength = Text.Length / 2;
         int textY = consoleRenderer.height / 2;
