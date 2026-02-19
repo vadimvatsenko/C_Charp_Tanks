@@ -3,10 +3,12 @@
 public abstract class AbstractFabric<T>
 {
     public List<T> _list;
+    
 
     public AbstractFabric()
     {
         _list = new List<T>();
+        
     }
     public abstract event Action? OnItemsUpdated;
     public abstract void AddItem(T item);

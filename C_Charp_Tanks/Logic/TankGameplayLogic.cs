@@ -1,5 +1,7 @@
 ﻿using C_Charp_Tanks.Blocks;
+using C_Charp_Tanks.Engine;
 using C_Charp_Tanks.Fabrics;
+using C_Charp_Tanks.Maze;
 using C_Charp_Tanks.States;
 using C_Charp_Tanks.Venicals;
 using C_Sharp_Maze_Generator.Maze;
@@ -8,19 +10,24 @@ namespace C_Charp_Tanks.Logic;
 
 public class TankGameplayLogic : BaseGameLogic
 {
+    private readonly char[,] Layer;
     private readonly TankGameplayState _tankGameplayState;
-    private readonly ShowTextState _showTextState = new ShowTextState(2f);
+    private readonly ShowTextState _showTextState;
     private readonly MazeCreator _mazeCreator;
     private readonly FabricController _fabricController;
     
     private bool _newGamePending = false;
     private int _currentLevel = 0;
     
-    public TankGameplayLogic(TankGameplayState tankGameplayState, MazeCreator mazeCreator, FabricController fabricController)
+    public TankGameplayLogic
+        (TankGameplayState tankGameplayState, MazeCreator mazeCreator, FabricController fabricController, MapConfig mapConfig, char[,] layer) 
+        : base(mapConfig)
     {
         _mazeCreator = mazeCreator;
         _tankGameplayState = tankGameplayState;
         _fabricController = fabricController;
+        Layer = layer;
+        _showTextState = new ShowTextState(mapConfig, Layer);
     }
     
     public void GotoGamePlay()

@@ -36,6 +36,7 @@ public class ConsoleInput : IConsoleInput
                         MoveLeft?.Invoke();
                         break;
                     case ConsoleKey.RightArrow or ConsoleKey.D:
+                        Console.WriteLine("Right");
                         MoveRight?.Invoke();
                         break;
                     case ConsoleKey.Spacebar:

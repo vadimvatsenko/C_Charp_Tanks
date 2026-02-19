@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using C_Charp_Tanks.Engine;
 using C_Charp_Tanks.Engine.Renderer;
 
 namespace C_Charp_Tanks.States;
@@ -7,34 +8,27 @@ public class ShowTextState: BaseGameState
 {
     private string _text;
     
-    private float _duration;
+    private float _duration = 2f;
     private float _timeLeft;
+
+    public ShowTextState(MapConfig mapConfig, char[,] layer) : base(mapConfig, layer)
+    {
+        
+    }
 
     public string Text
     {
         get => _text;
         set => _text = value;
     }
-
-    public ShowTextState(float duration) : this(string.Empty, duration)
-    {
-        
-    }
-
-    public ShowTextState(string text, float duration)
-    {
-        Text = text;
-        _duration = duration;
-        
-          Reset();
-    }
     
-    public override void Draw(BaseRenderer consoleRenderer)
+    public override void Draw(BaseRenderer renderer)
     {
         int textHalfLength = Text.Length / 2;
-        int textY = consoleRenderer.height / 2;
-        int textX = consoleRenderer.width / 2;
-        consoleRenderer.DrawString(Text, textX, textY, ConsoleColor.DarkRed);
+        int textY = MapConfig.Height / 2;
+        int textX = MapConfig.Width / 2;
+        
+        renderer.DrawString(Layer, textX, textY, Text);
     }
     
     public override bool IsDone()

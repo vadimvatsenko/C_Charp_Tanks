@@ -5,7 +5,15 @@ namespace C_Charp_Tanks.States;
 
 public abstract class BaseGameState
 {
-    protected MapConfig mapConfig;
+    protected MapConfig MapConfig;
+    protected char[,] Layer;
+
+    protected BaseGameState(MapConfig mapConfig, char[,] layer)
+    {
+        MapConfig = mapConfig;
+        Layer = layer;
+    }
+
     public abstract bool IsDone();
     public abstract void Update(float deltaTime);
     public abstract void Reset();

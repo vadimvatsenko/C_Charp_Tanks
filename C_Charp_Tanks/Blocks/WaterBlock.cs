@@ -1,7 +1,4 @@
-﻿using C_Charp_Tanks.C_Charp_Tanks.Blocks;
-using C_Charp_Tanks.Renderer;
-
-namespace C_Charp_Tanks.Blocks;
+﻿namespace C_Charp_Tanks.Blocks;
 
 public class WaterBlock : Block
 {
@@ -9,7 +6,7 @@ public class WaterBlock : Block
     
     private double _timeElapsed = 0;
     private bool _isFirstState = true;
-    public WaterBlock(BlockType type, char symbol, Vector2 position) : base(type, symbol, position)
+    public WaterBlock(BlockType type, char symbol, Vector2 position, char[,] layer) : base(type, symbol, position, layer)
     {
         Color = 1;
     }

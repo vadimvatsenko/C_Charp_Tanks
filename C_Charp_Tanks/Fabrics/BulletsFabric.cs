@@ -4,9 +4,16 @@ namespace C_Charp_Tanks.Fabrics;
 
 public class BulletsFabric : AbstractFabric<Ammunition>
 {
+    private char[,] _bulletsLayer;
+
+    public BulletsFabric(char[,] bulletsLayer)
+    {
+        _bulletsLayer = bulletsLayer;
+    }
+    
     public void CreateBullet(Vector2 position, Vector2 direction)
     {
-        Bullet bullet = new Bullet(position, direction);
+        Bullet bullet = new Bullet(position, direction,  _bulletsLayer);
         AddItem(bullet);
     }
 

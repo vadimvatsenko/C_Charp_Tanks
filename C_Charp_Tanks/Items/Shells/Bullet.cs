@@ -5,9 +5,11 @@ namespace C_Charp_Tanks.Items.Shells;
 public class Bullet : Ammunition
 {
     private double _timeElapsed = 0;
-    public Bullet(Vector2 position, Vector2 dir) : base(position, dir)
+    private readonly char[,] _bulletLayer;
+    public Bullet(Vector2 position, Vector2 dir, char[,] bulletLayer) : base(position, dir)
     {
         View = Symbols.Bullet;
+        _bulletLayer = bulletLayer;
         Speed = 5;
     }
 
@@ -25,7 +27,6 @@ public class Bullet : Ammunition
 
     public override void Render(BaseRenderer renderer)
     {
-        renderer.DrawChar();
-        renderer.SetPixel(Position.X, Position.Y, View, 4);
+        renderer.DrawChar(_bulletLayer, Position.X, Position.Y, View);
     }
 }

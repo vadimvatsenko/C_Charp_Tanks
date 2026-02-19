@@ -32,9 +32,9 @@ public class Enemy : Unit, IShoot
     private Random _random = new Random();
     
     private RayCast _rayCast;
-    
-    public Enemy(Vector2 position, FabricController fabricController, CollisionSystem collisionSystem) 
-        : base(position, fabricController, collisionSystem)
+
+
+    public Enemy(Vector2 position, FabricController fabricController, CollisionSystem collisionSystem, char[,] layer) : base(position, fabricController, collisionSystem, layer)
     {
         UnitType = UnitType.Enemy;
         Speed = 2f;
@@ -44,7 +44,7 @@ public class Enemy : Unit, IShoot
 
         GetRandomTarget();
     }
-    
+
     public override void Update(double deltaTime)
     {
         base.Update(deltaTime);

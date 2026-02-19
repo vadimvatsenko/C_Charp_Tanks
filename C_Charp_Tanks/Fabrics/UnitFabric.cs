@@ -1,4 +1,5 @@
-﻿using C_Charp_Tanks.Systems;
+﻿using C_Charp_Tanks.Engine;
+using C_Charp_Tanks.Systems;
 using C_Charp_Tanks.Units;
 using C_Charp_Tanks.Units.Enemy;
 using C_Charp_Tanks.Venicals;
@@ -9,17 +10,24 @@ public class UnitFabric : AbstractFabric<Unit>
 {
     private readonly ConsoleInput _consoleInput;
     private readonly CollisionSystem _collisionSystem;
+    private readonly char[,] _playerLayer;
+    private readonly char[,] _enemiesLayer;
+    
     private FabricController _fabricController;
     
     private readonly Random _rand = new Random();
     private List<Vector2> _emptyPositions = new List<Vector2>();
     private int _level;
+    
     public override event Action? OnItemsUpdated;
     
-    public UnitFabric(ConsoleInput consoleInput, CollisionSystem collisionSystem)
+    public UnitFabric(ConsoleInput consoleInput, CollisionSystem collisionSystem, char[,] playerLayer, char[,] enemiesLayer) : base()
     {
         _consoleInput = consoleInput;
         _collisionSystem = collisionSystem;
+        
+        _playerLayer = playerLayer;
+        _enemiesLayer = enemiesLayer;
     }
     
     public void SetFabricController(FabricController fabricController)
@@ -36,7 +44,7 @@ public class UnitFabric : AbstractFabric<Unit>
         _emptyPositions = _fabricController.EmptyPositions;
         if(_emptyPositions.Count <= 0) return;
         Vector2 unitPos = _emptyPositions[_rand.Next(0, _emptyPositions.Count)];
-        Player player = new Player(unitPos, _fabricController, _consoleInput, _collisionSystem);
+        Player player = new Player(unitPos, _fabricController, _consoleInput, _collisionSystem, _playerLayer);
         
         _emptyPositions.Remove(unitPos);
         AddItem(player);
@@ -44,7 +52,7 @@ public class UnitFabric : AbstractFabric<Unit>
         for (int i = 0; i < _level; i++)
         {
             Vector2 enemyPos = _emptyPositions[_rand.Next(0, _emptyPositions.Count)];
-            Enemy enemy = new Enemy(enemyPos, _fabricController, _collisionSystem);
+            Enemy enemy = new Enemy(enemyPos, _fabricController, _collisionSystem, _enemiesLayer);
 
             _emptyPositions.Remove(enemyPos);
             AddItem(enemy);

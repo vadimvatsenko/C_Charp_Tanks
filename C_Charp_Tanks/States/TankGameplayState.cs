@@ -1,4 +1,5 @@
-﻿using C_Charp_Tanks.C_Charp_Tanks.Blocks;
+﻿using C_Charp_Tanks.Blocks;
+using C_Charp_Tanks.Engine;
 using C_Charp_Tanks.Engine.Renderer;
 using C_Charp_Tanks.Fabrics;
 using C_Charp_Tanks.Items.Shells;
@@ -12,7 +13,7 @@ public class TankGameplayState : BaseGameState
     private readonly FabricController _fabricController;
     private readonly CollisionSystem _collisionSystem;
     private Random _random = new Random();
-
+    
     #region GameObjects
     private List<Ammunition> _bullets = new List<Ammunition>();
     private List<Unit> _allUnits = new List<Unit>();
@@ -56,7 +57,8 @@ public class TankGameplayState : BaseGameState
     }
     #endregion
 
-    public TankGameplayState(FabricController fabricController, CollisionSystem collisionSystem)
+    public TankGameplayState(FabricController fabricController, CollisionSystem collisionSystem, MapConfig mapConfig, char[,] layer) 
+        : base(mapConfig, layer)
     {
         _collisionSystem = collisionSystem;
         _fabricController = fabricController;
@@ -117,14 +119,10 @@ public class TankGameplayState : BaseGameState
             healthColor = ChangeHealthColor(_player.Health);
         }
         
-        renderer.DrawString
-            ($"Score: {_score.ToString()}", FieldWidth / 2, 0, ConsoleColor.DarkGreen);
-        renderer.DrawString
-            ($"Health: {_player?.Health}%", FieldWidth / 4, 0, healthColor);
-        renderer.DrawString
-            ($"Level: {Level}", FieldWidth / 2, 2, healthColor);
-        renderer.DrawString
-            ($"Enemies: {_enemies.Count}", FieldWidth / 4 + FieldWidth / 2, 0, ConsoleColor.DarkGreen);
+        renderer.DrawString(Layer, FieldWidth / 2, 0, $"Score: {_score.ToString()}");
+        renderer.DrawString(Layer, FieldWidth / 4, 0, $"Health: {_player?.Health.ToString()}");
+        renderer.DrawString(Layer, FieldWidth / 2, 2, $"Level: {_level.ToString()}");
+        renderer.DrawString(Layer, FieldWidth / 4, FieldWidth / 2 ,$"Enemies: {_enemies.Count.ToString()}");
     }
 
     

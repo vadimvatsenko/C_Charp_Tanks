@@ -1,8 +1,6 @@
 ﻿using C_Charp_Tanks;
 using C_Charp_Tanks.Blocks;
 using C_Charp_Tanks.Fabrics;
-using C_Charp_Tanks.Fabrics.BlocksFactory;
-using C_Charp_Tanks.Renderer;
 
 namespace C_Sharp_Maze_Generator.Maze;
 
@@ -10,8 +8,9 @@ public class MazeVisualizer
 {
     private Random _random = new Random();
     public List<Vector2> EmptyFields { get; private set; }
-    public FabricController _fabricController;
+    public readonly FabricController FabricController;
     private readonly int _step = 3;
+    private readonly char[,] Layer;
     
     public int StartX { get; private set; }
     public int StartY { get; private set; }
@@ -25,10 +24,11 @@ public class MazeVisualizer
         BuildWallsAround(maze);
     }
 
-    public MazeVisualizer(FabricController fabricController) 
+    public MazeVisualizer(FabricController fabricController, char[,] layer) 
     {
-        _fabricController = fabricController;
+        FabricController = fabricController;
         EmptyFields = new List<Vector2>();
+        Layer = layer;
     }
     
     private void BuildWalls(bool[,] maze)
@@ -50,29 +50,23 @@ public class MazeVisualizer
                 int randomBlock = _random.Next(2);
                 if (randomBlock == 0)
                 {
-                    //Vector2 pos = new Vector2(i * _step + _step, j * _step + _step); // - лево верх
-                    //Vector2 pos = new Vector2(i * _step + _step + StartX, j * _step + _step); // - центр верх
                     Vector2 pos = new Vector2(i * _step + _step + StartX, j * _step + _step + StartY); // - центр - центр
-                    WaterBlock waterBlock = new WaterBlock(BlockType.Water, Symbols.WaterStateOne, pos);
-                    _fabricController.BlocksFabric.AddItem(waterBlock);
+                    WaterBlock waterBlock = new WaterBlock(BlockType.Water, Symbols.WaterStateOne, pos, Layer);
+                    FabricController.BlocksFabric.AddItem(waterBlock);
                 }
                 else
                 {
-                    //Vector2 pos = new Vector2(i * _step + _step, j * _step + _step); // - лево верх
-                    //Vector2 pos = new Vector2(i * _step + _step + StartX, j * _step + _step); // - центр верх
                     Vector2 pos = new Vector2(i * _step + _step + StartX, j * _step + _step + StartY); // - центр - центр
                     DestructibleBlock destructibleBlock =
-                        new DestructibleBlock(BlockType.Destructible, Symbols.Wall, pos);
-                    _fabricController.BlocksFabric.AddItem(destructibleBlock);
+                        new DestructibleBlock(BlockType.Destructible, Symbols.Wall, pos, Layer);
+                    FabricController.BlocksFabric.AddItem(destructibleBlock);
                 }
             }
 
             else
             {
-                //Vector2 pos = new Vector2(i * _step + _step, j * _step + _step); // - лево верх
-                //Vector2 pos = new Vector2(i * _step + _step + StartX, j * _step + _step); // - центр верх
                 Vector2 pos = new Vector2(i * _step + _step + StartX, j * _step + _step + StartY); // - центр - центр
-               _fabricController.AddEmptyPosition(pos);
+               FabricController.AddEmptyPosition(pos);
             }
         }
     }
@@ -83,38 +77,35 @@ public class MazeVisualizer
        // левая
         for (int i = 0; i <= MazeHeight * _step; i += _step)
         {
-            //Vector2 posY1 = new Vector2(0, i); // лево - верх
-            //Vector2 posY1 = new Vector2(StartX, i); // центр - верх
+            
             Vector2 posY1 = new Vector2(StartX, i + StartY); // центр - центр
             IndestructibleBlock indestructibleBlockLeft =
-                new IndestructibleBlock(BlockType.Indestructible, Symbols.Wall, posY1);
-            _fabricController.BlocksFabric.AddItem(indestructibleBlockLeft);
+                new IndestructibleBlock(BlockType.Indestructible, Symbols.Wall, posY1, Layer);
+            FabricController.BlocksFabric.AddItem(indestructibleBlockLeft);
             
             // правая
-            //Vector2 posY2 = new Vector2(MazeWidth * _step, i); // лево - верх
-            //Vector2 posY2 = new Vector2(StartX + MazeWidth * _step, i); // центр - верх
             Vector2 posY2 = new Vector2(StartX + MazeWidth * _step, i + StartY); // центр - центр
             IndestructibleBlock indestructibleBlockRight =
                 new IndestructibleBlock(
-                    BlockType.Indestructible, Symbols.Wall, posY2);
-            _fabricController.BlocksFabric.AddItem(indestructibleBlockRight);
+                    BlockType.Indestructible, Symbols.Wall, posY2, Layer);
+            FabricController.BlocksFabric.AddItem(indestructibleBlockRight);
 
         }
         // горизонталь
         for (int j = 0; j <= MazeWidth * _step; j += _step)
         {
-            //Vector2 posX1 = new Vector2(j, 0); // лево - вверх
+            
             Vector2 posX1 = new Vector2(StartX + j, StartY); // центр - центр
             IndestructibleBlock indestructibleBlockLeft =
                new IndestructibleBlock(
-                   BlockType.Indestructible, Symbols.Wall, posX1);
-            _fabricController.BlocksFabric.AddItem(indestructibleBlockLeft);
+                   BlockType.Indestructible, Symbols.Wall, posX1, Layer);
+            FabricController.BlocksFabric.AddItem(indestructibleBlockLeft);
             
-            //Vector2 posX2 = new Vector2(j, MazeHeight * _step); // лево - верх
+            
             Vector2 posX2 = new Vector2(j + StartX, MazeHeight * _step + StartY); // центр - центр
             IndestructibleBlock indestructibleBlockRight =
-                new IndestructibleBlock(BlockType.Indestructible, Symbols.Wall, posX2);
-            _fabricController.BlocksFabric.AddItem(indestructibleBlockRight);
+                new IndestructibleBlock(BlockType.Indestructible, Symbols.Wall, posX2, Layer);
+            FabricController.BlocksFabric.AddItem(indestructibleBlockRight);
         }
     }
 }
